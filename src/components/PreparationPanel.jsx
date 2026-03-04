@@ -133,6 +133,59 @@ export default function PreparationPanel({
         </ul>
       </div>
 
+      {/* Learning Guide */}
+      {job.learningGuide?.length > 0 && (
+        <div className="space-y-4">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h3 className="text-md font-bold text-gray-800 mb-1">What You Need to Learn</h3>
+            <p className="text-xs text-gray-500">
+              Targeted study areas based on your profile gaps. Prioritized by urgency.
+            </p>
+          </div>
+          {job.learningGuide.map((section, i) => {
+            const borderColor = section.urgency === "critical"
+              ? "border-l-red-500"
+              : section.urgency === "high"
+                ? "border-l-yellow-500"
+                : "border-l-blue-400"
+            const badgeConfig = {
+              critical: { label: "Critical", className: "bg-red-100 text-red-700" },
+              high: { label: "High", className: "bg-yellow-100 text-yellow-700" },
+              medium: { label: "Medium", className: "bg-blue-100 text-blue-700" },
+            }
+            const badge = badgeConfig[section.urgency] || badgeConfig.medium
+            return (
+              <details key={i} className={`bg-white rounded-lg shadow-sm border border-gray-200 border-l-4 ${borderColor} group`}>
+                <summary className="p-5 cursor-pointer select-none flex items-start gap-3 list-none [&::-webkit-details-marker]:hidden">
+                  <svg className="w-4 h-4 text-gray-400 shrink-0 mt-0.5 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1">
+                      <h4 className="text-sm font-bold text-gray-800">{section.category}</h4>
+                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${badge.className}`}>
+                        {badge.label}
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-500">{section.why}</p>
+                  </div>
+                </summary>
+                <div className="px-5 pb-5 pt-2 ml-7">
+                  <ul className="space-y-3">
+                    {section.items.map((item, j) => (
+                      <li key={j} className="text-sm text-gray-700 flex items-start gap-2">
+                        <span className="text-blue-500 font-bold shrink-0 mt-0.5">{j + 1}.</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </details>
+            )
+          })}
+        </div>
+      )}
+
       {/* Interview Progress */}
       {interviews.length > 0 && (
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
