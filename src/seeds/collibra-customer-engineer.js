@@ -249,6 +249,34 @@ export const collibraJobData = {
       "Use the phrase 'Data Citizens' naturally in conversation — it's core to Collibra's identity and shows cultural alignment",
     ],
   },
+  // Pre-populated interviews based on typical Collibra CE hiring process
+  seedInterviews: [
+    {
+      interviewerName: "Recruiter",
+      interviewerRole: "Talent Acquisition — Initial Screen",
+      scheduledAt: null,
+    },
+    {
+      interviewerName: "CE Manager",
+      interviewerRole: "Customer Engineering Manager — Hiring Manager Round",
+      scheduledAt: null,
+    },
+    {
+      interviewerName: "Senior CE",
+      interviewerRole: "Senior Customer Engineer — Technical & Product Deep-Dive",
+      scheduledAt: null,
+    },
+    {
+      interviewerName: "Sales Leader",
+      interviewerRole: "Regional Sales Director — Culture & Business Acumen",
+      scheduledAt: null,
+    },
+    {
+      interviewerName: "Cross-functional",
+      interviewerRole: "Solutions/Product Team — Demo or Case Study Presentation",
+      scheduledAt: null,
+    },
+  ],
   learningGuide: [
     {
       category: "Presales & Discovery Skills",

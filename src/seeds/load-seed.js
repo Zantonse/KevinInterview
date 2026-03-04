@@ -5,6 +5,18 @@ const STORAGE_KEY = "interview-prep"
 
 export function loadSeed(jobData) {
   const id = Date.now()
+
+  // Build interviews from seedInterviews if present
+  const interviews = (jobData.seedInterviews || []).map((iv, i) => ({
+    id: id + i + 1,
+    interviewerName: iv.interviewerName,
+    interviewerRole: iv.interviewerRole,
+    scheduledAt: iv.scheduledAt || null,
+    transcriptRaw: "",
+    status: "pending",
+    analysis: null,
+  }))
+
   const state = {
     apiKey: "",
     activeJobId: id,
@@ -12,7 +24,7 @@ export function loadSeed(jobData) {
       [id]: {
         id,
         job: jobData,
-        interviews: [],
+        interviews,
         createdAt: id,
         appStatus: "active",
         notes: "",

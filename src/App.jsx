@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useJobStore } from "./hooks/useJobStore"
 import StepIndicator from "./components/StepIndicator"
 import SetupPanel from "./components/SetupPanel"
@@ -39,6 +39,9 @@ export default function App() {
   const [showAddInterview, setShowAddInterview] = useState(false)
   const [showSetup, setShowSetup] = useState(false)
   const [showCheatSheet, setShowCheatSheet] = useState(false)
+  const [showApiKey, setShowApiKey] = useState(false)
+  const [apiKeyDraft, setApiKeyDraft] = useState(store.apiKey || "")
+  const apiKeyRef = useRef(null)
 
   // Derive active job data
   const activeJob = store.activeJobId ? store.jobs[store.activeJobId] : null
@@ -211,6 +214,19 @@ export default function App() {
             {isInJob && (
               <>
                 <button
+                  onClick={() => {
+                    setShowApiKey((v) => !v)
+                    setTimeout(() => apiKeyRef.current?.focus(), 50)
+                  }}
+                  className={`text-xs px-3 py-1.5 rounded cursor-pointer transition-colors ${
+                    apiKey
+                      ? "bg-gray-100 text-green-700 border border-green-200 hover:bg-green-50"
+                      : "bg-yellow-50 text-yellow-700 border border-yellow-300 hover:bg-yellow-100"
+                  }`}
+                >
+                  {apiKey ? "API Key Set" : "Set API Key"}
+                </button>
+                <button
                   onClick={() => setShowCheatSheet(true)}
                   className="text-xs bg-green-600 text-white px-3 py-1.5 rounded hover:bg-green-700 cursor-pointer"
                 >
@@ -220,7 +236,7 @@ export default function App() {
                   onClick={() => setShowAddInterview(true)}
                   className="text-xs bg-blue-600 text-white px-3 py-1.5 rounded hover:bg-blue-700 cursor-pointer"
                 >
-                  + Add Interview
+                  + New Round
                 </button>
                 <button
                   onClick={handleReset}
@@ -232,6 +248,56 @@ export default function App() {
             )}
           </div>
         </div>
+
+        {/* API Key input bar */}
+        {showApiKey && (
+          <div className="border-t border-gray-100 bg-gray-50">
+            <div className="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3">
+              <label className="text-xs font-medium text-gray-600 shrink-0">Gemini API Key</label>
+              <input
+                ref={apiKeyRef}
+                type="password"
+                value={apiKeyDraft}
+                onChange={(e) => setApiKeyDraft(e.target.value)}
+                placeholder="AIzaSy..."
+                className="flex-1 border border-gray-300 rounded px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+              <button
+                onClick={() => {
+                  setApiKey(apiKeyDraft.trim())
+                  setShowApiKey(false)
+                }}
+                disabled={!apiKeyDraft.trim()}
+                className="text-xs bg-blue-600 text-white px-4 py-1.5 rounded hover:bg-blue-700 disabled:opacity-40 cursor-pointer disabled:cursor-default"
+              >
+                Save
+              </button>
+              {apiKey && (
+                <button
+                  onClick={() => {
+                    setApiKeyDraft("")
+                    setApiKey("")
+                    setShowApiKey(false)
+                  }}
+                  className="text-xs text-red-500 hover:text-red-700 cursor-pointer"
+                >
+                  Clear
+                </button>
+              )}
+              <button
+                onClick={() => setShowApiKey(false)}
+                className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer"
+              >
+                Cancel
+              </button>
+            </div>
+            <div className="max-w-5xl mx-auto px-4 pb-2">
+              <p className="text-xs text-gray-400">
+                Required for transcript analysis. Get a free key at aistudio.google.com. Stored locally only.
+              </p>
+            </div>
+          </div>
+        )}
       </header>
 
       {view === "dashboard" && (
