@@ -7,6 +7,8 @@ const STORAGE_KEY = "interview-prep"
 function migrateV1toV2(data) {
   // v1: { apiKey, status, job, interviews } → v2: { apiKey, activeJobId, jobs: {} }
   if (data.jobs !== undefined) return data
+  // Already v3 — skip v1→v2 migration
+  if (data.roles !== undefined) return data
   const migrated = {
     apiKey: data.apiKey || "",
     activeJobId: null,
