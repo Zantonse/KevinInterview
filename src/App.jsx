@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { useJobStore } from "./hooks/useJobStore"
-import StepIndicator from "./components/StepIndicator"
+import SidebarNav from "./components/SidebarNav"
 import SetupPanel from "./components/SetupPanel"
 import PreparationPanel from "./components/PreparationPanel"
 import CompanyPanel from "./components/CompanyPanel"
@@ -42,18 +42,22 @@ export default function App() {
   const [showApiKey, setShowApiKey] = useState(false)
   const [apiKeyDraft, setApiKeyDraft] = useState(store.apiKey || "")
   const apiKeyRef = useRef(null)
+  const [stepKey, setStepKey] = useState(0) // for re-triggering entrance animation
 
-  // Derive active job data
   const activeJob = store.activeJobId ? store.jobs[store.activeJobId] : null
   const isInJob = !!activeJob
   const job = activeJob?.job || null
   const interviews = activeJob?.interviews || []
   const { apiKey } = store
 
-  // Reset step to 0 whenever the active job changes
   useEffect(() => {
     setCurrentStep(0)
   }, [store.activeJobId])
+
+  // Trigger entrance animation on step change
+  useEffect(() => {
+    setStepKey((k) => k + 1)
+  }, [currentStep])
 
   const view = isInJob ? "job" : showSetup ? "setup" : "dashboard"
 
@@ -116,6 +120,14 @@ export default function App() {
     }
     reader.readAsText(file)
   }
+
+  const handleSaveApiKey = () => {
+    setApiKey(apiKeyDraft.trim())
+    setShowApiKey(false)
+  }
+
+  // Step name for the content header
+  const currentStepLabel = steps[currentStep]?.label || ""
 
   const renderStep = () => {
     const interviewStepCount = interviews.length
@@ -189,117 +201,8 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
-      <header className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex-1">
-            {isInJob && (
-              <button
-                onClick={handleExitJob}
-                className="text-xs text-gray-500 hover:text-gray-700 cursor-pointer flex items-center gap-1"
-              >
-                ← All Jobs
-              </button>
-            )}
-          </div>
-          <div className="text-center">
-            <h1 className="text-2xl font-bold text-blue-700">Interview Prep</h1>
-            {isInJob && job && (
-              <p className="text-center text-gray-500 text-sm mt-1">
-                {job.company} — {job.roleTitle}
-              </p>
-            )}
-          </div>
-          <div className="flex-1 flex justify-end gap-2">
-            {isInJob && (
-              <>
-                <button
-                  onClick={() => {
-                    setShowApiKey((v) => !v)
-                    setTimeout(() => apiKeyRef.current?.focus(), 50)
-                  }}
-                  className={`text-xs px-3 py-1.5 rounded cursor-pointer transition-colors ${
-                    apiKey
-                      ? "bg-gray-100 text-green-700 border border-green-200 hover:bg-green-50"
-                      : "bg-yellow-50 text-yellow-700 border border-yellow-300 hover:bg-yellow-100"
-                  }`}
-                >
-                  {apiKey ? "API Key Set" : "Set API Key"}
-                </button>
-                <button
-                  onClick={() => setShowCheatSheet(true)}
-                  className="text-xs bg-green-600 text-white px-3 py-1.5 rounded hover:bg-green-700 cursor-pointer"
-                >
-                  Cheat Sheet
-                </button>
-                <button
-                  onClick={() => setShowAddInterview(true)}
-                  className="text-xs bg-blue-600 text-white px-3 py-1.5 rounded hover:bg-blue-700 cursor-pointer"
-                >
-                  + New Round
-                </button>
-                <button
-                  onClick={handleReset}
-                  className="text-xs text-gray-400 hover:text-gray-600 px-3 py-1.5 rounded cursor-pointer"
-                >
-                  Delete
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-
-        {/* API Key input bar */}
-        {showApiKey && (
-          <div className="border-t border-gray-100 bg-gray-50">
-            <div className="max-w-5xl mx-auto px-4 py-3 flex items-center gap-3">
-              <label className="text-xs font-medium text-gray-600 shrink-0">Gemini API Key</label>
-              <input
-                ref={apiKeyRef}
-                type="password"
-                value={apiKeyDraft}
-                onChange={(e) => setApiKeyDraft(e.target.value)}
-                placeholder="AIzaSy..."
-                className="flex-1 border border-gray-300 rounded px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-              <button
-                onClick={() => {
-                  setApiKey(apiKeyDraft.trim())
-                  setShowApiKey(false)
-                }}
-                disabled={!apiKeyDraft.trim()}
-                className="text-xs bg-blue-600 text-white px-4 py-1.5 rounded hover:bg-blue-700 disabled:opacity-40 cursor-pointer disabled:cursor-default"
-              >
-                Save
-              </button>
-              {apiKey && (
-                <button
-                  onClick={() => {
-                    setApiKeyDraft("")
-                    setApiKey("")
-                    setShowApiKey(false)
-                  }}
-                  className="text-xs text-red-500 hover:text-red-700 cursor-pointer"
-                >
-                  Clear
-                </button>
-              )}
-              <button
-                onClick={() => setShowApiKey(false)}
-                className="text-xs text-gray-400 hover:text-gray-600 cursor-pointer"
-              >
-                Cancel
-              </button>
-            </div>
-            <div className="max-w-5xl mx-auto px-4 pb-2">
-              <p className="text-xs text-gray-400">
-                Required for transcript analysis. Get a free key at aistudio.google.com. Stored locally only.
-              </p>
-            </div>
-          </div>
-        )}
-      </header>
-
+    <div className="min-h-screen bg-surface-base text-text-primary font-body">
+      {/* ─── Dashboard View ─── */}
       {view === "dashboard" && (
         <JobsDashboard
           jobs={store.jobs}
@@ -312,6 +215,7 @@ export default function App() {
         />
       )}
 
+      {/* ─── Setup View ─── */}
       {view === "setup" && (
         <SetupPanel
           store={store}
@@ -321,33 +225,141 @@ export default function App() {
         />
       )}
 
+      {/* ─── Job View — Sidebar + Content ─── */}
       {view === "job" && (
-        <div className="max-w-5xl mx-auto px-4">
-          <StepIndicator steps={steps} currentStep={currentStep} onStepClick={setCurrentStep} />
+        <div className="flex min-h-screen">
+          {/* Sidebar */}
+          <SidebarNav
+            steps={steps}
+            currentStep={currentStep}
+            onStepClick={setCurrentStep}
+            interviews={interviews}
+            apiKey={apiKey}
+            onApiKeyClick={() => {
+              setShowApiKey(true)
+              setTimeout(() => apiKeyRef.current?.focus(), 50)
+            }}
+            onExitJob={handleExitJob}
+            jobTitle={job?.roleTitle}
+            company={job?.company}
+          />
 
-          <main className="pb-12">
-            {renderStep()}
-          </main>
+          {/* Main content area */}
+          <div className="flex-1 min-w-0 flex flex-col">
+            {/* Content header */}
+            <header className="sticky top-0 z-20 bg-surface-base/80 backdrop-blur-md border-b border-border">
+              <div className="max-w-4xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+                <div>
+                  <h2 className="font-display text-2xl lg:text-3xl text-text-primary leading-tight">
+                    {currentStepLabel}
+                  </h2>
+                  {job && (
+                    <p className="text-[13px] text-text-muted mt-0.5">
+                      {job.company} — {job.roleTitle}
+                    </p>
+                  )}
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setShowCheatSheet(true)}
+                    className="text-[12px] font-medium text-accent-text bg-accent-subtle px-3.5 py-1.5 rounded-lg hover:bg-accent/10 cursor-pointer transition-colors"
+                  >
+                    Cheat Sheet
+                  </button>
+                  <button
+                    onClick={() => setShowAddInterview(true)}
+                    className="text-[12px] font-medium text-text-inverse bg-accent px-3.5 py-1.5 rounded-lg hover:bg-accent-hover cursor-pointer transition-colors"
+                  >
+                    + New Round
+                  </button>
+                  <button
+                    onClick={handleReset}
+                    className="text-[12px] text-text-muted hover:text-danger px-2 py-1.5 cursor-pointer transition-colors"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
 
-          <div className="flex justify-between pb-8">
-            <button
-              onClick={() => setCurrentStep((s) => Math.max(0, s - 1))}
-              disabled={currentStep === 0}
-              className="px-4 py-2 rounded bg-gray-200 text-gray-700 disabled:opacity-40 cursor-pointer disabled:cursor-default"
-            >
-              Previous
-            </button>
-            <button
-              onClick={() => setCurrentStep((s) => Math.min(LAST_STEP, s + 1))}
-              disabled={currentStep === LAST_STEP}
-              className="px-4 py-2 rounded bg-blue-600 text-white disabled:opacity-40 cursor-pointer disabled:cursor-default"
-            >
-              Next
-            </button>
+              {/* API Key bar */}
+              {showApiKey && (
+                <div className="border-t border-border bg-surface-card">
+                  <div className="max-w-4xl mx-auto px-6 lg:px-10 py-3 flex items-center gap-3">
+                    <label className="text-[12px] font-medium text-text-secondary shrink-0">Gemini API Key</label>
+                    <input
+                      ref={apiKeyRef}
+                      type="password"
+                      value={apiKeyDraft}
+                      onChange={(e) => setApiKeyDraft(e.target.value)}
+                      placeholder="AIzaSy..."
+                      className="flex-1 bg-surface-inset border border-border rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent"
+                    />
+                    <button
+                      onClick={handleSaveApiKey}
+                      disabled={!apiKeyDraft.trim()}
+                      className="text-[12px] font-medium bg-accent text-text-inverse px-4 py-1.5 rounded-lg hover:bg-accent-hover disabled:opacity-40 cursor-pointer disabled:cursor-default transition-colors"
+                    >
+                      Save
+                    </button>
+                    {apiKey && (
+                      <button
+                        onClick={() => { setApiKeyDraft(""); setApiKey(""); setShowApiKey(false) }}
+                        className="text-[12px] text-danger cursor-pointer"
+                      >
+                        Clear
+                      </button>
+                    )}
+                    <button
+                      onClick={() => setShowApiKey(false)}
+                      className="text-[12px] text-text-muted cursor-pointer"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                  <p className="max-w-4xl mx-auto px-6 lg:px-10 pb-2 text-[11px] text-text-muted">
+                    Required for transcript analysis. Get a free key at aistudio.google.com
+                  </p>
+                </div>
+              )}
+            </header>
+
+            {/* Step content */}
+            <main className="flex-1 max-w-4xl mx-auto w-full px-6 lg:px-10 py-8">
+              <div key={stepKey} className="step-enter">
+                {renderStep()}
+              </div>
+            </main>
+
+            {/* Step navigation */}
+            <footer className="border-t border-border bg-surface-base/80 backdrop-blur-sm">
+              <div className="max-w-4xl mx-auto px-6 lg:px-10 py-4 flex justify-between">
+                <button
+                  onClick={() => setCurrentStep((s) => Math.max(0, s - 1))}
+                  disabled={currentStep === 0}
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-[13px] font-medium text-text-secondary bg-surface-card border border-border hover:border-border-strong disabled:opacity-30 cursor-pointer disabled:cursor-default transition-colors shadow-card"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M10 12L6 8l4-4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  Previous
+                </button>
+                <button
+                  onClick={() => setCurrentStep((s) => Math.min(LAST_STEP, s + 1))}
+                  disabled={currentStep === LAST_STEP}
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-[13px] font-medium text-text-inverse bg-accent hover:bg-accent-hover disabled:opacity-30 cursor-pointer disabled:cursor-default transition-colors shadow-card"
+                >
+                  Next
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth="1.5">
+                    <path d="M6 4l4 4-4 4" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+              </div>
+            </footer>
           </div>
         </div>
       )}
 
+      {/* ─── Modals ─── */}
       {showAddInterview && (
         <AddInterviewModal
           onAdd={handleAddInterview}

@@ -34,20 +34,20 @@ export default function SetupPanel({ store, onSetApiKey, onCreateJob, onBack }) 
       {onBack && (
         <button
           onClick={onBack}
-          className="text-sm text-gray-500 hover:text-gray-700 cursor-pointer flex items-center gap-1"
+          className="text-sm text-text-muted hover:text-text-primary cursor-pointer flex items-center gap-1"
         >
           ← Back to saved preps
         </button>
       )}
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-        <h2 className="text-lg font-bold text-gray-800 mb-1">Set Up Your Interview Prep</h2>
-        <p className="text-sm text-gray-500 mb-6">
+      <div className="bg-surface-card rounded-xl shadow-card border border-border p-6">
+        <h2 className="text-2xl font-bold font-display text-text-primary mb-1">Set Up Your Interview Prep</h2>
+        <p className="text-sm text-text-muted mb-6">
           Paste the job description and your resume. AI will generate your full prep dashboard — gap analysis, likely questions, and coaching guidance.
         </p>
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-text-primary mb-1">
               Gemini API Key
             </label>
             <input
@@ -55,15 +55,24 @@ export default function SetupPanel({ store, onSetApiKey, onCreateJob, onBack }) 
               value={apiKey}
               onChange={(e) => setApiKey(e.target.value)}
               placeholder="AIzaSy..."
-              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent"
             />
-            <p className="text-xs text-gray-400 mt-1">
-              Get a free key at aistudio.google.com. Stored locally, never sent anywhere but Google.
+            <p className="text-xs text-text-muted mt-1">
+              Get a free key at{" "}
+              <a
+                href="https://aistudio.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-text underline"
+              >
+                aistudio.google.com
+              </a>
+              . Stored locally, never sent anywhere but Google.
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-text-primary mb-1">
               Job Description
             </label>
             <textarea
@@ -71,12 +80,12 @@ export default function SetupPanel({ store, onSetApiKey, onCreateJob, onBack }) 
               onChange={(e) => setJobDescription(e.target.value)}
               placeholder="Paste the full job description here..."
               rows={8}
-              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y"
+              className="w-full border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent resize-y"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-text-primary mb-1">
               Your Resume
             </label>
             <textarea
@@ -84,18 +93,18 @@ export default function SetupPanel({ store, onSetApiKey, onCreateJob, onBack }) 
               onChange={(e) => setResume(e.target.value)}
               placeholder="Paste your resume as plain text here..."
               rows={8}
-              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y"
+              className="w-full border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent resize-y"
             />
           </div>
 
           {error && (
-            <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded p-3">{error}</p>
+            <p className="text-sm text-danger bg-danger-subtle border border-danger/20 rounded p-3">{error}</p>
           )}
 
           <button
             onClick={handleGenerate}
             disabled={loading || !apiKey.trim() || !jobDescription.trim() || !resume.trim()}
-            className="w-full bg-blue-600 text-white py-3 rounded-md text-sm font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer transition-colors"
+            className="w-full bg-accent text-white py-3 rounded-md text-sm font-semibold hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer transition-colors"
           >
             {loading ? "Generating prep content..." : "Generate My Interview Prep"}
           </button>

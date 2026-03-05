@@ -7,8 +7,8 @@ const PRINT_STYLES = `
     line-height: 1.5;
     padding: 24px;
   }
-  .header { border-bottom: 2px solid #1d4ed8; padding-bottom: 10px; margin-bottom: 16px; }
-  .header h1 { font-size: 20px; color: #1d4ed8; margin-bottom: 2px; }
+  .header { border-bottom: 2px solid #2d6a4f; padding-bottom: 10px; margin-bottom: 16px; }
+  .header h1 { font-size: 20px; color: #2d6a4f; margin-bottom: 2px; }
   .subtitle { color: #6b7280; font-size: 10px; }
   h2 {
     font-size: 12px;
@@ -28,7 +28,7 @@ const PRINT_STYLES = `
   .star-block {
     background: #f9fafb;
     border: 1px solid #e5e7eb;
-    border-left: 3px solid #1d4ed8;
+    border-left: 3px solid #2d6a4f;
     border-radius: 4px;
     padding: 8px 10px;
     margin-bottom: 8px;
@@ -38,7 +38,7 @@ const PRINT_STYLES = `
   .star-field { margin-bottom: 5px; }
   .star-label {
     font-weight: 700;
-    color: #1d4ed8;
+    color: #2d6a4f;
     font-size: 9px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -155,24 +155,24 @@ export default function CheatSheetModal({ job, starDrafts, interviews, onClose }
   const nextSteps = lastAnalyzed?.analysis?.nextSteps || []
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-start justify-center p-4 overflow-y-auto">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-3xl my-4">
+    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-start justify-center p-4 overflow-y-auto">
+      <div className="bg-surface-card rounded-2xl shadow-float w-full max-w-3xl my-4">
         {/* Header */}
-        <div className="sticky top-0 bg-white rounded-t-lg border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
+        <div className="sticky top-0 bg-surface-card rounded-t-2xl border-b border-border px-6 py-4 flex items-center justify-between z-10">
           <div>
-            <h2 className="font-bold text-gray-800">Pre-Interview Cheat Sheet</h2>
-            <p className="text-xs text-gray-500 mt-0.5">{job.company} — {job.roleTitle}</p>
+            <h2 className="font-bold font-display text-text-primary">Pre-Interview Cheat Sheet</h2>
+            <p className="text-xs text-text-muted mt-0.5">{job.company} — {job.roleTitle}</p>
           </div>
           <div className="flex gap-2">
             <button
               onClick={handlePrint}
-              className="bg-blue-600 text-white px-4 py-1.5 rounded text-sm font-medium hover:bg-blue-700 cursor-pointer"
+              className="bg-accent text-white px-4 py-1.5 rounded text-sm font-medium hover:bg-accent-hover cursor-pointer"
             >
               Print / Save PDF
             </button>
             <button
               onClick={onClose}
-              className="text-gray-500 hover:text-gray-700 cursor-pointer text-sm px-3 py-1.5 rounded border border-gray-200"
+              className="text-text-muted hover:text-text-primary cursor-pointer text-sm px-3 py-1.5 rounded border border-border"
             >
               Close
             </button>
@@ -185,11 +185,11 @@ export default function CheatSheetModal({ job, starDrafts, interviews, onClose }
           <div className="grid grid-cols-2 gap-6">
             {job.gapAnalysis?.strongMatch?.length > 0 && (
               <div>
-                <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Lead With These</h3>
+                <h3 className="text-xs font-bold font-display text-text-muted uppercase tracking-wide mb-2">Lead With These</h3>
                 <ul className="space-y-1">
                   {job.gapAnalysis.strongMatch.map((s, i) => (
-                    <li key={i} className="flex items-start gap-1.5 text-sm text-green-800">
-                      <span className="text-green-500 shrink-0 mt-0.5">+</span>{s}
+                    <li key={i} className="flex items-start gap-1.5 text-sm text-success-text">
+                      <span className="text-success-text shrink-0 mt-0.5">+</span>{s}
                     </li>
                   ))}
                 </ul>
@@ -197,11 +197,11 @@ export default function CheatSheetModal({ job, starDrafts, interviews, onClose }
             )}
             {job.gapAnalysis?.gap?.length > 0 && (
               <div>
-                <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Address Proactively</h3>
+                <h3 className="text-xs font-bold font-display text-text-muted uppercase tracking-wide mb-2">Address Proactively</h3>
                 <ul className="space-y-1">
                   {job.gapAnalysis.gap.map((g, i) => (
-                    <li key={i} className="flex items-start gap-1.5 text-sm text-red-800">
-                      <span className="text-red-400 shrink-0 mt-0.5">–</span>{g}
+                    <li key={i} className="flex items-start gap-1.5 text-sm text-danger-text">
+                      <span className="text-danger shrink-0 mt-0.5">–</span>{g}
                     </li>
                   ))}
                 </ul>
@@ -212,10 +212,10 @@ export default function CheatSheetModal({ job, starDrafts, interviews, onClose }
           {/* Culture Values */}
           {job.cultureValues?.length > 0 && (
             <div>
-              <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Culture Values to Weave In</h3>
+              <h3 className="text-xs font-bold font-display text-text-muted uppercase tracking-wide mb-2">Culture Values to Weave In</h3>
               <ul className="space-y-1.5">
                 {job.cultureValues.map((v, i) => (
-                  <li key={i} className="text-sm text-gray-700">
+                  <li key={i} className="text-sm text-text-primary">
                     <span className="font-semibold">{v.name}:</span> {v.description}
                   </li>
                 ))}
@@ -227,11 +227,11 @@ export default function CheatSheetModal({ job, starDrafts, interviews, onClose }
           <div className="grid grid-cols-2 gap-6">
             {job.companyProfile?.keyFacts?.length > 0 && (
               <div>
-                <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Key Facts to Know</h3>
+                <h3 className="text-xs font-bold font-display text-text-muted uppercase tracking-wide mb-2">Key Facts to Know</h3>
                 <ul className="space-y-1">
                   {job.companyProfile.keyFacts.map((f, i) => (
-                    <li key={i} className="text-sm text-gray-700 flex items-start gap-1.5">
-                      <span className="text-blue-400 shrink-0">·</span>{f}
+                    <li key={i} className="text-sm text-text-primary flex items-start gap-1.5">
+                      <span className="text-accent-text shrink-0">·</span>{f}
                     </li>
                   ))}
                 </ul>
@@ -239,11 +239,11 @@ export default function CheatSheetModal({ job, starDrafts, interviews, onClose }
             )}
             {job.companyProfile?.interviewTips?.length > 0 && (
               <div>
-                <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">What to Mention</h3>
+                <h3 className="text-xs font-bold font-display text-text-muted uppercase tracking-wide mb-2">What to Mention</h3>
                 <ul className="space-y-1">
                   {job.companyProfile.interviewTips.map((t, i) => (
-                    <li key={i} className="text-sm text-gray-700 flex items-start gap-1.5">
-                      <span className="text-yellow-500 shrink-0">*</span>{t}
+                    <li key={i} className="text-sm text-text-primary flex items-start gap-1.5">
+                      <span className="text-warning-text shrink-0">*</span>{t}
                     </li>
                   ))}
                 </ul>
@@ -254,18 +254,18 @@ export default function CheatSheetModal({ job, starDrafts, interviews, onClose }
           {/* STAR Stories */}
           {starStories.length > 0 && (
             <div>
-              <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-3">Your STAR Stories</h3>
+              <h3 className="text-xs font-bold font-display text-text-muted uppercase tracking-wide mb-3">Your STAR Stories</h3>
               <div className="space-y-3">
                 {starStories.map(({ question, draft }, i) => (
-                  <div key={i} className="border border-gray-200 border-l-4 border-l-blue-500 rounded-lg p-4">
-                    <p className="font-semibold text-gray-800 mb-2">{question}</p>
+                  <div key={i} className="border border-border border-l-4 border-l-accent rounded-xl p-4">
+                    <p className="font-semibold text-text-primary mb-2">{question}</p>
                     <div className="space-y-2">
                       {["situation", "task", "action", "result"]
                         .filter((k) => draft[k]?.trim())
                         .map((k) => (
                           <div key={k}>
-                            <span className="text-xs font-bold text-blue-700 uppercase">{k}: </span>
-                            <span className="text-sm text-gray-700">{draft[k]}</span>
+                            <span className="text-xs font-bold text-accent-text uppercase">{k}: </span>
+                            <span className="text-sm text-text-primary">{draft[k]}</span>
                           </div>
                         ))}
                     </div>
@@ -277,12 +277,12 @@ export default function CheatSheetModal({ job, starDrafts, interviews, onClose }
 
           {/* Next Steps */}
           {nextSteps.length > 0 && (
-            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-              <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wide mb-2">Before You Walk In</h3>
+            <div className="bg-success-subtle border border-success/20 rounded-xl p-4">
+              <h3 className="text-xs font-bold font-display text-text-muted uppercase tracking-wide mb-2">Before You Walk In</h3>
               <ul className="space-y-1">
                 {nextSteps.map((s, i) => (
-                  <li key={i} className="flex items-start gap-2 text-sm text-green-900">
-                    <span className="font-bold text-green-500 shrink-0">{i + 1}.</span>{s}
+                  <li key={i} className="flex items-start gap-2 text-sm text-success-text">
+                    <span className="font-bold text-success-text shrink-0">{i + 1}.</span>{s}
                   </li>
                 ))}
               </ul>
@@ -290,7 +290,7 @@ export default function CheatSheetModal({ job, starDrafts, interviews, onClose }
           )}
 
           {starStories.length === 0 && (
-            <p className="text-xs text-gray-400 text-center py-2">
+            <p className="text-xs text-text-muted text-center py-2">
               Draft your STAR answers in the Interview Guide tab to see them here.
             </p>
           )}
