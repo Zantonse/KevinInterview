@@ -3,103 +3,87 @@
 
 // ─── 1. Kevin's Profile ─────────────────────────────────────────
 
-const RESUME_RAW = `Kevin Verzosa
-Data & AI Enablement Leader | Enterprise Data Strategy | AI & Agent Governance
-San Francisco, California | 500+ connections
+const RESUME_RAW = `KEVIN VERZOSA
+Email: KevinVerzosaWork@gmail.com
 
-EXPERIENCE
+PROFESSIONAL EXPERIENCE
 
-Data Enablement & Governance Manager — Pfizer (Aug 2021 - Aug 2025, 4 yrs)
-- Led enterprise deployment of Collibra Data Intelligence Cloud across 10+ business units and 1,000+ active users, serving as internal product champion and primary escalation point for platform adoption
-- Orchestrated migration from Alation to Collibra, managing data mapping, stakeholder communication, and zero-downtime cutover across 3 business units
-- Grew platform adoption by 40% year-over-year through targeted training programs, executive sponsorship campaigns, and self-service governance workflows
-- Integrated Collibra with Databricks Unity Catalog and Snowflake to create unified metadata lineage across the modern data stack
-- Reduced metadata governance cycle time by 30% by redesigning stewardship workflows and automating data quality rule propagation
-- Achieved 50% licensing cost reduction by consolidating redundant governance tooling (SAP BusinessObjects metadata, legacy catalog) into Collibra
-- Reduced non-compliant events by 25% through governance of HIPAA/GDPR policies
-- Managed team of developers and coordinated with project managers on governance initiatives
+Data Enablement Manager
+Pfizer Inc. | Memphis, TN | Aug 2021 – Aug 2025
+- Led enterprise rollout and adoption of Collibra Data Intelligence Cloud across 10+ business units and 1,000+ users, establishing standardized stewardship models, metadata governance workflows, and operating model maturity.
+- Partnered with business and technical stakeholders in structured discovery sessions to identify governance maturity gaps, define domain onboarding priorities, and map Collibra capabilities to enterprise use cases.
+- Conducted tailored platform demonstrations and executive walkthroughs to showcase lineage, stewardship workflows, glossary alignment, and policy enforcement, driving stakeholder buy-in and 40% growth in platform adoption.
+- Designed and executed phased domain onboarding pilots and governance playbooks, accelerating time-to-value and reducing metadata ingestion cycle time by 30%.
+- Integrated Databricks Unity Catalog, Snowflake, and cloud platforms with Collibra, enabling cross-platform lineage visibility and enterprise metadata synchronization.
+- Reduced metadata ingestion cycle time by 30% through streamlined Jira-based intake workflows and stewardship handoffs.
+- Developed executive dashboards linking governance metrics to business impact, improving transparency and contributing to a 50% reduction in redundant licensing costs.
+- Served as escalation point for platform-related technical inquiries, guiding engineering and analytics teams through lineage configuration, metadata modeling, and workflow design.
 
-Sr. Associate RPA Governance, Security & Compliance — Pfizer (Jan 2020 - Aug 2021, 1.7 yrs)
-- Liaised between technical and business teams as business analyst for RPA governance
-- Ensured business requirements were understood by development teams
-- Managed security and compliance for RPA implementations across enterprise
+Senior Analyst – Data Governance & Security
+Pfizer Inc. | Memphis, TN | Feb 2018 – Aug 2021
+- Facilitated cross-functional requirements discovery between RPA engineering and business stakeholders, translating technical capabilities into scalable automation governance standards.
+- Delivered structured enablement sessions and technical walkthroughs to global delivery teams, reducing onboarding time by 30% and increasing automation adoption.
+- Analyzed 1,000+ automation exceptions to identify governance gaps, reducing root-cause investigation time by 40% and improving audit readiness.
+- Collaborated with corporate audit to align digital automation controls with enterprise compliance requirements, achieving satisfactory audit outcomes.
 
-RPA Developer — Pfizer (Feb 2018 - Jan 2020, 2 yrs)
-- Part of pilot program for robotic process automation of Excel reporting
-- Developed automation scripts to save time on manual dashboard creation
-
-Financial Planning Analyst — Pfizer (Sep 2015 - Feb 2018, 2.5 yrs)
-- Created Excel dashboards and KPI reports for financial planning analysts
-- Owned KPI dashboard tracking on-time and accuracy performance
-- Built VBA-driven automated reporting
+Decision Support – Data Analyst
+Pfizer Inc. | Memphis, TN | Sept 2015 – Feb 2018
+- Delivered enterprise financial and operational reporting using SAP BusinessObjects, partnering with business leaders to define KPIs, governance standards, and validation requirements.
+- Supported global operating model transitions by delivering in-person and virtual training, improving adoption of standardized reporting and governance practices.
 
 EDUCATION
-- Management of Artificial Intelligence Certificate — Stevens Institute of Technology
-- Master of Science, Management Information Systems — University of Memphis
-- BBA, Information Technology Management — Saint Louis University
+- Master of Science in Information Systems — University of Memphis
+- Graduate Certificate in Management of Artificial Intelligence – Stevens Institute of Technology
+- BS – Business Administration (IT Management) — Saint Louis University
 
-CERTIFICATIONS
-- Certified Scrum Product Owner (CSPO) — Scrum Alliance, Apr 2023
-- Team Leadership — McKinsey & Company, Sep 2024
-
-SKILLS
-Collibra DIC & Edge (Expert), Databricks Unity Catalog (Strong), Snowflake (Strong), Tableau (Moderate), Cloud APIs (Moderate), RPA Tools (Strong), Jira (Strong), SQL (Moderate), Java (Basic), Data Governance/Compliance (Expert)`
+Platforms: Collibra DIC & Edge • Databricks Unity Catalog • Snowflake • Tableau • Cloud APIs • RPA • Jira
+Expertise: Governance Operating Models • Metadata Management • Taxonomy & Standards • Stewardship • Lineage • Data Quality • SOPs • Change Management • Audit Readiness • Cross-Functional Leadership`
 
 export const kevinProfile = {
   name: "Kevin Verzosa",
-  headline: "Data & AI Enablement Leader | Enterprise Data Strategy | AI & Agent Governance",
-  location: "San Francisco, California",
+  headline: "Data Enablement Manager | Enterprise Data Strategy | Governance Operating Models",
+  location: "Memphis, Tennessee",
   resumeRaw: RESUME_RAW,
   careerArc: [
     {
-      title: "Data Enablement & Governance Manager",
-      company: "Pfizer",
-      dates: "Aug 2021 - Aug 2025 (4 yrs)",
+      title: "Data Enablement Manager",
+      company: "Pfizer Inc.",
+      dates: "Aug 2021 – Aug 2025",
       bullets: [
-        "Led enterprise deployment of Collibra Data Intelligence Cloud across 10+ business units and 1,000+ active users",
-        "Orchestrated migration from Alation to Collibra — data mapping, stakeholder communication, zero-downtime cutover across 3 BUs",
-        "Grew platform adoption by 40% year-over-year through targeted training and self-service governance workflows",
-        "Integrated Collibra with Databricks Unity Catalog and Snowflake for unified metadata lineage",
-        "Reduced metadata governance cycle time by 30% by redesigning stewardship workflows",
-        "Achieved 50% licensing cost reduction by consolidating redundant governance tooling into Collibra",
-        "Reduced non-compliant events by 25% through HIPAA/GDPR policy governance",
+        "Led enterprise rollout and adoption of Collibra Data Intelligence Cloud across 10+ business units and 1,000+ users, establishing standardized stewardship models, metadata governance workflows, and operating model maturity",
+        "Partnered with business and technical stakeholders in structured discovery sessions to identify governance maturity gaps, define domain onboarding priorities, and map Collibra capabilities to enterprise use cases",
+        "Conducted tailored platform demonstrations and executive walkthroughs to showcase lineage, stewardship workflows, glossary alignment, and policy enforcement, driving stakeholder buy-in and 40% growth in platform adoption",
+        "Designed and executed phased domain onboarding pilots and governance playbooks, accelerating time-to-value and reducing metadata ingestion cycle time by 30%",
+        "Integrated Databricks Unity Catalog, Snowflake, and cloud platforms with Collibra, enabling cross-platform lineage visibility and enterprise metadata synchronization",
+        "Developed executive dashboards linking governance metrics to business impact, improving transparency and contributing to a 50% reduction in redundant licensing costs",
+        "Served as escalation point for platform-related technical inquiries, guiding engineering and analytics teams through lineage configuration, metadata modeling, and workflow design",
       ],
     },
     {
-      title: "Sr. Associate RPA Governance, Security & Compliance",
-      company: "Pfizer",
-      dates: "Jan 2020 - Aug 2021 (1.7 yrs)",
+      title: "Senior Analyst – Data Governance & Security",
+      company: "Pfizer Inc.",
+      dates: "Feb 2018 – Aug 2021",
       bullets: [
-        "Liaised between technical and business teams as business analyst for RPA governance",
-        "Managed security and compliance for RPA implementations across enterprise",
+        "Facilitated cross-functional requirements discovery between RPA engineering and business stakeholders, translating technical capabilities into scalable automation governance standards",
+        "Delivered structured enablement sessions and technical walkthroughs to global delivery teams, reducing onboarding time by 30% and increasing automation adoption",
+        "Analyzed 1,000+ automation exceptions to identify governance gaps, reducing root-cause investigation time by 40% and improving audit readiness",
+        "Collaborated with corporate audit to align digital automation controls with enterprise compliance requirements, achieving satisfactory audit outcomes",
       ],
     },
     {
-      title: "RPA Developer",
-      company: "Pfizer",
-      dates: "Feb 2018 - Jan 2020 (2 yrs)",
+      title: "Decision Support – Data Analyst",
+      company: "Pfizer Inc.",
+      dates: "Sept 2015 – Feb 2018",
       bullets: [
-        "Part of pilot program for robotic process automation of Excel reporting",
-        "Developed automation scripts to save time on manual dashboard creation",
-      ],
-    },
-    {
-      title: "Financial Planning Analyst",
-      company: "Pfizer",
-      dates: "Sep 2015 - Feb 2018 (2.5 yrs)",
-      bullets: [
-        "Created Excel dashboards and KPI reports for financial planning",
-        "Owned KPI dashboard tracking on-time and accuracy performance",
-        "Built VBA-driven automated reporting",
+        "Delivered enterprise financial and operational reporting using SAP BusinessObjects, partnering with business leaders to define KPIs, governance standards, and validation requirements",
+        "Supported global operating model transitions by delivering in-person and virtual training, improving adoption of standardized reporting and governance practices",
       ],
     },
   ],
   education: [
-    { degree: "Management of Artificial Intelligence Certificate", institution: "Stevens Institute of Technology" },
-    { degree: "Master of Science, Management Information Systems", institution: "University of Memphis" },
-    { degree: "BBA, Information Technology Management", institution: "Saint Louis University" },
-    { degree: "Certified Scrum Product Owner (CSPO)", institution: "Scrum Alliance, Apr 2023" },
-    { degree: "Team Leadership Certificate", institution: "McKinsey & Company, Sep 2024" },
+    { degree: "Master of Science in Information Systems", institution: "University of Memphis" },
+    { degree: "Graduate Certificate in Management of Artificial Intelligence", institution: "Stevens Institute of Technology" },
+    { degree: "BS – Business Administration (IT Management)", institution: "Saint Louis University" },
   ],
   skills: [
     "Collibra DIC & Edge",
@@ -107,11 +91,18 @@ export const kevinProfile = {
     "Snowflake",
     "Tableau",
     "Cloud APIs",
-    "RPA Tools",
+    "RPA",
     "Jira",
-    "SQL",
-    "Data Governance/Compliance",
-    "HIPAA/GDPR",
+    "Governance Operating Models",
+    "Metadata Management",
+    "Taxonomy & Standards",
+    "Stewardship",
+    "Lineage",
+    "Data Quality",
+    "SOPs",
+    "Change Management",
+    "Audit Readiness",
+    "Cross-Functional Leadership",
   ],
   strengths: [
     "4 years hands-on experience with the Collibra platform at Pfizer — direct product knowledge most candidates won't have",
@@ -224,7 +215,15 @@ You are:
 - Excited about continuous learning and development, and demonstrates the ability to thoroughly understand business needs and align them with technical capabilities.
 - Willing to travel up to 30% within the region.
 
-Compensation: $140,000 - $175,000 base + commission + equity`
+Compensation for this role is a base salary of $140,000 - $175,000 and is eligible for additional commission-based compensation. Additionally, this position is eligible for bonus potential, equity for eligible roles, a Flex Fund monthly stipend, pension/401k plans, and health benefits, all subject to eligibility requirements.
+
+Measures of success:
+- Within your first month, you will gain a solid foundation by completing onboarding, understanding Collibra's platform and value propositions, and beginning to build relationships with your assigned Account Executives and regional team members.
+- Within your third month, you will be actively contributing to customer and prospect engagements—leading discovery sessions, conducting product demonstrations, and supporting ongoing customer conversations. You will be ramping into your assigned territory and starting to build trusted relationships with key technical stakeholders.
+- Within your fifth month, you will be independently managing your pre-sale technical responsibilities within your assigned territory—from discovery through proof of concepts—while also proactively advising existing customers to accelerate adoption and value realization. You'll be a recognized contributor within the team and a trusted technical partner to your customers.
+
+Benefits at Collibra:
+Collibra recognizes and values that everyone is different. We offer a Flex Fund stipend your monthly allowance to help pay for things that matter most to you. Whether it is wellness, pet care, childcare, or something else, you decide! In addition to other standard benefits, a sampling of what we provide includes 401(k) with employer matching, comprehensive health coverage, flexible PTO, and more.`
 
 export const collibraRole = {
   roleTitle: "Customer Engineer",
@@ -492,45 +491,9 @@ export const christinaInterview = {
   interviewerRole: "Talent Acquisition — Recruiter Screen (30min)",
   scheduledAt: null,
   transcriptRaw: `Recruiter Screen — Christina Olson, Collibra Talent Acquisition
-Date: February 2026 | Duration: ~30 minutes
+(Voice-to-text transcript — raw, unedited)
 
-Christina: Hi Kevin, thanks for taking the time today. I'm Christina, I'm on the talent acquisition team here at Collibra. I've been with the company for about two years now. I wanted to connect with you about the Customer Engineer role — I saw your background and thought it was really interesting. Tell me a little bit about yourself and what drew you to this role.
-
-Kevin: Absolutely, thanks Christina. So I've been at Pfizer for about 10 years, most recently as a Data Enablement and Governance Manager. The interesting thing is I've been working with Collibra for the last 4 years — I led the deployment across 10 plus business units and about 1,000 active users. I also managed our migration from Alation to Collibra. What drew me to this role is that I've essentially been doing customer engineering work internally — training teams, advocating for the platform, solving adoption challenges — and I want to do it at scale for the company that built the product I believe in.
-
-Christina: Oh wow, so you've actually used the product. That's rare — most of our CE candidates come from other SE roles but haven't actually been in the product day to day. That's a great foundation. Let me tell you a bit about the role and our process. So the Customer Engineer role at Collibra is pre- and post-sale. You'd be working with about 2-3 Account Executives, and the ratio is typically 2 CEs for every 2-3 AEs in a given territory. The role is about 60% pre-sale and 40% post-sale. You'd be doing discovery calls, running demos, POCs, and then post-sale you're helping drive adoption and value realization.
-
-Kevin: That breakdown is really helpful. The post-sale adoption piece is where I think I can hit the ground running — at Pfizer I grew Collibra adoption by 40% year over year, and I've seen firsthand what drives adoption versus what creates resistance.
-
-Christina: Love that. So let me walk you through our interview process. After this call, if we move forward, the next step would be a 45-minute conversation with the hiring manager — that's the CE Manager for your region. Then you'd have a peer round with one of our current Customer Engineers. After that, there's a round with one of our Partners or AVPs on the sales side. And then the final round is the demo — you'd prepare a product demonstration, it's about an hour, and I'll be honest, it's probably about 50% of the overall assessment. We really weight the demo heavily because it's the core of what CEs do every day.
-
-Kevin: That's good to know about the demo weighting. I appreciate the transparency. I should be honest that I haven't done formal product demos to external audiences, but I've presented Collibra capabilities to business unit leaders at Pfizer many times. I'd want to practice and prepare specifically for that round.
-
-Christina: I appreciate you being upfront about that. One of our core values here is "be respectfully direct" and you just demonstrated that perfectly. We'd rather someone be honest about where they need to develop than oversell themselves.
-
-Kevin: I really resonate with that value. In governance work, you have to be direct — telling a business unit they're not compliant isn't fun, but it's necessary. I think that translates well.
-
-Christina: It does. Let me ask about compensation expectations. The role is $140 to $175 base, and then there's a commission component — the split is roughly 70/30, so 70% base and 30% variable. We also offer RSUs that vest over 4 years. Does that range work for you?
-
-Kevin: Yes, that range works well for me. I appreciate the transparency on the comp structure.
-
-Christina: Great. A few more things — the role is remote but you'd need to be in the Central US region for territory alignment. Travel is up to 30%, mostly for customer meetings and quarterly team gatherings. We're organized vertically by industry in some regions, so you might focus on specific verticals. How does the travel piece sound?
-
-Kevin: The travel works for me. I'm based in San Francisco but I'm flexible on relocation if needed for territory alignment. And I actually think the vertical structure is interesting — my Pfizer experience gives me deep pharma and life sciences context that could be valuable if there's alignment there.
-
-Christina: Good point, I'll flag that for the hiring manager. One last thing — do you have any questions for me about Collibra or the role?
-
-Kevin: Two questions. First, what's the biggest challenge CEs are facing right now? And second, what does the onboarding look like for someone coming from a non-traditional CE background?
-
-Christina: Great questions. On challenges — the AI governance space is moving incredibly fast, and our CEs are having to stay ahead of customer questions about things like the EU AI Act and agentic AI. It's exciting but intense. On onboarding, we have a structured CE bootcamp that's about 6 weeks, covers product, sales methodology, and demo skills. We've had people come from non-SE backgrounds before and succeed — the product knowledge you already have would give you a huge head start.
-
-Kevin: That's really encouraging. The AI governance angle is actually why I pursued my AI Certificate from Stevens — I wanted to understand the technical and regulatory landscape specifically because I saw it becoming central to data governance work.
-
-Christina: That's great alignment. Kevin, I really enjoyed this conversation. I think your Collibra experience is genuinely differentiating, and I'd like to move you forward to the hiring manager round. I'll send you an email with next steps and availability. Sound good?
-
-Kevin: Absolutely, I'm excited. Thanks Christina, I really appreciate your time and the thorough overview.
-
-Christina: Of course. Talk soon!`,
+This is the Calibra customer engineer role, speaking with Christina Olson. She should be calling shortly.ly. Hello? Hey, this is Kevin? Yeah, this is he. Hey there, Christina from K. How are you? Hi, I'm doing well. How are you? good. I just left you an email and disregard that. I was able to hunt down your phone number that you sent me in in the confirmation email. It wasn't I don't know why sometimes it doesn't carry over in Greenhouse, and it didn't, so I was like panicking. I'm like, oh, no, don't have this number. No worries. in here. I found it. You don't have to respond. Good. Awesome. Is you having a good day? I am. How's yours going? Yeah, yeah, super, super full, as usual. on Friday, I always think I'm under the delusion that it's going to be like an easy, relaxing day, and then it ends up being like, nope, five million things. We got to clean up, clean it from the week, right? It's just it's just very real. But it's nice weather outside, which I'm super excited about. It feels like spring spring has arrived. Yes, I'm hoping for it. Right? It's real. It's very real. Where are you at? I forget where you're at. I know Troy recommended you. Yeah, currently located in Memphis. Oh, are you? Okay. So, yeah, you're super, well, not not super near me, but near enough. I'm in kind of outside Chattanooga area. Oh, okay, yeah. It's an amazing area. Yeah, yeah. So, yeah, but kind of kind of close, but not really. Same state,s. Yeah, same state, right? We just it's so long. There was like a few people that were throwing me off when I first moved here. I moved from kind of outside of Atlanta.anta area, like one of the S of Atlanta. I lived there for like the last eight years and I moved up here. And that's a long story, which I won't go into. Basically, I'm moved up here and people are like, okay, so I need to call you at Central Tim, right? And I'm like, "No, I'm still, I'm still Eastern Standard Time. They're like, "No, you're not. Like we've gotten to like, "Are you miss me? They're like, Tennessee,?ee is in, you know, Central. And I'm like, part of it is it's a very wide, long state. So half of it probably is in Central and half of it's probably in East Coast. And it just like blew everybody's minds. Like they just wouldn't, they wouldn't believe me. And I'm like, no, it's a really long state. I don't know what to tell you. Well, I know exactly what you're talking about. Yeah. It't you central? I am central, yeah. I think it's somewhere like if you're heading east, a little past Nashville, is the time zone line. Oh, is that the line? Yeah, yeah, yeah. Okay, that's the line. Yeah, okay, so that helps me, because I think when I went up to Nashville for the first time, I believe they're also on Central, at least parts to where we were. They were on Central Standard Time. So, anywho, so why why are you wanting to do this position? Like, why are you wanting to interview here? I know Troy recommended you, but, you know, what's drawing you to kind of the role here at Kibra as a CE, because you're kind of coming from, you know, a different, a different background working at Pfizer and all that, still doing data governance, but I'd like to hear from you kind of a little bit of a summary, which be great. Sure, of course. Yeah, so, you know, I've spent the last several years at Pfizer. I was leading their Enterprise Calibra deployment along with their migration from Elation, another, another.. Yes. Another catalog, migrating it over to Calibra. And so, from there, you know, I was supporting many different users across many different business units. And so with that, you know, I was responsible for onboarding, lineage integration, and mainly driving platform adoption. So through that work, you know, I found, I really enjoyed bridging that business and technical teams and helping those stakeholders understand how governance translates business value to them. So that's kind of what drew me to the customer engineering role. I feel like I would be applying that experience across multiple organizations as opposed to just one enterprise. I got you, yeah, no, 100%. That's super cool. I didn't realize that you were working with those integr, so that's going to give you a different, little bit of a different perspective, which will be probably exciting for the team. So to kind of give you an idea, Troy won't be on the c, I think I think he's traveling or attitude, but the rest of the team will. and kind of how we're doing this is we have the last couple of roles that the team, the team's team in the field. They've shifted some people around to different teams. And so it's kind of changed a little bit. So what we're doing is at our meetings that we have, and we're going to have it here in a little bit, like in about an hour. And we go through the resume and they decide, you know, which hiring manager would be best for you to speak with first, right? And so more than likely won't be Troy since he recommended you, but the team will kind of give me an idea of the path that they're kind of seeing. You go through, right, here at Calibra. So kind of the the routine that we do or we try to do it this way is you talk with obviously a recruiter, then from there you go to the hiring manager, the rest of the rounds, including the hiring manager round, will all be 45 minute Zoom interviews, right? And then if you pass the hiring manager round, you go to what I call the panel. It's's not a panel interview, though. It's just confines of multiple interviews, so a peer, a partner, another manager. Sometimes they move the partner and the manager role to after the demo, the demo will be like pretty much, I like to just share with people. It's kind of like in our school reports, right? Where the teacher is say this is like 50% of your grade or whatever. It kind of seems like that with the demo because they just want to make sure people can kind of adjust talking the customers, doing Q&As, your presentation skills, all these types of things. I'll give you all the information you're going to need in order to complete data, including with like a blank deck to use if you want to use that for your your demo. And that will be an hour long. I'll give you all the instructions for that. But sometimes they kind of shift around those last steps. The most important step I feel like is the interview with the peer because they're doing the same exact job you're going to be doing and just bring a ton of questions, right? I mean, just bring everything that you want to know, all the ins and outs, the day and the lives of the customer engineer here at Calibra, and they'll be able to get clarity, if you will, on what you're going to be measured against, right? So that's kind of why we have that measure the success section also on our job descriptions, you go, okay, like in one, two, three months, this is what I'm going to be doing and what I'm going to be measured against, which I just, that's how my brain works. I like to know. So I just feel like it's super, super helpful. Any questions around any of that? No, no, thank you for that. That is very helpful. You did mention a panel interview, but it's not a panel interview. I didn't quite understand that. Yeah, so it it's not all one energy, right? With like three different people. So it's all separate interviews. You'll be with like a peer and a separate interview. It'll be 45 minutes Zoom. Then there'll be a partner. Usually usually an AVP of the territritory that you would be supporting, right? So you'd meet with one of them. So one of the sales folks, and then another manager, if they need to think about shifting you over to a different territory or your team, then they kind of loop in another manager round, and then that demo that you'd have as well is kind of a separate, the last one of the last steps. Is that clear? Yeah, that is clear to me. Okay, okay, awesome. And I'll let you know prior to, like I usually, as much as I can, I try to send you know, who you're going to be interviewing with, right? So you can kind of look them up on LinkedIn, right, and like formulate your questions around around that. You have some kind of starting point, at least with within the interviews and stuff like that. Questions go really the long way here. I Cleaver, because one of our core values, they just recently changed them all. They still kept my favorite one from when I worked here years ago, and now it is be respectfully direct, which I just really appreciate, because you see that in the interview process. Everybody tries to be very transparent, giving you an opportunity to ask all your questions so you know exactly what Khaliper's about, what the team's about, that you'd be working on, right, like leadership styles, all that kind of stuff. Yes. Okay, great. Yeah. And, you know, I love that core value. A value at Pfizer was called Straight Talk, so I feel like it's we're in the same alignment. Yeah., I just it's like my favorite I feel like I just cuts all of the bowls, right? And you can just get right down to what needs to happen, right? And like, let's just be super transparent. We make sure that this works for both sides, right? You know? So it just, I feel like it saves tons of time. Now, as far as location, we already talked about that you're in Memphis, Central Standard Time, which is great because we have a need for central folks. I know that we have quite a few roles. I think we have one in East Coast, and then the rest are all going to be in that central. So that's perfect. And then as far as verticals, like what, again, you're coming from a different experience. Like, have you guys broken it up like that? Were you work strictly with certain verticals, or how was that kind of structured? Um, yeah, my reporting structure, I was sort of what we call a digital organization. And Okay. It depended on our internal customer's needs. I was I was placed in like the people experiences or HR function and that's kind of like where I was, but, you know, it all depended on the customer's needs and the bandwidth of the team. Yeah. Yeah, obviously.. Okay, I just kind of figured it would be a little bit different. So, like, for here at Calibra, we haven't kind of broken up, you know, obviously, all of government, federal, public sectors sled, all of those things are treated kind of separately as far as vertical vertical wise. And then we have healthcare as a separate healthcare like fin is separate, and then also usually financial is kind of a separate vertical, and then everything else is kind of spare game within these regular enterprise roles. We're only really tapping into the Enterprise markets and things like that. And there is a little bit of travel. I like to make sure people know this, too, on the first call is there is a little bit of travel, so I asked Rece, he's kind of the main leader for for the whole CE team. He said, it's not, it isn't anywhere near 30%. He said, butut it is picking up and it could be just let people know that it is up to 30% of travel, make sure people are good with that. Is that feasible for you for you in this role? Yeah, you know, I saw the 30% in the job posting, and you know, I was comfortable with that. Yeah. Okay, okay, perfect. like checking in. And then when are you looking to make a move? Like, why are you looking? What is your ideal timeline? Tell me a little bit about that? Yeah, I know, that's a great question. You know, I think it depends on, you know, the flexibility of the team and the culture and the fit. You know, right now, I want to make sure, transitions go well within you know, my current position and then see how it goes from there. You know, after you know, I meet with the team and able to ask them my questions. And but you know, I'm flexible to the current timeline. Yeah, awesome. Perfect. And then did you see the comp band on the job description? Do you have a certain number you're trying to target? Again, I know it's going to be a little bit different because you're kind of going from a different title and all that, but is there a certain number you you're trying to target on your next move? Yeah, so I did see the conversation range. You know, I'm aligned with like the upper half of that posted range, you know, kind of given my direct Kibra experience as a customer of Kibra. But that's, you know, having said that, you know, I'm open to understanding the full compensation structure. Yeah. Yeah, so we're kind to be it's pretty standard kind of in our industry that it's like a 7030 split, right, for customer engineers, so 70% based 30% based on commissions. The team can kind of go into the commission structure better We just, you know, recruiters, we don't know how that's kind of all broken down, how you get to that 30%. But basically it's a 7030 split, then there's all the other standard stuff. There's R1k, right, a health benefit start on D1. There's an RSU package also, so depending on level and rule and all that, the board has basically determined certain RSU levels for each one of those. So we'll go into that further in the process, too, but that's part of the package. Again, super standard for your vesting, right, through that through that packageage. So that pretty much kind of wraps it up in a nutshell, just the generalities. And then, as far out could go, Hold hold on, Christina, you're breaking up a little bit.. Could you repeat that? Yeah, yeah, yeah. What did you hear last? Nothing in the past 30 seconds. Oh, gotcha. Okay. So can you hear me okay? Yes. Okay. So basically 7030 split, and that is kind of broken up. The team can kind of go into what the 30% is for the customer engineers how you, you know, attain that. And then for us, it's basically the 70% is obviously the base. So that number you see on the job description is what that 70% is, right? It's not the total OTE package. And then there's RSU package that's given. That's determined from the board. And basically we can go into that more detail, but there is a four-year vest, pre-standards four-year vest with that. And then all the standard stuff, like 401k medical benefits start on day one, unlimited paid time off, you know, all that kind of stuff. We have a whole packet that you'll receive with the offer letter, right? So you can kind of go through all of that. I usually get on the phone with people and just go over anything that's kind of pressing. At that stage, right, we can kind of talk through things in more detail, but anything kind of top of mind for you that you'd like to know further. I guess, you know, how is the customer engineer team structured? I know you said there's different hiring managers, you know, that will be kind of a thought out process, you know, next after this call. But Yeah. I guess in terms of like a a number, like how many, how many customer engineers per per manager So the team, and can you hear me, feel because it's definitely going like long delays on my end. I don't know if that was happening for you. I can hear you perfectly fine. Okay, okay, perfect. It's like these long delays, so I don't know if there's like a disconnect with the call that I need to call you back or something. He basically ask the hiring manager when he talks to them because with all the shifting, we don't know exactly how many are on each team. I do know that they always, a Kibra of the standard, is always kind of two customer engineers are funneling into usually two to three AEs, right? So that's kind of the ratio of the team. But definitely for each territory, it's going to be slightly different. So when you talk to the hiring manager, bring that question because they'll be able to answer it like authentically of what's actually happening on their team. Yeah. Okay, well, thank you. I appreciate that. Yeah. Yeah. totally. And then I guess we are good. So what I'm going to do is get on with the team in a little while and go through, you know, all the new people that were kind of referred in and see where they're thinking people should be moved onto for their first firing manager round. And then I will circle back with you this afternoon. Any other questions, though, that I can answer before that? No, I think that's it. Thank you very much. Okay, perfect. Yeah, no, thank you. And then then I will absolutely let everybody know by the end of today after the meeting. So imagine before 5 p.m. Eastern Standard Time today, I'll let you know, it'll be allford Greenhhouse., very similar, right? Scheduling. And then I've been telling people, I do most of my own scheduling as well just because I like to do that because I feel like it makes things go quicker, but I am going to be out of office Thursday and Friday of next week, so I am going to be whooping in the other recruiter, which is Rebecca, and then Mohammad he's been helping her with with scheduling. So you may see correspondence from them and to kind of keep things moving through those few days. Yeah. Okay, that sounds good. Perfect. Thanks, Kevin. Have a good rest of the day. Hey, thank you and have a good weekend as well. Thank you so much. Bye bye. Bye.`,
   status: "analyzed",
   analysis: {
     overallTone: "Warm, encouraging, and informative. Christina was clearly impressed by Kevin's direct Collibra experience and conducted the call more as a mutual exploration than a screen. She shared significant process intel unprompted, which is a positive buying signal.",
@@ -599,5 +562,5 @@ Christina: Of course. Talk soon!`,
       "Prepare 3-5 deeper questions for the HM round: team structure, 90-day plan, top performer traits, CE-to-Product feedback loop, territory specifics",
     ],
   },
-  interviewerNotes: "Christina Olson — Collibra Talent Acquisition, ~2 years at company. Warm and transparent. Key intel: demo round is ~50% of assessment, 70/30 comp split, RSU 4yr vest, 2 CE per 2-3 AE ratio, vertical structure in some regions, 'be respectfully direct' is core value. She's clearly an internal advocate — advanced to HM round on the spot.",
+  interviewerNotes: "Christina Olson — Collibra Talent Acquisition, near Chattanooga area (moved from Atlanta). Troy recommended Kevin (internal referral). Key intel: demo round ~50% of grade, peer interview 'most important step', 70/30 comp split (JD number = 70% base, not total OTE), RSU 4yr vest, 401k + health day 1 + unlimited PTO, 2 CE per 2-3 AE ratio, travel 'isn't anywhere near 30%' per Rece (CE team leader) but picking up. Verticals: gov/fed/SLED separate, healthcare separate, financial separate, rest is enterprise. Core value: 'be respectfully direct' (recently changed values, kept this one). Process: recruiter → HM (45min Zoom) → panel (separate interviews: peer, partner/AVP, possibly another manager) → demo (1hr). Christina OOO Thu/Fri next week — Rebecca and Mohammad handling scheduling via Greenhouse.",
 }
