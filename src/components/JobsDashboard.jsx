@@ -70,7 +70,7 @@ export default function JobsDashboard({ roles, companies, allInterviews, profile
   const hasInsights = allStrengths.length > 0 || allAreas.length > 0
 
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8 space-y-8">
+    <div className="max-w-6xl mx-auto px-4 py-8 space-y-8">
       {/* Profile Bar */}
       {profile && (
         <div className="bg-surface-card rounded-xl shadow-card border border-border p-4 flex items-center justify-between">

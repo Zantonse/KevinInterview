@@ -277,7 +277,7 @@ export default function App() {
 
       {/* ─── Profile View ─── */}
       {view === "profile" && (
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="max-w-6xl mx-auto px-4 py-8">
           <button
             onClick={() => setGlobalView(null)}
             className="text-sm text-text-muted hover:text-text-primary cursor-pointer flex items-center gap-1 mb-6"
@@ -290,7 +290,7 @@ export default function App() {
 
       {/* ─── Story Bank View ─── */}
       {view === "storybank" && (
-        <div className="max-w-4xl mx-auto px-4 py-8">
+        <div className="max-w-6xl mx-auto px-4 py-8">
           <button
             onClick={() => setGlobalView(null)}
             className="text-sm text-text-muted hover:text-text-primary cursor-pointer flex items-center gap-1 mb-6"
@@ -332,7 +332,7 @@ export default function App() {
           <div className="flex-1 min-w-0 flex flex-col">
             {/* Content header */}
             <header className="sticky top-0 z-20 bg-surface-base/80 backdrop-blur-md border-b border-border">
-              <div className="max-w-4xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+              <div className="max-w-6xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
                 <div>
                   <h2 className="font-display text-2xl lg:text-3xl text-text-primary leading-tight">
                     {currentStepLabel}
@@ -368,7 +368,7 @@ export default function App() {
               {/* API Key bar */}
               {showApiKey && (
                 <div className="border-t border-border bg-surface-card">
-                  <div className="max-w-4xl mx-auto px-6 lg:px-10 py-3 flex items-center gap-3">
+                  <div className="max-w-6xl mx-auto px-6 lg:px-10 py-3 flex items-center gap-3">
                     <label className="text-[12px] font-medium text-text-secondary shrink-0">Gemini API Key</label>
                     <input
                       ref={apiKeyRef}
@@ -400,7 +400,7 @@ export default function App() {
                       Cancel
                     </button>
                   </div>
-                  <p className="max-w-4xl mx-auto px-6 lg:px-10 pb-2 text-[11px] text-text-muted">
+                  <p className="max-w-6xl mx-auto px-6 lg:px-10 pb-2 text-[11px] text-text-muted">
                     Required for transcript analysis. Get a free key at aistudio.google.com
                   </p>
                 </div>
@@ -408,7 +408,7 @@ export default function App() {
             </header>
 
             {/* Step content */}
-            <main className="flex-1 max-w-4xl mx-auto w-full px-6 lg:px-10 py-8">
+            <main className="flex-1 max-w-6xl mx-auto w-full px-6 lg:px-10 py-8">
               <div key={stepKey} className="step-enter">
                 {renderStep()}
               </div>
@@ -416,7 +416,7 @@ export default function App() {
 
             {/* Step navigation */}
             <footer className="border-t border-border bg-surface-base/80 backdrop-blur-sm">
-              <div className="max-w-4xl mx-auto px-6 lg:px-10 py-4 flex justify-between">
+              <div className="max-w-6xl mx-auto px-6 lg:px-10 py-4 flex justify-between">
                 <button
                   onClick={() => setCurrentStep((s) => Math.max(0, s - 1))}
                   disabled={currentStep === 0}
