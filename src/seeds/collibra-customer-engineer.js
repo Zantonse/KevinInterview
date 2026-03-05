@@ -44,6 +44,15 @@ export const kevinProfile = {
   headline: "Data Enablement Manager | Enterprise Data Strategy | Governance Operating Models",
   location: "Memphis, Tennessee",
   resumeRaw: RESUME_RAW,
+  careerSummary: "10-year Pfizer veteran who progressed from financial reporting analyst to enterprise data governance leader. Built and scaled Pfizer's Collibra Data Intelligence Cloud deployment across 10+ business units and 1,000+ users — one of the largest single-enterprise Collibra rollouts. Unique combination of deep product knowledge (4 years daily Collibra usage), cross-functional stakeholder management, and structured governance methodology. Now transitioning from internal platform champion to external-facing Customer Engineer at the company that built the product.",
+  keyMetrics: [
+    { value: "10+", label: "Years at Pfizer", detail: "Sept 2015 – Aug 2025" },
+    { value: "10+", label: "Business Units", detail: "Collibra deployed across" },
+    { value: "1,000+", label: "Active Users", detail: "On Collibra platform" },
+    { value: "40%", label: "Adoption Growth", detail: "Year-over-year platform adoption" },
+    { value: "30%", label: "Cycle Time Reduction", detail: "Metadata governance workflows" },
+    { value: "50%", label: "Cost Reduction", detail: "Licensing consolidation savings" },
+  ],
   careerArc: [
     {
       title: "Data Enablement Manager",

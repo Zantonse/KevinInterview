@@ -10,8 +10,8 @@ const STATUS_CONFIG = {
 function getNextInterviewDate(interviews) {
   const now = new Date()
   const upcoming = interviews
-    .filter((iv) => iv.scheduledAt && new Date(iv.scheduledAt) >= now)
-    .map((iv) => new Date(iv.scheduledAt))
+    .filter((iv) => iv.scheduledAt && new Date(iv.scheduledAt + "T12:00:00") >= now)
+    .map((iv) => new Date(iv.scheduledAt + "T12:00:00"))
     .sort((a, b) => a - b)
   return upcoming[0] || null
 }

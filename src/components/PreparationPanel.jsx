@@ -24,7 +24,8 @@ function GapBadge({ type }) {
 
 function formatScheduledDate(dateStr) {
   if (!dateStr) return null
-  const d = new Date(dateStr)
+  // Append T12:00 to avoid UTC midnight → previous day in US timezones
+  const d = new Date(dateStr.includes("T") ? dateStr : dateStr + "T12:00:00")
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
 }
 
