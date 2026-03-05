@@ -394,9 +394,10 @@ export const collibraRole = {
       scheduledAt: null,
     },
     {
-      interviewerName: "Hiring Manager",
-      interviewerRole: "CE Manager — Hiring Manager Round (45min)",
-      scheduledAt: null,
+      interviewerName: "Ralf Strichau",
+      interviewerRole: "Enterprise Customer Engineering Lead — Hiring Manager Round (45min)",
+      scheduledAt: "2026-03-13",
+      interviewerNotes: "Ralf Strichau — Enterprise Customer Engineering Lead at Collibra (promoted Jan 2025, previously Sr. Manager Customer Success 3.5yrs, Manager CS 1yr, Enterprise CSM 3yrs). Total ~8 years at Collibra. Based in Greater Chicago Area, remote. MBA Finance from University of Bayreuth (Germany). Certified Collibra Ranger (3 Stars). Previously 12 years at Accenture as Senior Manager. Bilingual English/German. Active on LinkedIn — posts about data governance, AI governance, SAP data integration, and Collibra events. Organized CE team offsite in Nashville (Nov 2025) — mentioned team members by name including Laura F. (Director, Customer Engineering — his boss?). Reposted Laura F.'s hiring post for CE Product roles (EST/CST, remote US/Canada, $104-130K range — note this is a different CE track than Kevin's). Key themes from his posts: 'Data Confidence™', governance as foundation for AI/data products, Siemens as customer example, SAP Platform & Data Summit. He came from Customer Success (not sales engineering) — this is relevant because Kevin is also transitioning from a non-SE background.",
     },
     {
       interviewerName: "Peer CE",

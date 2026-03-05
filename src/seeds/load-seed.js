@@ -76,7 +76,7 @@ export function loadSeed(profile, company, role, preAnalyzedInterviews = []) {
         transcriptRaw: "",
         status: "pending",
         analysis: null,
-        interviewerNotes: "",
+        interviewerNotes: iv.interviewerNotes || "",
       }
     }
   })
