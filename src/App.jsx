@@ -1,5 +1,5 @@
-import { useState, useEffect, useRef } from "react"
-import { useJobStore } from "./hooks/useJobStore"
+import { useState, useEffect, useRef, useMemo } from "react"
+import { useJobStore, getInterviewsForRole } from "./hooks/useJobStore"
 import SidebarNav from "./components/SidebarNav"
 import SetupPanel from "./components/SetupPanel"
 import PreparationPanel from "./components/PreparationPanel"
@@ -11,20 +11,25 @@ import NotesPanel from "./components/NotesPanel"
 import AddInterviewModal from "./components/AddInterviewModal"
 import JobsDashboard from "./components/JobsDashboard"
 import CheatSheetModal from "./components/CheatSheetModal"
+import ProfilePanel from "./components/ProfilePanel"
+import StoryBankPanel from "./components/StoryBankPanel"
 
 export default function App() {
   const {
     store,
     setApiKey,
-    createJob,
+    updateProfile,
+    addStory,
+    updateStory,
+    deleteStory,
+    createRole,
     importData,
-    selectJob,
-    exitJob,
-    deleteJob,
-    setJobAppStatus,
-    setJobNotes,
+    selectRole,
+    exitRole,
+    deleteRole,
+    setRoleAppStatus,
+    setRoleNotes,
     togglePrepItem,
-    setInterviewerNote,
     setStarDraft,
     addInterview,
     setTranscript,
@@ -32,6 +37,7 @@ export default function App() {
     setInterviewAnalysis,
     deleteInterview,
     clearInterviewAnalysis,
+    setInterviewerNote,
     reset,
   } = useJobStore()
 
@@ -42,26 +48,51 @@ export default function App() {
   const [showApiKey, setShowApiKey] = useState(false)
   const [apiKeyDraft, setApiKeyDraft] = useState(store.apiKey || "")
   const apiKeyRef = useRef(null)
-  const [stepKey, setStepKey] = useState(0) // for re-triggering entrance animation
+  const [stepKey, setStepKey] = useState(0)
+  const [globalView, setGlobalView] = useState(null) // "profile" | "storybank" | null
 
-  const activeJob = store.activeJobId ? store.jobs[store.activeJobId] : null
-  const isInJob = !!activeJob
-  const job = activeJob?.job || null
-  const interviews = activeJob?.interviews || []
+  // Derive active entities from normalized store
+  const activeRole = store.activeRoleId ? store.roles[store.activeRoleId] : null
+  const activeCompany = activeRole ? store.companies[activeRole.companyId] : null
+  const isInRole = !!activeRole
   const { apiKey } = store
+
+  const interviews = useMemo(
+    () => getInterviewsForRole(store, store.activeRoleId),
+    [store, store.activeRoleId]
+  )
+
+  // Build a backwards-compatible "job" shim so existing panels work unchanged
+  const job = useMemo(() => {
+    if (!activeRole) return null
+    return {
+      company: activeCompany?.name || "",
+      roleTitle: activeRole.roleTitle,
+      jobDescriptionRaw: activeRole.jobDescriptionRaw,
+      resumeRaw: activeRole.resumeRaw,
+      requirements: activeRole.requirements,
+      responsibilities: activeRole.responsibilities,
+      gapAnalysis: activeRole.gapAnalysis,
+      prepFocus: activeRole.prepFocus,
+      commonQuestions: activeRole.commonQuestions,
+      cultureValues: activeRole.cultureValues,
+      learningGuide: activeRole.learningGuide,
+      companyProfile: activeCompany?.companyProfile || null,
+    }
+  }, [activeRole, activeCompany])
 
   useEffect(() => {
     setCurrentStep(0)
-  }, [store.activeJobId])
+  }, [store.activeRoleId])
 
   // Trigger entrance animation on step change
   useEffect(() => {
     setStepKey((k) => k + 1)
   }, [currentStep])
 
-  const view = isInJob ? "job" : showSetup ? "setup" : "dashboard"
+  const view = globalView ? globalView : isInRole ? "role" : showSetup ? "setup" : "dashboard"
 
-  const steps = isInJob
+  const steps = isInRole
     ? [
         { label: "Preparation", short: "Prep" },
         { label: "Company", short: "Co." },
@@ -83,20 +114,27 @@ export default function App() {
   }
 
   const handleReset = () => {
-    if (window.confirm("Delete this prep? This will remove the job and all interview data.")) {
+    if (window.confirm("Delete this prep? This will remove the role and all interview data.")) {
       reset()
       setCurrentStep(0)
     }
   }
 
-  const handleExitJob = () => {
-    exitJob()
+  const handleExitRole = () => {
+    exitRole()
     setShowSetup(false)
     setCurrentStep(0)
+    setGlobalView(null)
   }
 
   const handleExport = () => {
-    const data = JSON.stringify({ apiKey: store.apiKey, jobs: store.jobs }, null, 2)
+    const data = JSON.stringify({
+      apiKey: store.apiKey,
+      profile: store.profile,
+      companies: store.companies,
+      roles: store.roles,
+      interviews: store.interviews,
+    }, null, 2)
     const blob = new Blob([data], { type: "application/json" })
     const url = URL.createObjectURL(blob)
     const a = document.createElement("a")
@@ -112,7 +150,7 @@ export default function App() {
     reader.onload = (e) => {
       try {
         const data = JSON.parse(e.target.result)
-        if (!data.jobs) throw new Error("Invalid file")
+        if (!data.roles && !data.jobs) throw new Error("Invalid file")
         importData(data)
       } catch {
         alert("Invalid file. Please select a valid interview prep backup.")
@@ -124,6 +162,13 @@ export default function App() {
   const handleSaveApiKey = () => {
     setApiKey(apiKeyDraft.trim())
     setShowApiKey(false)
+  }
+
+  const handleCreateRole = (roleData) => {
+    const companyData = roleData.companyProfile
+      ? { name: roleData.company, companyProfile: roleData.companyProfile }
+      : { name: roleData.company }
+    createRole(roleData, companyData)
   }
 
   // Step name for the content header
@@ -140,9 +185,9 @@ export default function App() {
         <PreparationPanel
           job={job}
           interviews={interviews}
-          prepChecklist={activeJob.prepChecklist || {}}
+          prepChecklist={activeRole.prepChecklist || {}}
           onTogglePrepItem={togglePrepItem}
-          interviewerNotes={activeJob.interviewerNotes || {}}
+          interviewerNotes={interviews}
           onSetInterviewerNote={setInterviewerNote}
         />
       )
@@ -178,7 +223,7 @@ export default function App() {
         <InterviewGuidePanel
           job={job}
           interviews={interviews}
-          starDrafts={activeJob.starDrafts || {}}
+          starDrafts={activeRole.starDrafts || {}}
           onDraftChange={setStarDraft}
         />
       )
@@ -191,8 +236,8 @@ export default function App() {
     if (currentStep === notesStepIndex) {
       return (
         <NotesPanel
-          notes={activeJob.notes || ""}
-          onSetNotes={setJobNotes}
+          notes={activeRole.notes || ""}
+          onSetNotes={setRoleNotes}
         />
       )
     }
@@ -205,13 +250,18 @@ export default function App() {
       {/* ─── Dashboard View ─── */}
       {view === "dashboard" && (
         <JobsDashboard
-          jobs={store.jobs}
-          onSelect={(id) => selectJob(id)}
+          roles={store.roles}
+          companies={store.companies}
+          allInterviews={store.interviews}
+          profile={store.profile}
+          onSelect={(id) => selectRole(id)}
           onNew={() => setShowSetup(true)}
-          onDelete={deleteJob}
-          onSetJobStatus={setJobAppStatus}
+          onDelete={deleteRole}
+          onSetRoleStatus={setRoleAppStatus}
           onExport={handleExport}
           onImport={handleImport}
+          onShowProfile={() => setGlobalView("profile")}
+          onShowStoryBank={() => setGlobalView("storybank")}
         />
       )}
 
@@ -220,13 +270,44 @@ export default function App() {
         <SetupPanel
           store={store}
           onSetApiKey={setApiKey}
-          onCreateJob={createJob}
-          onBack={Object.keys(store.jobs).length > 0 ? () => setShowSetup(false) : undefined}
+          onCreateRole={handleCreateRole}
+          onBack={Object.keys(store.roles).length > 0 ? () => setShowSetup(false) : undefined}
         />
       )}
 
-      {/* ─── Job View — Sidebar + Content ─── */}
-      {view === "job" && (
+      {/* ─── Profile View ─── */}
+      {view === "profile" && (
+        <div className="max-w-4xl mx-auto px-4 py-8">
+          <button
+            onClick={() => setGlobalView(null)}
+            className="text-sm text-text-muted hover:text-text-primary cursor-pointer flex items-center gap-1 mb-6"
+          >
+            ← Back to dashboard
+          </button>
+          <ProfilePanel profile={store.profile} />
+        </div>
+      )}
+
+      {/* ─── Story Bank View ─── */}
+      {view === "storybank" && (
+        <div className="max-w-4xl mx-auto px-4 py-8">
+          <button
+            onClick={() => setGlobalView(null)}
+            className="text-sm text-text-muted hover:text-text-primary cursor-pointer flex items-center gap-1 mb-6"
+          >
+            ← Back to dashboard
+          </button>
+          <StoryBankPanel
+            stories={store.profile?.storyBank || []}
+            onAdd={addStory}
+            onUpdate={updateStory}
+            onDelete={deleteStory}
+          />
+        </div>
+      )}
+
+      {/* ─── Role View — Sidebar + Content ─── */}
+      {view === "role" && (
         <div className="flex min-h-screen">
           {/* Sidebar */}
           <SidebarNav
@@ -239,9 +320,12 @@ export default function App() {
               setShowApiKey(true)
               setTimeout(() => apiKeyRef.current?.focus(), 50)
             }}
-            onExitJob={handleExitJob}
-            jobTitle={job?.roleTitle}
-            company={job?.company}
+            onExitRole={handleExitRole}
+            onShowProfile={() => setGlobalView("profile")}
+            onShowStoryBank={() => setGlobalView("storybank")}
+            jobTitle={activeRole?.roleTitle}
+            company={activeCompany?.name}
+            hasProfile={!!store.profile}
           />
 
           {/* Main content area */}
@@ -367,10 +451,10 @@ export default function App() {
         />
       )}
 
-      {showCheatSheet && isInJob && (
+      {showCheatSheet && isInRole && (
         <CheatSheetModal
           job={job}
-          starDrafts={activeJob.starDrafts || {}}
+          starDrafts={activeRole.starDrafts || {}}
           interviews={interviews}
           onClose={() => setShowCheatSheet(false)}
         />

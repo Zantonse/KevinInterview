@@ -233,7 +233,7 @@ export default function PreparationPanel({
                 <p className="text-sm font-semibold text-text-primary font-body">{iv.interviewerName}</p>
                 <p className="text-xs text-text-muted mb-2 font-body">{iv.interviewerRole}</p>
                 <textarea
-                  value={(interviewerNotes || {})[iv.id] || ""}
+                  value={iv.interviewerNotes || ""}
                   onChange={(e) => onSetInterviewerNote(iv.id, e.target.value)}
                   placeholder={`Notes on ${iv.interviewerName}...`}
                   rows={2}

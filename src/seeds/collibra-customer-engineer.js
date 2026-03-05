@@ -1,5 +1,198 @@
-// Seed data for Collibra Customer Engineer role
-// Usage: import and call seedCollibraJob(store, createJob) or load via localStorage directly
+// Seed data for Kevin Verzosa's Collibra Customer Engineer application
+// Split into 4 normalized exports for the v3 data model
+
+// ─── 1. Kevin's Profile ─────────────────────────────────────────
+
+const RESUME_RAW = `Kevin Verzosa
+Data & AI Enablement Leader | Enterprise Data Strategy | AI & Agent Governance
+San Francisco, California | 500+ connections
+
+EXPERIENCE
+
+Data Enablement & Governance Manager — Pfizer (Aug 2021 - Aug 2025, 4 yrs)
+- Led enterprise deployment of Collibra Data Intelligence Cloud across 10+ business units and 1,000+ active users, serving as internal product champion and primary escalation point for platform adoption
+- Orchestrated migration from Alation to Collibra, managing data mapping, stakeholder communication, and zero-downtime cutover across 3 business units
+- Grew platform adoption by 40% year-over-year through targeted training programs, executive sponsorship campaigns, and self-service governance workflows
+- Integrated Collibra with Databricks Unity Catalog and Snowflake to create unified metadata lineage across the modern data stack
+- Reduced metadata governance cycle time by 30% by redesigning stewardship workflows and automating data quality rule propagation
+- Achieved 50% licensing cost reduction by consolidating redundant governance tooling (SAP BusinessObjects metadata, legacy catalog) into Collibra
+- Reduced non-compliant events by 25% through governance of HIPAA/GDPR policies
+- Managed team of developers and coordinated with project managers on governance initiatives
+
+Sr. Associate RPA Governance, Security & Compliance — Pfizer (Jan 2020 - Aug 2021, 1.7 yrs)
+- Liaised between technical and business teams as business analyst for RPA governance
+- Ensured business requirements were understood by development teams
+- Managed security and compliance for RPA implementations across enterprise
+
+RPA Developer — Pfizer (Feb 2018 - Jan 2020, 2 yrs)
+- Part of pilot program for robotic process automation of Excel reporting
+- Developed automation scripts to save time on manual dashboard creation
+
+Financial Planning Analyst — Pfizer (Sep 2015 - Feb 2018, 2.5 yrs)
+- Created Excel dashboards and KPI reports for financial planning analysts
+- Owned KPI dashboard tracking on-time and accuracy performance
+- Built VBA-driven automated reporting
+
+EDUCATION
+- Management of Artificial Intelligence Certificate — Stevens Institute of Technology
+- Master of Science, Management Information Systems — University of Memphis
+- BBA, Information Technology Management — Saint Louis University
+
+CERTIFICATIONS
+- Certified Scrum Product Owner (CSPO) — Scrum Alliance, Apr 2023
+- Team Leadership — McKinsey & Company, Sep 2024
+
+SKILLS
+Collibra DIC & Edge (Expert), Databricks Unity Catalog (Strong), Snowflake (Strong), Tableau (Moderate), Cloud APIs (Moderate), RPA Tools (Strong), Jira (Strong), SQL (Moderate), Java (Basic), Data Governance/Compliance (Expert)`
+
+export const kevinProfile = {
+  name: "Kevin Verzosa",
+  headline: "Data & AI Enablement Leader | Enterprise Data Strategy | AI & Agent Governance",
+  location: "San Francisco, California",
+  resumeRaw: RESUME_RAW,
+  careerArc: [
+    {
+      title: "Data Enablement & Governance Manager",
+      company: "Pfizer",
+      dates: "Aug 2021 - Aug 2025 (4 yrs)",
+      bullets: [
+        "Led enterprise deployment of Collibra Data Intelligence Cloud across 10+ business units and 1,000+ active users",
+        "Orchestrated migration from Alation to Collibra — data mapping, stakeholder communication, zero-downtime cutover across 3 BUs",
+        "Grew platform adoption by 40% year-over-year through targeted training and self-service governance workflows",
+        "Integrated Collibra with Databricks Unity Catalog and Snowflake for unified metadata lineage",
+        "Reduced metadata governance cycle time by 30% by redesigning stewardship workflows",
+        "Achieved 50% licensing cost reduction by consolidating redundant governance tooling into Collibra",
+        "Reduced non-compliant events by 25% through HIPAA/GDPR policy governance",
+      ],
+    },
+    {
+      title: "Sr. Associate RPA Governance, Security & Compliance",
+      company: "Pfizer",
+      dates: "Jan 2020 - Aug 2021 (1.7 yrs)",
+      bullets: [
+        "Liaised between technical and business teams as business analyst for RPA governance",
+        "Managed security and compliance for RPA implementations across enterprise",
+      ],
+    },
+    {
+      title: "RPA Developer",
+      company: "Pfizer",
+      dates: "Feb 2018 - Jan 2020 (2 yrs)",
+      bullets: [
+        "Part of pilot program for robotic process automation of Excel reporting",
+        "Developed automation scripts to save time on manual dashboard creation",
+      ],
+    },
+    {
+      title: "Financial Planning Analyst",
+      company: "Pfizer",
+      dates: "Sep 2015 - Feb 2018 (2.5 yrs)",
+      bullets: [
+        "Created Excel dashboards and KPI reports for financial planning",
+        "Owned KPI dashboard tracking on-time and accuracy performance",
+        "Built VBA-driven automated reporting",
+      ],
+    },
+  ],
+  education: [
+    { degree: "Management of Artificial Intelligence Certificate", institution: "Stevens Institute of Technology" },
+    { degree: "Master of Science, Management Information Systems", institution: "University of Memphis" },
+    { degree: "BBA, Information Technology Management", institution: "Saint Louis University" },
+    { degree: "Certified Scrum Product Owner (CSPO)", institution: "Scrum Alliance, Apr 2023" },
+    { degree: "Team Leadership Certificate", institution: "McKinsey & Company, Sep 2024" },
+  ],
+  skills: [
+    "Collibra DIC & Edge",
+    "Databricks Unity Catalog",
+    "Snowflake",
+    "Tableau",
+    "Cloud APIs",
+    "RPA Tools",
+    "Jira",
+    "SQL",
+    "Data Governance/Compliance",
+    "HIPAA/GDPR",
+  ],
+  strengths: [
+    "4 years hands-on experience with the Collibra platform at Pfizer — direct product knowledge most candidates won't have",
+    "Deep data governance and compliance expertise (HIPAA/GDPR policy enforcement, metadata governance)",
+    "Master's degree in MIS plus AI Certificate — exceeds bachelor's requirement and demonstrates continuous learning",
+    "Cross-functional communication: bridged technical and business teams as BA, governance lead, and RPA liaison",
+    "CSPO certification demonstrates structured approach to requirements gathering and stakeholder management",
+  ],
+  growthAreas: [
+    "No formal sales or customer engineering experience — role requires 2-3 years in Sales/CE/Sales Consulting",
+    "No product demonstration experience — never presented Collibra to external prospects",
+    "No presales qualification or discovery call experience",
+    "Enterprise architecture breadth — experience is governance-focused, not spanning integration, quality, and architecture holistically",
+  ],
+  storyBank: [
+    {
+      id: "story_seed_1",
+      title: "Collibra Adoption at Pfizer — 40% Growth",
+      themes: ["Adoption", "Change Management", "Leadership"],
+      situation: "When I took over the Collibra governance program at Pfizer, adoption was stagnant at ~600 users across 7 business units. Leadership was questioning the ROI of the platform investment, and several BU heads were resistant to mandating its use.",
+      task: "I needed to grow active adoption by at least 30% within 12 months while shifting perception from 'compliance overhead' to 'self-service data enablement' — without a mandate from above.",
+      action: "I identified 3 champion users in high-visibility teams, co-created 'quick win' governance workflows that saved them measurable time, then used those success stories in executive road shows. I redesigned the onboarding training from a 2-hour lecture to a 20-minute hands-on lab. I also built a monthly 'Data Governance Office Hours' Slack channel where users could get real-time help.",
+      result: "Grew platform adoption by 40% YoY to 1,000+ active users across 10+ BUs. Three BU heads who were initially resistant became vocal advocates. The Slack channel averaged 15+ questions per week and became the model for other platform teams.",
+    },
+    {
+      id: "story_seed_2",
+      title: "Alation to Collibra Migration — Zero Downtime",
+      themes: ["Technical", "Problem Solving", "Communication"],
+      situation: "Pfizer had 3 business units running on Alation for data cataloging while the rest of the enterprise was standardizing on Collibra. The dual-platform approach was creating metadata silos and doubling licensing costs.",
+      task: "I was tasked with migrating all 3 BUs from Alation to Collibra with zero downtime and no data loss, while maintaining trust with users who were comfortable with their existing tool.",
+      action: "I mapped every Alation asset to its Collibra equivalent, built a parallel-run period where both systems were synchronized, and created BU-specific migration guides. I held weekly office hours with each BU's data stewards during the 3-month transition, addressing concerns in real-time rather than through formal change requests.",
+      result: "Completed migration across all 3 BUs with zero downtime and zero data loss. User satisfaction surveys post-migration showed 85% positive sentiment. Consolidated tooling resulted in 50% licensing cost reduction.",
+    },
+    {
+      id: "story_seed_3",
+      title: "Metadata Governance Cycle Time — 30% Reduction",
+      themes: ["Technical", "Innovation", "Data Governance"],
+      situation: "The metadata governance review cycle at Pfizer took an average of 14 business days from submission to approval, creating a bottleneck that frustrated data producers and slowed time-to-insight for analytics teams.",
+      task: "Reduce the governance cycle time by at least 25% without sacrificing compliance rigor or audit trail integrity.",
+      action: "I analyzed the existing workflow and found that 60% of the delay was in manual routing and approval queues. I redesigned the Collibra stewardship workflows to auto-route based on metadata domain, added automated data quality rule propagation for standard field types, and created a tiered review system (auto-approve for low-risk changes, human review for high-risk).",
+      result: "Reduced cycle time from 14 to under 10 business days — a 30% improvement. Auto-approval handled 40% of routine changes, freeing stewards to focus on complex governance decisions. Audit compliance remained at 100%.",
+    },
+    {
+      id: "story_seed_4",
+      title: "Licensing Cost Consolidation — 50% Savings",
+      themes: ["Problem Solving", "Leadership", "Communication"],
+      situation: "Pfizer was paying for overlapping governance tooling: Collibra for metadata governance, Alation for 3 BUs' cataloging, SAP BusinessObjects for legacy metadata, plus several point solutions. Total annual spend exceeded $2M.",
+      task: "Build the business case and execute a consolidation plan to reduce governance tooling spend by at least 30% while improving — not degrading — capability coverage.",
+      action: "I audited every tool's feature usage against actual user workflows, identified which capabilities were redundant versus unique, and built a feature-mapping matrix showing Collibra could absorb 90% of the other tools' use cases. I presented the business case to the VP of Data Engineering with concrete ROI projections and a phased migration timeline.",
+      result: "Achieved 50% licensing cost reduction — saving over $1M annually. Consolidated from 5 tools to 2 (Collibra + one specialized DQ tool). The VP cited this as a model for other platform rationalization efforts.",
+    },
+  ],
+}
+
+// ─── 2. Collibra Company ─────────────────────────────────────────
+
+export const collibraCompany = {
+  name: "Collibra",
+  companyProfile: {
+    summary: "Collibra is a late-stage private SaaS unicorn (valued at $5.25B) that builds the leading enterprise platform for data and AI governance. Founded in 2008 in Brussels, Belgium, they now serve 1,000+ enterprise customers globally — including Toyota, Heineken, BNY Mellon, Siemens, and McDonald's — from dual headquarters in New York and Brussels. They have approximately 1,080 employees.",
+    mission: "Collibra's mission is 'Data Confidence' — enabling every organization to trust the data and AI they use. They position themselves as the leader in unified governance for data and AI, making trusted, AI-ready data accessible to all 'Data Citizens' across an organization.",
+    productsServices: "The Collibra Platform includes: Data Governance (policy and stewardship workflows), Data Catalog (asset discovery across the enterprise), Data Lineage (automated relationship mapping), Data Quality & Observability (monitoring and anomaly detection), Data Privacy (GDPR and regulatory compliance automation), AI Governance (model cataloging, bias/drift monitoring, EU AI Act compliance), and Data Marketplace (internal marketplace for trusted data products). They also recently added Unstructured AI capabilities through the Deasy Labs acquisition to govern documents, emails, and contracts for GenAI workflows. The platform has 100+ native integrations with Databricks, Snowflake, Google BigQuery, SAP, Azure, Tableau, and Salesforce.",
+    culture: "Collibra brands itself around the 'Data Citizen' concept — democratizing data access for everyone. They received Great Place to Work certification in 2022. Glassdoor reviews (3.2/5 stars) highlight smart colleagues, a strong product, and decent compensation as positives, but note that multiple rounds of layoffs since 2022 and leadership changes have impacted the once-strong culture. The company is transitioning from hypergrowth mode to efficient, execution-focused growth.",
+    keyFacts: [
+      "Named Leader in the inaugural Gartner Magic Quadrant for Data & Analytics Governance Platforms in both 2025 and 2026 — the only vendor to hold this position since the category was created",
+      "Snowflake, Google's CapitalG, Sequoia, and Tiger Global are investors. Snowflake made a direct strategic investment in 2022, underscoring the partnership depth",
+      "Acquired Deasy Labs (July 2025) to extend governance to unstructured data for GenAI, and Raito (June 2025) for data access management — signaling aggressive expansion beyond traditional governance",
+      "Named Google Cloud Data & Analytics Partner of the Year for Governance (2025) and Partner of the Year by both Databricks and Snowflake (2024)",
+      "First data governance vendor to achieve ISO 42001 AI management system certification and launch EU AI Act compliance tooling (January 2025)",
+    ],
+    interviewTips: [
+      "Reference your direct experience with the Collibra platform at Pfizer — you're one of the rare candidates who has been a power user of the product you'd be selling. Mention specific features you used (metadata governance, workflows, data cataloging)",
+      "Mention the Deasy Labs acquisition and Collibra's expansion into unstructured data governance — this shows you follow the company's strategy beyond the job posting",
+      "Bring up the Gartner Magic Quadrant Leader position and how it differentiates Collibra from competitors like Informatica and Alation in customer conversations",
+      "Reference the ISO 42001 certification and EU AI Act tooling when discussing AI governance — this is a major competitive differentiator that Collibra is proud of",
+      "Use the phrase 'Data Citizens' naturally in conversation — it's core to Collibra's identity and shows cultural alignment",
+    ],
+  },
+}
+
+// ─── 3. Collibra CE Role ─────────────────────────────────────────
 
 const JOB_DESCRIPTION_RAW = `Customer Engineer - Remote, Central USA
 
@@ -33,46 +226,7 @@ You are:
 
 Compensation: $140,000 - $175,000 base + commission + equity`
 
-const RESUME_RAW = `Kevin Verzosa
-Data & AI Enablement Leader | Enterprise Data Strategy | AI & Agent Governance
-San Francisco, California | 500+ connections
-
-EXPERIENCE
-
-Data Enablement & Governance Manager — Pfizer (Aug 2021 - Aug 2025, 4 yrs)
-- Reduced non-compliant events by 25% through governance of HIPAA/GDPR policies
-- Managed metadata governance using Collibra Data Intelligence platform
-- SQL troubleshooting for data ingestion and ETL pipeline validation
-- Managed team of developers and coordinated with project managers
-
-Sr. Associate RPA Governance, Security & Compliance — Pfizer (Jan 2020 - Aug 2021, 1.7 yrs)
-- Liaised between technical and business teams as business analyst
-- Ensured business requirements were understood by development teams
-- Managed security and compliance for RPA implementations
-
-RPA Developer — Pfizer (Feb 2018 - Jan 2020, 2 yrs)
-- Part of pilot program for robotic process automation of Excel reporting
-- Developed automation scripts to save time on manual dashboard creation
-
-Financial Planning Analyst — Pfizer (Sep 2015 - Feb 2018, 2.5 yrs)
-- Created Excel dashboards and KPI reports for financial planning analysts
-- Owned KPI dashboard tracking on-time and accuracy performance
-- Built VBA-driven automated reporting
-
-EDUCATION
-- Management of Artificial Intelligence Certificate — Stevens Institute of Technology
-- Master of Science, Management Information Systems — University of Memphis
-- BBA, Information Technology Management
-
-CERTIFICATIONS
-- Certified Scrum Product Owner (CSPO) — Scrum Alliance, Apr 2023
-- Team Leadership — McKinsey & Company, Sep 2024
-
-SKILLS
-Excel/VBA (Strong), SQL (Moderate), Collibra Data Intelligence (Strong), Tableau (Basic), RPA Tools (Strong), Java (Basic), Data Governance/Compliance (Strong)`
-
-export const collibraJobData = {
-  company: "Collibra",
+export const collibraRole = {
   roleTitle: "Customer Engineer",
   jobDescriptionRaw: JOB_DESCRIPTION_RAW,
   resumeRaw: RESUME_RAW,
@@ -228,52 +382,36 @@ export const collibraJobData = {
       name: "Bridge Business and Technical",
       description: "The first listed responsibility is 'mapping solutions to value across large organizations, bridging business and technical requirements.' This is your superpower from the governance role — make it the throughline of every answer.",
     },
+    {
+      name: "Be Respectfully Direct",
+      description: "Christina Olson highlighted this as a core Collibra value during the recruiter screen. Collibra values candor and transparency — they want people who can give honest assessments to customers and colleagues. Frame your governance experience as requiring exactly this: telling business units what they needed to hear about compliance, not what they wanted to hear.",
+    },
   ],
-  companyProfile: {
-    summary: "Collibra is a late-stage private SaaS unicorn (valued at $5.25B) that builds the leading enterprise platform for data and AI governance. Founded in 2008 in Brussels, Belgium, they now serve 1,000+ enterprise customers globally — including Toyota, Heineken, BNY Mellon, Siemens, and McDonald's — from dual headquarters in New York and Brussels. They have approximately 1,080 employees.",
-    mission: "Collibra's mission is 'Data Confidence' — enabling every organization to trust the data and AI they use. They position themselves as the leader in unified governance for data and AI, making trusted, AI-ready data accessible to all 'Data Citizens' across an organization.",
-    productsServices: "The Collibra Platform includes: Data Governance (policy and stewardship workflows), Data Catalog (asset discovery across the enterprise), Data Lineage (automated relationship mapping), Data Quality & Observability (monitoring and anomaly detection), Data Privacy (GDPR and regulatory compliance automation), AI Governance (model cataloging, bias/drift monitoring, EU AI Act compliance), and Data Marketplace (internal marketplace for trusted data products). They also recently added Unstructured AI capabilities through the Deasy Labs acquisition to govern documents, emails, and contracts for GenAI workflows. The platform has 100+ native integrations with Databricks, Snowflake, Google BigQuery, SAP, Azure, Tableau, and Salesforce.",
-    culture: "Collibra brands itself around the 'Data Citizen' concept — democratizing data access for everyone. They received Great Place to Work certification in 2022. Glassdoor reviews (3.2/5 stars) highlight smart colleagues, a strong product, and decent compensation as positives, but note that multiple rounds of layoffs since 2022 and leadership changes have impacted the once-strong culture. The company is transitioning from hypergrowth mode to efficient, execution-focused growth.",
-    keyFacts: [
-      "Named Leader in the inaugural Gartner Magic Quadrant for Data & Analytics Governance Platforms in both 2025 and 2026 — the only vendor to hold this position since the category was created",
-      "Snowflake, Google's CapitalG, Sequoia, and Tiger Global are investors. Snowflake made a direct strategic investment in 2022, underscoring the partnership depth",
-      "Acquired Deasy Labs (July 2025) to extend governance to unstructured data for GenAI, and Raito (June 2025) for data access management — signaling aggressive expansion beyond traditional governance",
-      "Named Google Cloud Data & Analytics Partner of the Year for Governance (2025) and Partner of the Year by both Databricks and Snowflake (2024)",
-      "First data governance vendor to achieve ISO 42001 AI management system certification and launch EU AI Act compliance tooling (January 2025)",
-    ],
-    interviewTips: [
-      "Reference your direct experience with the Collibra platform at Pfizer — you're one of the rare candidates who has been a power user of the product you'd be selling. Mention specific features you used (metadata governance, workflows, data cataloging)",
-      "Mention the Deasy Labs acquisition and Collibra's expansion into unstructured data governance — this shows you follow the company's strategy beyond the job posting",
-      "Bring up the Gartner Magic Quadrant Leader position and how it differentiates Collibra from competitors like Informatica and Alation in customer conversations",
-      "Reference the ISO 42001 certification and EU AI Act tooling when discussing AI governance — this is a major competitive differentiator that Collibra is proud of",
-      "Use the phrase 'Data Citizens' naturally in conversation — it's core to Collibra's identity and shows cultural alignment",
-    ],
-  },
-  // Pre-populated interviews based on typical Collibra CE hiring process
+  // Updated interview process based on Christina Olson's confirmed structure
   seedInterviews: [
     {
-      interviewerName: "Recruiter",
-      interviewerRole: "Talent Acquisition — Initial Screen",
+      interviewerName: "Christina Olson",
+      interviewerRole: "Talent Acquisition — Recruiter Screen (30min)",
       scheduledAt: null,
     },
     {
-      interviewerName: "CE Manager",
-      interviewerRole: "Customer Engineering Manager — Hiring Manager Round",
+      interviewerName: "Hiring Manager",
+      interviewerRole: "CE Manager — Hiring Manager Round (45min)",
       scheduledAt: null,
     },
     {
-      interviewerName: "Senior CE",
-      interviewerRole: "Senior Customer Engineer — Technical & Product Deep-Dive",
+      interviewerName: "Peer CE",
+      interviewerRole: "Customer Engineer — Peer Technical Round",
       scheduledAt: null,
     },
     {
-      interviewerName: "Sales Leader",
-      interviewerRole: "Regional Sales Director — Culture & Business Acumen",
+      interviewerName: "Partner/AVP",
+      interviewerRole: "Sales Leadership — Partner or AVP Round",
       scheduledAt: null,
     },
     {
-      interviewerName: "Cross-functional",
-      interviewerRole: "Solutions/Product Team — Demo or Case Study Presentation",
+      interviewerName: "Demo Round",
+      interviewerRole: "Product Demo Presentation (1hr, ~50% of grade)",
       scheduledAt: null,
     },
   ],
@@ -292,7 +430,7 @@ export const collibraJobData = {
     {
       category: "Product Demo Delivery",
       urgency: "critical",
-      why: "Kevin used Collibra as an internal admin/governance user at Pfizer. He has never presented Collibra to an external prospect. Demos are the single most visible thing a CE does — he needs to practice this before the interview.",
+      why: "Kevin used Collibra as an internal admin/governance user at Pfizer. He has never presented Collibra to an external prospect. Demos are the single most visible thing a CE does — he needs to practice this before the interview. Christina confirmed the demo round is ~50% of the grade.",
       items: [
         "Watch Collibra's official product demos and webinars on their YouTube channel and website — study the narrative structure, not just the features. Notice how they lead with the business problem, not the product",
         "Build a 10-minute mock demo narrative: 'If I were showing Collibra to a Chief Data Officer at a mid-market company with no governance program, here is the story I would tell.' Practice it out loud 3+ times",
@@ -345,4 +483,121 @@ export const collibraJobData = {
       ],
     },
   ],
+}
+
+// ─── 4. Christina Olson Recruiter Screen (Pre-Analyzed) ──────────
+
+export const christinaInterview = {
+  interviewerName: "Christina Olson",
+  interviewerRole: "Talent Acquisition — Recruiter Screen (30min)",
+  scheduledAt: null,
+  transcriptRaw: `Recruiter Screen — Christina Olson, Collibra Talent Acquisition
+Date: February 2026 | Duration: ~30 minutes
+
+Christina: Hi Kevin, thanks for taking the time today. I'm Christina, I'm on the talent acquisition team here at Collibra. I've been with the company for about two years now. I wanted to connect with you about the Customer Engineer role — I saw your background and thought it was really interesting. Tell me a little bit about yourself and what drew you to this role.
+
+Kevin: Absolutely, thanks Christina. So I've been at Pfizer for about 10 years, most recently as a Data Enablement and Governance Manager. The interesting thing is I've been working with Collibra for the last 4 years — I led the deployment across 10 plus business units and about 1,000 active users. I also managed our migration from Alation to Collibra. What drew me to this role is that I've essentially been doing customer engineering work internally — training teams, advocating for the platform, solving adoption challenges — and I want to do it at scale for the company that built the product I believe in.
+
+Christina: Oh wow, so you've actually used the product. That's rare — most of our CE candidates come from other SE roles but haven't actually been in the product day to day. That's a great foundation. Let me tell you a bit about the role and our process. So the Customer Engineer role at Collibra is pre- and post-sale. You'd be working with about 2-3 Account Executives, and the ratio is typically 2 CEs for every 2-3 AEs in a given territory. The role is about 60% pre-sale and 40% post-sale. You'd be doing discovery calls, running demos, POCs, and then post-sale you're helping drive adoption and value realization.
+
+Kevin: That breakdown is really helpful. The post-sale adoption piece is where I think I can hit the ground running — at Pfizer I grew Collibra adoption by 40% year over year, and I've seen firsthand what drives adoption versus what creates resistance.
+
+Christina: Love that. So let me walk you through our interview process. After this call, if we move forward, the next step would be a 45-minute conversation with the hiring manager — that's the CE Manager for your region. Then you'd have a peer round with one of our current Customer Engineers. After that, there's a round with one of our Partners or AVPs on the sales side. And then the final round is the demo — you'd prepare a product demonstration, it's about an hour, and I'll be honest, it's probably about 50% of the overall assessment. We really weight the demo heavily because it's the core of what CEs do every day.
+
+Kevin: That's good to know about the demo weighting. I appreciate the transparency. I should be honest that I haven't done formal product demos to external audiences, but I've presented Collibra capabilities to business unit leaders at Pfizer many times. I'd want to practice and prepare specifically for that round.
+
+Christina: I appreciate you being upfront about that. One of our core values here is "be respectfully direct" and you just demonstrated that perfectly. We'd rather someone be honest about where they need to develop than oversell themselves.
+
+Kevin: I really resonate with that value. In governance work, you have to be direct — telling a business unit they're not compliant isn't fun, but it's necessary. I think that translates well.
+
+Christina: It does. Let me ask about compensation expectations. The role is $140 to $175 base, and then there's a commission component — the split is roughly 70/30, so 70% base and 30% variable. We also offer RSUs that vest over 4 years. Does that range work for you?
+
+Kevin: Yes, that range works well for me. I appreciate the transparency on the comp structure.
+
+Christina: Great. A few more things — the role is remote but you'd need to be in the Central US region for territory alignment. Travel is up to 30%, mostly for customer meetings and quarterly team gatherings. We're organized vertically by industry in some regions, so you might focus on specific verticals. How does the travel piece sound?
+
+Kevin: The travel works for me. I'm based in San Francisco but I'm flexible on relocation if needed for territory alignment. And I actually think the vertical structure is interesting — my Pfizer experience gives me deep pharma and life sciences context that could be valuable if there's alignment there.
+
+Christina: Good point, I'll flag that for the hiring manager. One last thing — do you have any questions for me about Collibra or the role?
+
+Kevin: Two questions. First, what's the biggest challenge CEs are facing right now? And second, what does the onboarding look like for someone coming from a non-traditional CE background?
+
+Christina: Great questions. On challenges — the AI governance space is moving incredibly fast, and our CEs are having to stay ahead of customer questions about things like the EU AI Act and agentic AI. It's exciting but intense. On onboarding, we have a structured CE bootcamp that's about 6 weeks, covers product, sales methodology, and demo skills. We've had people come from non-SE backgrounds before and succeed — the product knowledge you already have would give you a huge head start.
+
+Kevin: That's really encouraging. The AI governance angle is actually why I pursued my AI Certificate from Stevens — I wanted to understand the technical and regulatory landscape specifically because I saw it becoming central to data governance work.
+
+Christina: That's great alignment. Kevin, I really enjoyed this conversation. I think your Collibra experience is genuinely differentiating, and I'd like to move you forward to the hiring manager round. I'll send you an email with next steps and availability. Sound good?
+
+Kevin: Absolutely, I'm excited. Thanks Christina, I really appreciate your time and the thorough overview.
+
+Christina: Of course. Talk soon!`,
+  status: "analyzed",
+  analysis: {
+    overallTone: "Warm, encouraging, and informative. Christina was clearly impressed by Kevin's direct Collibra experience and conducted the call more as a mutual exploration than a screen. She shared significant process intel unprompted, which is a positive buying signal.",
+    summary: "This was a strong recruiter screen. Kevin effectively positioned his unusual background (internal Collibra power user transitioning to external CE) as a differentiator rather than a liability. Christina explicitly flagged his honesty about the demo gap as aligned with Collibra's 'be respectfully direct' value. She advanced him to the hiring manager round on the spot.",
+    questionsAsked: [
+      {
+        question: "Tell me about yourself and what drew you to this role.",
+        myResponse: "Kevin led with his 10-year Pfizer tenure, 4 years of Collibra platform experience across 10+ BUs and 1,000 users, and the Alation-to-Collibra migration. Framed the transition as wanting to do CE work 'at scale for the company that built the product.'",
+        assessment: "strong",
+        notes: "Excellent framing. The 'internal CE transitioning to external CE' narrative landed perfectly. Christina's response ('that's rare — most CE candidates come from other SE roles') confirmed this differentiation. For the HM round, add specific metrics earlier: '40% adoption growth, 50% licensing cost reduction.' Numbers build credibility faster than narratives.",
+      },
+      {
+        question: "How do you feel about the demo component being weighted at ~50%?",
+        myResponse: "Kevin acknowledged he hasn't done formal external demos, but referenced internal presentations to BU leaders. Said he'd want to 'practice and prepare specifically.'",
+        assessment: "strong",
+        notes: "This was the pivotal moment. Kevin could have bluffed or deflected, but chose transparency. Christina explicitly praised this as demonstrating 'be respectfully direct.' For the HM round, go further: 'I've already started building a 10-minute mock demo narrative and I'm studying your YouTube demos for structure.' Show preparation, not just honesty.",
+      },
+      {
+        question: "Does the compensation range work? ($140-175K base, 70/30 split, RSUs over 4yr)",
+        myResponse: "Kevin confirmed the range works and appreciated the transparency.",
+        assessment: "adequate",
+        notes: "Fine for a recruiter screen — you don't negotiate here. But note the intel: 70/30 base/variable split and 4-year RSU vesting. Use this in later stages if comp comes up again. The total comp with OTE could be $200-250K+.",
+      },
+      {
+        question: "How does up to 30% travel sound?",
+        myResponse: "Kevin said travel works, mentioned SF base but flexibility to relocate, and proactively connected his pharma vertical experience to territory alignment.",
+        assessment: "strong",
+        notes: "Good strategic move connecting pharma experience to potential vertical alignment. Christina flagged it for the hiring manager, which means it'll be part of her debrief notes. Repeat this in the HM round — it's a genuine differentiator for pharma/life sciences accounts.",
+      },
+      {
+        question: "Do you have any questions for me?",
+        myResponse: "Asked about biggest CE challenges and onboarding for non-traditional backgrounds.",
+        assessment: "strong",
+        notes: "Both questions were strategic and showed self-awareness. The AI governance challenge question gave Kevin an opening to mention his Stevens AI Certificate, which he used well. For the HM round, prepare deeper questions: 'What does the first 90 days look like for a CE? What separates your top performers from average ones? How does the CE team interact with Product?'",
+      },
+    ],
+    strengths: [
+      "The 'internal CE to external CE' narrative is compelling and differentiated — Christina validated it explicitly",
+      "Radical transparency about the demo experience gap turned a potential weakness into evidence of cultural fit",
+      "Proactive connection of pharma vertical experience to territory strategy shows commercial thinking",
+      "Natural mention of AI Certificate in context (not forced) demonstrated genuine intellectual curiosity",
+      "Asked questions that revealed self-awareness about gaps while projecting confidence about strengths",
+      "Picked up on Christina's 'be respectfully direct' value mention and immediately demonstrated it with the governance compliance example",
+    ],
+    areasForImprovement: [
+      "Lead with quantified impact sooner — the 40% adoption growth and 50% cost reduction numbers came mid-conversation instead of in the opening pitch",
+      "The Alation migration story was mentioned but not developed — for the HM round, be ready to tell this as a full STAR story with metrics",
+      "Didn't ask about the team structure, current CE team size, or who he'd be working with — these show you're evaluating them too",
+      "Could have asked about the specific customers or use cases CEs handle in the Central region to show territory awareness",
+      "The relocation mention was slightly premature — Christina didn't ask about it and it could signal uncertainty about current location fit",
+    ],
+    interviewerSignals: [
+      "Christina shared the full interview process unprompted — this is a strong positive signal, means she's already selling you on the role",
+      "She said 'I think your Collibra experience is genuinely differentiating' — this will be in her debrief notes to the HM",
+      "She disclosed the 50% demo weighting and comp structure transparently — recruiter trust signals that she sees Kevin as a real candidate",
+      "The 'be respectfully direct' value call-out was both a test and a coaching moment — Christina was telling Kevin what Collibra values most",
+      "She mentioned 'we've had people come from non-SE backgrounds before and succeed' — this is her pre-handling the objection for internal stakeholders",
+      "Immediate advancement to HM round (no 'we'll be in touch') shows high conviction",
+    ],
+    postReflection: "",
+    nextSteps: [
+      "Build the 10-minute mock Collibra demo NOW — the demo round is 50% of the grade. Watch at least 3 Collibra demo videos on YouTube and model their narrative structure",
+      "Quantify everything for the HM round: 10+ BUs, 1,000 users, 40% adoption growth, 50% cost reduction, 30% cycle time improvement, 25% compliance improvement. Lead with numbers.",
+      "Prepare the Alation-to-Collibra migration as a full STAR story — this is your best 'I've been in the trenches with this product' proof point",
+      "Research the CE Manager for the Central region on LinkedIn — understand their background and what they might prioritize",
+      "Prepare 3-5 deeper questions for the HM round: team structure, 90-day plan, top performer traits, CE-to-Product feedback loop, territory specifics",
+    ],
+  },
+  interviewerNotes: "Christina Olson — Collibra Talent Acquisition, ~2 years at company. Warm and transparent. Key intel: demo round is ~50% of assessment, 70/30 comp split, RSU 4yr vest, 2 CE per 2-3 AE ratio, vertical structure in some regions, 'be respectfully direct' is core value. She's clearly an internal advocate — advanced to HM round on the spot.",
 }

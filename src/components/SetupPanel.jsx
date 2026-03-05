@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { generatePrepContent } from "../lib/gemini"
 
-export default function SetupPanel({ store, onSetApiKey, onCreateJob, onBack }) {
+export default function SetupPanel({ store, onSetApiKey, onCreateRole, onBack }) {
   const [apiKey, setApiKey] = useState(store.apiKey || "")
   const [jobDescription, setJobDescription] = useState("")
-  const [resume, setResume] = useState("")
+  const [resume, setResume] = useState(store.profile?.resumeRaw || "")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
@@ -17,7 +17,7 @@ export default function SetupPanel({ store, onSetApiKey, onCreateJob, onBack }) 
     try {
       const data = await generatePrepContent(apiKey.trim(), jobDescription.trim(), resume.trim())
       onSetApiKey(apiKey.trim())
-      onCreateJob({
+      onCreateRole({
         ...data,
         jobDescriptionRaw: jobDescription.trim(),
         resumeRaw: resume.trim(),
@@ -85,9 +85,14 @@ export default function SetupPanel({ store, onSetApiKey, onCreateJob, onBack }) 
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-text-primary mb-1">
-              Your Resume
-            </label>
+            <div className="flex items-center justify-between mb-1">
+              <label className="block text-sm font-medium text-text-primary">
+                Your Resume
+              </label>
+              {store.profile?.resumeRaw && (
+                <span className="text-xs text-accent-text">Pre-filled from profile</span>
+              )}
+            </div>
             <textarea
               value={resume}
               onChange={(e) => setResume(e.target.value)}
