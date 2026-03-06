@@ -193,6 +193,50 @@ export default function PreparationPanel({
         </div>
       )}
 
+      {/* Questions to Ask Interviewers */}
+      {job.questionsToAsk?.length > 0 && (
+        <div className="space-y-4">
+          <div className="bg-surface-card rounded-xl shadow-card border border-border p-6">
+            <h3 className="font-display text-xl text-text-primary mb-1">Questions to Ask the Interviewer</h3>
+            <p className="text-xs text-text-muted font-body">
+              Organized by interview round. Asking strong questions signals preparation and genuine interest.
+            </p>
+          </div>
+          {job.questionsToAsk.map((section, i) => (
+            <details key={i} className="bg-surface-card rounded-xl shadow-card border border-border border-l-4 border-l-accent group card-hover">
+              <summary className="p-5 cursor-pointer select-none flex items-start gap-3 list-none [&::-webkit-details-marker]:hidden">
+                <svg className="w-4 h-4 text-text-muted shrink-0 mt-0.5 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <h4 className="font-display text-base text-text-primary">{section.round}</h4>
+                    <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-accent-subtle text-accent">
+                      {section.questions.length} questions
+                    </span>
+                  </div>
+                  <p className="text-xs text-text-muted font-body">{section.why}</p>
+                </div>
+              </summary>
+              <div className="px-5 pb-5 pt-2 ml-7">
+                <div className="space-y-3">
+                  {section.questions.map((q, j) => (
+                    <div key={j} className="bg-surface-inset rounded-lg p-4">
+                      <p className="text-sm font-medium text-text-primary font-body mb-1">"{q.question}"</p>
+                      {q.tip && (
+                        <p className="text-xs text-accent font-body">
+                          <span className="font-bold">Why this works:</span> {q.tip}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </details>
+          ))}
+        </div>
+      )}
+
       {/* Interview Progress */}
       {interviews.length > 0 && (
         <div className="bg-surface-card rounded-xl shadow-card border border-border p-6">

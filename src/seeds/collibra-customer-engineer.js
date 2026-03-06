@@ -297,6 +297,56 @@ export const collibraRole = {
       "Travel requirement (30%) — current role appears fully remote/office-based with no travel component mentioned",
     ],
   },
+  questionsToAsk: [
+    {
+      round: "Hiring Manager (Ralf)",
+      why: "Show you're evaluating Collibra as seriously as they're evaluating you. Ralf came from CS and values consultative, thoughtful questions. Ask about team dynamics, what success looks like, and where the CE org is heading.",
+      questions: [
+        { question: "You made the transition from Customer Success to CE leadership — what's the biggest difference in how the two functions drive customer value?", tip: "This mirrors his own journey and signals you've done your research. It also gives you intel on how he thinks about the CE-to-CS handoff." },
+        { question: "What does the first 90 days look like for a new CE on your team? What would make you confident I'm ramping successfully?", tip: "Shows you're already thinking about execution, not just getting the offer. Ralf will appreciate the specificity — it's how he'd evaluate a customer onboarding." },
+        { question: "How does the CE team interact with Product? When a CE identifies a feature gap during a customer engagement, what's the feedback loop?", tip: "This signals you're thinking beyond sales — you want to influence the product. It also reveals whether Collibra has a mature CE-to-Product pathway." },
+        { question: "What's the biggest challenge CEs on your team face right now — is it competitive pressure, deal complexity, customer maturity, or something else?", tip: "Open-ended question that reveals the real state of the team. Listen carefully — the answer tells you what to prepare for and whether the challenges energize you." },
+        { question: "Collibra has made aggressive moves this year — Deasy Labs, Raito, the MCP server, ISO 42001. How is the CE team adapting to position these new capabilities in customer conversations?", tip: "Proves you track Collibra's strategy and think about how product changes affect field execution. This is exactly the kind of question a strong CE candidate asks." },
+      ],
+    },
+    {
+      round: "Peer CE",
+      why: "The peer interview is about fit and authenticity. Christina said this is 'the most important step' — they're checking if you'd be a good teammate. Ask honest, practical questions about daily life.",
+      questions: [
+        { question: "Walk me through a typical week — how do you split time between pre-sale work (discovery, demos, POCs) and post-sale work (adoption, renewals)?", tip: "Shows you understand the hybrid nature of Collibra's CE role. The 70/30 or 60/40 split will tell you what the job actually feels like day-to-day." },
+        { question: "What's the most common objection you hear from customers, and how has your approach to handling it evolved?", tip: "Peer CEs love talking about craft. This gives you real competitive intel and shows you're already thinking about objection handling as a skill to develop." },
+        { question: "What do you wish someone had told you in your first month as a CE at Collibra?", tip: "Authentic question that invites candor. The answer will reveal onboarding gaps, cultural nuances, or operational realities that won't show up in job descriptions." },
+        { question: "How much autonomy do CEs have in how they run demos and POCs? Is there a standard playbook, or do you build your own narrative?", tip: "You're trying to understand the operating model — rigid vs. flexible. If they give CEs creative freedom, your Pfizer storytelling background is a huge asset." },
+      ],
+    },
+    {
+      round: "Partner/AVP (Sales Leadership)",
+      why: "AVPs care about revenue, territory, and whether you'll be a force multiplier for their AEs. Ask commercial and strategic questions.",
+      questions: [
+        { question: "What does the ideal CE-AE partnership look like on your team? How often do they sync, and how do you handle territory coverage when a CE is spread across multiple AEs?", tip: "Shows you understand the CE-AE dynamic and are thinking about workload management. The 2 CE : 2-3 AE ratio Christina mentioned means you'll juggle multiple relationships." },
+        { question: "How does Collibra typically land in new accounts — is it usually governance-first, catalog-first, or driven by a compliance event like the EU AI Act?", tip: "This reveals the dominant sales motion and where your Pfizer governance background fits in. If governance is the wedge, you're perfectly positioned." },
+        { question: "With the Salesforce-Informatica acquisition reshaping the market, are you seeing more competitive displacement opportunities from Informatica customers?", tip: "Shows commercial awareness and strategic thinking. This is a timely, specific question that an AVP will appreciate — it's exactly what their pipeline strategy depends on." },
+        { question: "What separates your top-performing CEs from average ones? Is it technical depth, deal instincts, customer relationships, or something else?", tip: "Direct question that tells you what to optimize for. Listen for whether they value technical skill or commercial instinct more — it shapes how you'd ramp." },
+      ],
+    },
+    {
+      round: "Demo Round",
+      why: "During Q&A after your demo, ask questions that show you're already thinking like a CE — how demos translate to deals, how the panel evaluates candidate demos, and how Collibra's demo motion works.",
+      questions: [
+        { question: "In a real customer demo, how much do you tailor the narrative based on what comes out of discovery vs. using a standard demo flow?", tip: "Shows you understand that great demos are built on great discovery. You're not just presenting — you're solving a specific customer's problem." },
+        { question: "What's the most common mistake CEs make during demos with enterprise prospects?", tip: "Invites the panel to coach you, which is a positive dynamic. The answer gives you real-time feedback on what to avoid — feature dumping, ignoring the audience, going too deep too fast." },
+      ],
+    },
+    {
+      round: "General (Any Round)",
+      why: "Keep these in your back pocket for any round. They signal strategic thinking, cultural alignment, and genuine interest in Collibra's trajectory.",
+      questions: [
+        { question: "Collibra's strategic narrative has shifted from 'data governance' to 'unified governance for data and AI.' How far along is that transition in how customers actually perceive and buy the platform?", tip: "Tests whether the aspirational positioning matches market reality. The answer reveals whether AI governance is driving real pipeline or is still early-stage." },
+        { question: "How does Collibra think about the relationship between the partner ecosystem (Deloitte, Accenture) and the CE team? Are partners delivery-focused, or do they also influence pre-sale positioning?", tip: "GSIs are critical to Collibra's go-to-market. Understanding this relationship tells you how much of your job involves partner coordination." },
+        { question: "What's the biggest product gap or customer request that CEs are hearing right now that hasn't been addressed yet?", tip: "Shows intellectual honesty — you know no product is perfect. The answer gives you insight into where Collibra is headed and what pain points CEs currently navigate around." },
+      ],
+    },
+  ],
   prepFocus: [
     "Prepare a compelling narrative for why you're transitioning from internal data governance to customer-facing technical advisory — frame your Collibra platform expertise as a rare differentiator",
     "Study Collibra's current product suite deeply: Data Catalog, Data Lineage, AI Governance, Data Quality & Observability, Data Marketplace, and the new Unstructured AI capabilities from the Deasy Labs acquisition",
