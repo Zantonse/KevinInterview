@@ -395,6 +395,118 @@ export const collibraRole = {
       description: "Christina Olson highlighted this as a core Collibra value during the recruiter screen. Collibra values candor and transparency — they want people who can give honest assessments to customers and colleagues. Frame your governance experience as requiring exactly this: telling business units what they needed to hear about compliance, not what they wanted to hear.",
     },
   ],
+  demoPrep: {
+    overview: {
+      title: "Demo Round — What You Need to Know",
+      format: "1 hour, panel evaluation",
+      weight: "~50% of your overall interview grade (per Christina Olson)",
+      whatIsEvaluated: [
+        "Presentation skills — can you command a room and tell a compelling story?",
+        "Customer empathy — do you lead with the problem or the product?",
+        "Technical depth — can you go beyond surface-level features into real architecture?",
+        "Q&A handling — can you think on your feet when the panel throws curveballs?",
+        "Persona tailoring — can you adjust the narrative for different audiences?",
+        "Competitive awareness — do you know where Collibra wins and where it's challenged?",
+      ],
+      keyIntel: "Christina will provide a blank deck template. You don't have to use it, but having a structured slide framework signals professionalism. Build your demo as a narrative, not a feature tour.",
+    },
+    narrative: [
+      {
+        section: "Opening Hook",
+        description: "Set the scene with a customer problem that resonates. Don't start with 'Collibra is a platform that...' — start with the pain.",
+        prompt: "Draft your opening 60-second hook. Example: 'Imagine you're a CDO at a mid-market company. You just got a board mandate to comply with the EU AI Act by Q3. Your data is spread across Snowflake, Databricks, and 50 legacy systems. Nobody knows what models are in production or what data feeds them. Where do you start?'",
+      },
+      {
+        section: "Problem Frame",
+        description: "Expand the pain into 3-4 concrete challenges the customer faces. Make the audience nod along before you show any product.",
+        prompt: "List the 3-4 problems you'll frame before showing Collibra. Examples: metadata silos, compliance risk, no lineage visibility, data team bottleneck.",
+      },
+      {
+        section: "Platform Walkthrough",
+        description: "Map each problem to a Collibra capability. Show the platform solving the problems you just described, in order. Use the catalog → lineage → governance → AI governance flow.",
+        prompt: "Outline your platform walkthrough: which screens/features will you show, and what customer problem does each solve?",
+      },
+      {
+        section: "Customer Outcome",
+        description: "Close with measurable impact — what does life look like after Collibra? Use your Pfizer metrics as proof points.",
+        prompt: "Draft your closing: tie back to the opening problem and show the resolution. Include 2-3 quantified outcomes (adoption growth, time savings, cost reduction, compliance achievement).",
+      },
+    ],
+    audiencePersonas: [
+      {
+        persona: "CDO / VP of Data",
+        cares: "Data strategy, organizational alignment, proving ROI to the board, modernization roadmap",
+        emphasize: "Catalog as single source of truth, governance operating model, executive dashboards, time-to-value metrics. They want to see Collibra as the backbone of their data strategy, not just a compliance tool.",
+        avoid: "Don't get lost in technical integration details — CDOs delegate that. Keep it strategic.",
+      },
+      {
+        persona: "CISO / Head of Compliance",
+        cares: "Regulatory risk, audit readiness, data privacy, AI governance, incident response",
+        emphasize: "ISO 42001 certification, EU AI Act compliance, automated policy enforcement, data privacy module, lineage for audit trails. Frame everything through the lens of risk reduction.",
+        avoid: "Don't lead with cataloging or data discovery — CISOs don't care about data democratization, they care about not getting fined.",
+      },
+      {
+        persona: "Data Engineer / Architect",
+        cares: "Integration complexity, API flexibility, not adding another tool to maintain, lineage accuracy, automation",
+        emphasize: "100+ native integrations (Snowflake, Databricks, BigQuery, SAP), REST APIs, Edge for hybrid deployment, automated lineage harvesting, custom workflow extensibility. Show them it fits into their stack, not around it.",
+        avoid: "Don't oversell governance benefits to technical audiences — they want to know it works with their tools and doesn't create overhead.",
+      },
+    ],
+    objections: [
+      {
+        objection: "We already have Databricks Unity Catalog — why do we need Collibra?",
+        response: "Unity Catalog is excellent for Databricks-native governance. But most enterprises have data in Snowflake, SAP, cloud storage, and legacy systems too. Collibra is the enterprise governance layer that connects all of these — including Databricks — under one policy framework. That's why Databricks is both a partner and an investor in Collibra. They see it as complementary, not competitive.",
+        source: "Collibra-Databricks partnership, Snowflake strategic investment",
+      },
+      {
+        objection: "Informatica already does this and we're already paying for it.",
+        response: "Informatica is strong in data integration and ETL — that's their heritage. Collibra is purpose-built for governance, cataloging, and AI governance. The question isn't whether Informatica can do governance — it's whether governance is their core focus. Collibra is the only vendor that's been Gartner MQ Leader since the category was created. For governance-first strategies, Collibra delivers deeper capability and faster time-to-value.",
+        source: "Gartner MQ for Data & Analytics Governance 2025 & 2026",
+      },
+      {
+        objection: "We tried data governance before and it failed — why would this be different?",
+        response: "Most governance programs fail because they mandate compliance without delivering value. Collibra's approach is different: start with a catalog people actually want to use, layer governance as guardrails, and connect to the tools your teams already work in. At Pfizer, we didn't mandate — we made governance the path of least resistance and grew adoption 40% year-over-year because users saw immediate value.",
+        source: "Kevin's Pfizer experience, Collibra adoption methodology",
+      },
+      {
+        objection: "This seems expensive for what it does. Can we build something in-house?",
+        response: "You absolutely could build a basic catalog. But you'd be maintaining it forever while Collibra ships 100+ integrations, AI governance, quality monitoring, and regulatory compliance tooling. At Pfizer, we evaluated the build-vs-buy math — the TCO of maintaining an in-house solution exceeded Collibra's cost within 18 months, and it couldn't match the pace of product innovation. Data governance is Collibra's entire business — it's a feature for an in-house team.",
+        source: "Pfizer TCO analysis, enterprise build-vs-buy patterns",
+      },
+      {
+        objection: "Our team doesn't have capacity to implement another platform right now.",
+        response: "That's actually a strong argument for Collibra, not against it. Collibra's professional services and partner ecosystem (Deloitte, Accenture, EY) handle implementation so your team doesn't have to build expertise from scratch. At Pfizer, we started with a focused pilot in one business unit, proved value in 60 days, then expanded. You don't have to boil the ocean — start small, prove value, scale.",
+        source: "Collibra implementation methodology, Pfizer phased rollout",
+      },
+    ],
+    referenceMaterials: [
+      {
+        title: "Pfizer's Data Citizens '24 Session",
+        description: "Michael Pagliorola (Kevin's director) and Deloitte presented Pfizer's enterprise Collibra strategy — cataloging, data standards, custom real-time metadata replication, lineage, and data freshness. This is YOUR story — reference it.",
+        url: "https://www.collibra.com/us/en/resources/deloitte-collibra-s-journey-at-pfizer",
+      },
+      {
+        title: "Collibra YouTube — Product Demos & Webinars",
+        description: "Study the narrative structure of official Collibra demos. Notice how they lead with the business problem, not the product. Model your demo after their approach.",
+        url: "https://www.youtube.com/@Collibra",
+      },
+      {
+        title: "Gartner MQ for Data & Analytics Governance (2025 & 2026)",
+        description: "Collibra is the only vendor named Leader in both years since the category was created. Use this as a credibility anchor in your demo — 'independent validation from the industry's most trusted analyst firm.'",
+        url: "",
+      },
+      {
+        title: "Collibra AI Governance & ISO 42001",
+        description: "First data governance vendor to achieve ISO 42001 AI management system certification. EU AI Act compliance tooling launched January 2025. This is a major differentiator for CISO-facing demos.",
+        url: "https://www.collibra.com/us/en/products/ai-governance",
+      },
+      {
+        title: "Collibra MCP Server — Agentic AI Governance",
+        description: "Collibra's Model Context Protocol server lets AI agents access governed metadata. This is cutting-edge and shows you understand where the industry is heading.",
+        url: "",
+      },
+    ],
+  },
   // Updated interview process based on Christina Olson's confirmed structure
   seedInterviews: [
     {
@@ -407,21 +519,129 @@ export const collibraRole = {
       interviewerRole: "Enterprise Customer Engineering Lead — Hiring Manager Round (45min)",
       scheduledAt: "2026-03-13",
       interviewerNotes: "Ralf Strichau — Enterprise Customer Engineering Lead at Collibra (promoted Jan 2025, previously Sr. Manager Customer Success 3.5yrs, Manager CS 1yr, Enterprise CSM 3yrs). Total ~8 years at Collibra. Based in Greater Chicago Area, remote. MBA Finance from University of Bayreuth (Germany). Certified Collibra Ranger (3 Stars). Previously 12 years at Accenture as Senior Manager. Bilingual English/German. Active on LinkedIn — posts about data governance, AI governance, SAP data integration, and Collibra events. Organized CE team offsite in Nashville (Nov 2025) — mentioned team members by name including Laura F. (Director, Customer Engineering — his boss?). Reposted Laura F.'s hiring post for CE Product roles (EST/CST, remote US/Canada, $104-130K range — note this is a different CE track than Kevin's). Key themes from his posts: 'Data Confidence™', governance as foundation for AI/data products, Siemens as customer example, SAP Platform & Data Summit. He came from Customer Success (not sales engineering) — this is relevant because Kevin is also transitioning from a non-SE background.",
+      predictedQuestions: [
+        {
+          question: "Walk me through your career and why you're making the move from internal governance to customer-facing CE work.",
+          why: "Ralf himself transitioned from Customer Success to CE leadership — he'll be evaluating whether Kevin's pivot is intentional and well-reasoned, not just a shot in the dark. He knows non-traditional paths can work because he lived one.",
+          prepTip: "Mirror Ralf's own trajectory. Say: 'I noticed you came from CS into CE leadership — I see a similar thread in my path. I've been doing CE work without the title: training users, advocating for the platform, solving adoption challenges. Now I want to do it at scale for the company that built the product.'",
+        },
+        {
+          question: "How would you describe your leadership style when working with customers who have competing priorities?",
+          why: "Ralf spent 12 years at Accenture managing enterprise clients before Collibra. He values structured, consultative leadership. His LinkedIn posts emphasize 'Data Confidence' as a guiding principle — expect him to probe how you'd bring order to chaotic customer environments.",
+          prepTip: "Use your Pfizer onboarding story: multiple BUs, each with different governance maturity. Show how you prioritized, sequenced pilots, and brought resistant stakeholders along. Frame it as consultative — you listened first, then prescribed.",
+        },
+        {
+          question: "Tell me about a time you drove adoption of a platform across users who didn't initially see the value.",
+          why: "Adoption is the lifeblood of the CE role post-sale. Ralf's CS background means he's deeply attuned to churn risk and value realization. Your Pfizer rollout from 600 to 1,000+ users is exactly the kind of story he wants to hear.",
+          prepTip: "Lead with metrics: '600 users to 1,000+, 7 BUs to 10+, 40% YoY adoption growth.' Then explain the how: champion users, quick-win workflows, redesigned training, governance office hours. End with: 'Three BU heads who were initially resistant became vocal advocates.'",
+        },
+        {
+          question: "How familiar are you with Collibra's product capabilities beyond governance — AI Governance, Data Quality, Data Marketplace?",
+          why: "Ralf posts about Collibra's full platform vision (AI governance, SAP integration, data products). He'll want to know if Kevin's Collibra knowledge extends beyond the governance module he used at Pfizer. CEs need to position the entire platform.",
+          prepTip: "Show breadth: 'At Pfizer I was deep in governance and lineage, but I've studied the full platform — AI Governance with ISO 42001 compliance, the Data Quality & Observability module, and the new Unstructured AI capabilities from the Deasy Labs acquisition. I'm particularly excited about the MCP server for agentic AI governance.'",
+        },
+        {
+          question: "How would you position Collibra to a prospect who says 'we already have Databricks Unity Catalog for governance'?",
+          why: "This is a real objection CEs face daily. Ralf's posts reference both SAP and Databricks partnerships. He'll test whether Kevin can handle competitive positioning diplomatically — complementary framing, not combative.",
+          prepTip: "Frame it as 'and' not 'or': 'Unity Catalog is excellent for Databricks-native governance. Collibra extends governance across your entire data estate — Snowflake, SAP, cloud APIs, unstructured data. It's the enterprise governance layer that connects all your platforms, including Databricks, under one policy framework.'",
+        },
+        {
+          question: "What does 'Data Confidence' mean to you, and how would you bring that to customer conversations?",
+          why: "Ralf uses 'Data Confidence™' frequently in his LinkedIn posts — it's Collibra's brand promise. This tests cultural alignment and whether Kevin can articulate the company's value proposition in his own words, not just recite the website.",
+          prepTip: "Make it personal: 'At Pfizer, data confidence meant a business leader could pull a report and trust the numbers without calling my team to verify. That's what Collibra delivers — not just metadata, but the trust layer that lets everyone from the CDO to a business analyst act on data decisively. As a CE, my job would be to help customers build that confidence from day one.'",
+        },
+      ],
     },
     {
       interviewerName: "Peer CE",
       interviewerRole: "Customer Engineer — Peer Technical Round",
       scheduledAt: null,
+      predictedQuestions: [
+        {
+          question: "Walk me through how you'd run a discovery call with a new prospect evaluating data governance for the first time.",
+          why: "Peer CEs want to know you understand the sales motion. Discovery is where deals are won or lost — a bad discovery means a misaligned demo. They'll assess your consultative instincts.",
+          prepTip: "Show a framework: 'I'd start with pain — what's driving the urgency? Then current state — what tools do they have, what's manual? Then stakeholder map — who cares about governance and who's resistant? Then success criteria — what does winning look like in 6 months? I'd end with next steps: demo, workshop, or POV depending on where they are.'",
+        },
+        {
+          question: "Describe a typical day or week in your current role that's most similar to CE work.",
+          why: "They're assessing whether you understand the CE lifestyle: context-switching between customers, juggling prep and delivery, handling ad-hoc technical questions while running strategic engagements. They want to see you've already been operating this way.",
+          prepTip: "Paint the picture from Pfizer: 'Monday I might be onboarding a new BU onto Collibra — running a discovery session to understand their metadata landscape. Tuesday I'm building a custom lineage configuration for a data engineering team. Wednesday I'm presenting governance metrics to an executive sponsor. Thursday I'm troubleshooting a workflow issue and fielding Slack questions in the governance office hours. It's exactly the CE mix of strategic and tactical.'",
+        },
+        {
+          question: "How do you handle a situation where a customer's technical team pushes back on your recommendation during a live demo or workshop?",
+          why: "This is the reality of CE work — you will face pushback from smart, opinionated technical stakeholders. The peer wants to see composure, curiosity, and the ability to turn objections into deeper discovery.",
+          prepTip: "Show the three-step pattern: 'First, I acknowledge — their concern is valid and I want to understand it. Second, I ask — what specific requirement drives that concern? Third, I reframe — here's how Collibra addresses that use case, or here's how other customers have solved this.' Use the Alation migration as an example: BU data stewards were attached to their tool, and you won them over through parallel-run and personalized office hours.",
+        },
+        {
+          question: "How deep is your technical knowledge of Collibra's integration ecosystem — APIs, Edge, Databricks/Snowflake connectors?",
+          why: "CEs need to go deep in technical conversations. The peer is checking whether your Collibra experience includes hands-on integration work or if it was purely governance/workflow configuration. Honest depth assessment matters.",
+          prepTip: "Be specific about what you touched: 'I integrated Databricks Unity Catalog and Snowflake with Collibra for cross-platform lineage at Pfizer. I worked with the metadata ingestion APIs and built custom workflows in Collibra. I'm less experienced with Edge deployments and the newer Data Quality module — but I learn product features fast because I already understand the data model and architecture underneath.'",
+        },
+        {
+          question: "What's the hardest objection you've ever had to overcome when getting someone to adopt a new tool or process?",
+          why: "Adoption stories reveal grit and emotional intelligence. The peer has faced this with customers and wants to know you won't crumble when a stakeholder says 'I don't want to use this.'",
+          prepTip: "Tell the Alation migration story as a full STAR: 3 BUs comfortable with Alation, dual-platform creating silos and doubling costs. You mapped every asset, ran a parallel period, held weekly office hours. Zero downtime, zero data loss, 85% positive sentiment, 50% cost reduction. The key was empathy — you didn't mandate, you listened and built trust.",
+        },
+      ],
     },
     {
       interviewerName: "Partner/AVP",
       interviewerRole: "Sales Leadership — Partner or AVP Round",
       scheduledAt: null,
+      predictedQuestions: [
+        {
+          question: "How do you think about the commercial side of the CE role — quota, pipeline, expansion revenue?",
+          why: "AVPs live and die by their number. They need CEs who understand that great technical work should translate to revenue. They'll probe whether Kevin has commercial instincts or is purely technical.",
+          prepTip: "Connect your Pfizer work to revenue language: 'My governance rollout directly influenced Pfizer's Collibra renewal and expansion decisions. When I grew adoption from 600 to 1,000+ users and consolidated 5 tools to 2, that was expansion revenue for Collibra's account team — even though I was on the customer side. I understand that every successful POV and adoption win is a renewal or upsell opportunity.'",
+        },
+        {
+          question: "Tell me about a time you identified a new opportunity or expanded scope while working with a stakeholder.",
+          why: "Partners want CEs who can spot land-and-expand opportunities. They don't just want someone who executes on what's scoped — they want someone who sees the adjacent play and flags it to the AE.",
+          prepTip: "Use the multi-BU expansion story: 'After successfully onboarding the first 3 BUs, I proactively identified 4 more that had similar metadata governance gaps. I built the business case for each, presented it to their BU leadership, and expanded the program from 7 to 10+ BUs. In a CE context, that's exactly the kind of expansion opportunity I'd surface to the AE.'",
+        },
+        {
+          question: "How would you handle a situation where the customer's champion leaves mid-deal or mid-deployment?",
+          why: "Champion risk is one of the biggest deal-killers in enterprise sales. The AVP wants to know you can multi-thread relationships, not depend on a single contact.",
+          prepTip: "Show multi-threading instincts: 'At Pfizer, I never relied on a single champion per BU. I built relationships with the BU lead, the data steward, and at least one hands-on analyst. When a key steward rotated to another team, the program didn't skip a beat because we had depth. As a CE, I'd apply the same principle — map the power base early and build technical champions at multiple levels.'",
+        },
+        {
+          question: "How comfortable are you with travel — visiting customers on-site, attending QBRs, running workshops in person?",
+          why: "AVPs are rebuilding the field motion. Christina said travel is 'picking up.' The partner wants to confirm Kevin is genuinely willing, not just saying yes to get through the screen.",
+          prepTip: "Be concrete: 'Absolutely. I'm based in Memphis with easy access to Central hubs — Dallas, Chicago, Atlanta. I've spent 10 years in enterprise work and I know the value of being in the room. Some of my best adoption wins at Pfizer happened because I was physically present with the BU teams, not on a Zoom call.'",
+        },
+        {
+          question: "What's your understanding of how CEs and AEs work together? What makes that partnership successful?",
+          why: "The AVP manages AEs and wants to know the CE will be a true partner, not a demo jockey. They want to hear about shared strategy, deal qualification, and mutual accountability.",
+          prepTip: "Frame it as a partnership: 'The AE owns the relationship and the commercial strategy. The CE owns the technical narrative and the proof of value. The best partnerships I've seen — and experienced as an internal stakeholder — work when both sides share context freely. I'd want regular syncs with my AEs, joint account planning, and the freedom to flag technical risks that could derail a deal.'",
+        },
+      ],
     },
     {
       interviewerName: "Demo Round",
       interviewerRole: "Product Demo Presentation (1hr, ~50% of grade)",
       scheduledAt: null,
+      predictedQuestions: [
+        {
+          question: "Why did you choose this specific use case and narrative for your demo?",
+          why: "The panel wants to see intentionality — did you pick a use case that maps to real customer pain, or did you just demo features? Your narrative choice reveals how you think about customer problems.",
+          prepTip: "Anchor to a real scenario: 'I chose a CDO at a mid-market company with no governance program because that's the highest-value entry point for Collibra. Every feature I showed maps to a pain point: metadata chaos, compliance risk, siloed data knowledge. I wanted to show Collibra solving a problem, not just existing as a product.'",
+        },
+        {
+          question: "How would you adjust this demo if the audience was a CISO instead of a CDO?",
+          why: "Persona-tailoring is a core CE skill. They want to see you can pivot on the fly — same product, different value narrative depending on who's in the room.",
+          prepTip: "Show the pivot: 'For a CISO, I'd lead with risk — regulatory exposure, AI model governance, access controls. I'd highlight the ISO 42001 certification, EU AI Act compliance tooling, and data privacy automation. The lineage story becomes about audit trail and incident response, not discovery and cataloging. Same platform, completely different emphasis.'",
+        },
+        {
+          question: "A customer in the audience says: 'We tried data governance before and it failed — why would this be different?'",
+          why: "This is the most common real-world objection. The panel is testing your ability to handle curveballs with empathy and substance, not defensiveness.",
+          prepTip: "Acknowledge, then differentiate: 'That's incredibly common — most governance programs fail because they mandate compliance without delivering value. Collibra's approach is different: it starts with a catalog that people actually want to use, layers in governance as guardrails, and connects to the tools your teams already work in. I saw this at Pfizer — we didn't mandate, we made governance the path of least resistance.'",
+        },
+        {
+          question: "What competitive alternatives would this customer likely be evaluating alongside Collibra?",
+          why: "They want to know you understand the competitive landscape and can position Collibra honestly without badmouthing competitors.",
+          prepTip: "Name them confidently: 'In this scenario — mid-market, first-time governance — they'd likely evaluate Alation (catalog-first, strong UX), Atlan (modern, AI-native), and possibly Microsoft Purview if they're Azure-native. Collibra wins on breadth — it's not just a catalog, it's governance, quality, lineage, privacy, and AI governance in one platform. The Gartner MQ Leader position gives procurement teams confidence.'",
+        },
+      ],
     },
   ],
   learningGuide: [

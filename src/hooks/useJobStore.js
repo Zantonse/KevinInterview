@@ -382,6 +382,25 @@ export function useJobStore() {
     })
   }, [update])
 
+  // ─── Demo drafts ────────────────────────────
+
+  const setDemoDraft = useCallback((sectionKey, value) => {
+    update((prev) => {
+      const id = prev.activeRoleId
+      const role = prev.roles[id]
+      return {
+        ...prev,
+        roles: {
+          ...prev.roles,
+          [id]: {
+            ...role,
+            demoDrafts: { ...(role.demoDrafts || {}), [sectionKey]: value },
+          },
+        },
+      }
+    })
+  }, [update])
+
   // ─── Interviews ──────────────────────────────
 
   const addInterview = useCallback((interviewerName, interviewerRole, scheduledAt = null) => {
@@ -509,6 +528,7 @@ export function useJobStore() {
     setRoleNotes,
     togglePrepItem,
     setStarDraft,
+    setDemoDraft,
     // Interviews
     addInterview,
     setTranscript,

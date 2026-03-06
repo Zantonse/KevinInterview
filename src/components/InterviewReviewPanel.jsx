@@ -1,6 +1,45 @@
 import { useState } from "react"
 import { analyzeTranscript } from "../lib/gemini"
 
+function PredictedQuestionCard({ item, index, isExpanded, onToggle }) {
+  return (
+    <div className="border border-border rounded-xl overflow-hidden">
+      <button
+        onClick={onToggle}
+        className="w-full text-left p-4 flex items-start gap-3 cursor-pointer hover:bg-surface-inset transition-colors"
+      >
+        <span className="w-6 h-6 rounded-full bg-accent-subtle text-accent flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">
+          {index + 1}
+        </span>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-medium text-text-primary">{item.question}</p>
+          <span className="text-xs text-text-muted mt-1 inline-block">
+            {isExpanded ? "Collapse" : "Tap to see prep guidance"}
+          </span>
+        </div>
+        <svg
+          className={`w-4 h-4 text-text-muted shrink-0 mt-1 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+          fill="none" viewBox="0 0 16 16" stroke="currentColor" strokeWidth="1.5"
+        >
+          <path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+      {isExpanded && (
+        <div className="px-4 pb-4 space-y-3 border-t border-border pt-3 ml-9">
+          <div>
+            <p className="text-xs font-bold text-text-muted uppercase mb-1">Why They'll Ask This</p>
+            <p className="text-sm text-text-secondary">{item.why}</p>
+          </div>
+          <div className="bg-accent-subtle border border-accent/20 rounded p-3">
+            <p className="text-xs font-bold text-accent mb-1">Prep Tip</p>
+            <p className="text-sm text-accent-text">{item.prepTip}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 function AssessmentBadge({ assessment }) {
   const config = {
     strong: { label: "Strong", className: "bg-success-subtle text-success-text" },
@@ -51,6 +90,7 @@ function QuestionReview({ item, index, isExpanded, onToggle }) {
 
 export default function InterviewReviewPanel({ interview, job, previousInterviews, onSetTranscript, onSetAnalysis, onSetStatus, onClearAnalysis, onDeleteInterview, apiKey }) {
   const [expandedQuestion, setExpandedQuestion] = useState(null)
+  const [expandedPrediction, setExpandedPrediction] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
@@ -150,6 +190,29 @@ export default function InterviewReviewPanel({ interview, job, previousInterview
           >
             Re-analyze
           </button>
+        </div>
+      )}
+
+      {/* Predicted Questions — shown for pending interviews with predictions */}
+      {interview.status !== "analyzed" && interview.predictedQuestions?.length > 0 && (
+        <div className="bg-surface-card rounded-xl shadow-card border border-border p-6">
+          <h3 className="text-md font-bold font-display text-text-primary mb-1">
+            Predicted Questions for This Round
+          </h3>
+          <p className="text-xs text-text-muted mb-4">
+            Based on the interviewer's background and role. Expand each for prep guidance.
+          </p>
+          <div className="space-y-2">
+            {interview.predictedQuestions.map((item, index) => (
+              <PredictedQuestionCard
+                key={index}
+                item={item}
+                index={index}
+                isExpanded={expandedPrediction === index}
+                onToggle={() => setExpandedPrediction(expandedPrediction === index ? null : index)}
+              />
+            ))}
+          </div>
         </div>
       )}
 

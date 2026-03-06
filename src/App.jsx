@@ -13,6 +13,7 @@ import JobsDashboard from "./components/JobsDashboard"
 import CheatSheetModal from "./components/CheatSheetModal"
 import ProfilePanel from "./components/ProfilePanel"
 import StoryBankPanel from "./components/StoryBankPanel"
+import DemoPrepPanel from "./components/DemoPrepPanel"
 
 export default function App() {
   const {
@@ -31,6 +32,7 @@ export default function App() {
     setRoleNotes,
     togglePrepItem,
     setStarDraft,
+    setDemoDraft,
     addInterview,
     setTranscript,
     setInterviewStatus,
@@ -101,6 +103,7 @@ export default function App() {
           short: `Int ${i + 1}`,
         })),
         { label: "Interview Guide", short: "Guide" },
+        { label: "Demo Prep", short: "Demo" },
         { label: "Scorecard", short: "Score" },
         { label: "Notes", short: "Notes" },
       ]
@@ -177,7 +180,8 @@ export default function App() {
   const renderStep = () => {
     const interviewStepCount = interviews.length
     const guideStepIndex = 2 + interviewStepCount
-    const scorecardStepIndex = guideStepIndex + 1
+    const demoPrepStepIndex = guideStepIndex + 1
+    const scorecardStepIndex = demoPrepStepIndex + 1
     const notesStepIndex = scorecardStepIndex + 1
 
     if (currentStep === 0) {
@@ -225,6 +229,16 @@ export default function App() {
           interviews={interviews}
           starDrafts={activeRole.starDrafts || {}}
           onDraftChange={setStarDraft}
+        />
+      )
+    }
+
+    if (currentStep === demoPrepStepIndex) {
+      return (
+        <DemoPrepPanel
+          demoPrep={activeRole.demoPrep || null}
+          demoDrafts={activeRole.demoDrafts || {}}
+          onDemoDraftChange={setDemoDraft}
         />
       )
     }

@@ -31,6 +31,7 @@ export function loadSeed(profile, company, role, preAnalyzedInterviews = []) {
     commonQuestions: role.commonQuestions || [],
     cultureValues: role.cultureValues || [],
     learningGuide: role.learningGuide || [],
+    demoPrep: role.demoPrep || null,
     createdAt: ts,
     appStatus: "active",
     notes: "",
@@ -77,6 +78,7 @@ export function loadSeed(profile, company, role, preAnalyzedInterviews = []) {
         status: "pending",
         analysis: null,
         interviewerNotes: iv.interviewerNotes || "",
+        predictedQuestions: iv.predictedQuestions || [],
       }
     }
   })
