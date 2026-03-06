@@ -484,6 +484,26 @@ export function useJobStore() {
     }))
   }, [update])
 
+  const setStudyPlan = useCallback((interviewId, plan) => {
+    update((prev) => ({
+      ...prev,
+      interviews: {
+        ...prev.interviews,
+        [interviewId]: { ...prev.interviews[interviewId], studyPlan: plan },
+      },
+    }))
+  }, [update])
+
+  const clearStudyPlan = useCallback((interviewId) => {
+    update((prev) => ({
+      ...prev,
+      interviews: {
+        ...prev.interviews,
+        [interviewId]: { ...prev.interviews[interviewId], studyPlan: null },
+      },
+    }))
+  }, [update])
+
   // ─── Reset (delete active role) ──────────────
 
   const reset = useCallback(() => {
@@ -537,6 +557,8 @@ export function useJobStore() {
     deleteInterview,
     clearInterviewAnalysis,
     setInterviewerNote,
+    setStudyPlan,
+    clearStudyPlan,
     // Reset
     reset,
   }

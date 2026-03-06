@@ -65,6 +65,7 @@ export function loadSeed(profile, company, role, preAnalyzedInterviews = []) {
         status: preAnalyzed.status || "pending",
         analysis: preAnalyzed.analysis || null,
         interviewerNotes: preAnalyzed.interviewerNotes || "",
+        studyPlan: preAnalyzed.studyPlan || iv.studyPlan || null,
       }
     } else {
       // Use the seed interview (pending, no transcript)
@@ -79,6 +80,7 @@ export function loadSeed(profile, company, role, preAnalyzedInterviews = []) {
         analysis: null,
         interviewerNotes: iv.interviewerNotes || "",
         predictedQuestions: iv.predictedQuestions || [],
+        studyPlan: iv.studyPlan || null,
       }
     }
   })
@@ -97,6 +99,7 @@ export function loadSeed(profile, company, role, preAnalyzedInterviews = []) {
         status: pa.status || "pending",
         analysis: pa.analysis || null,
         interviewerNotes: pa.interviewerNotes || "",
+        studyPlan: pa.studyPlan || null,
       }
     }
   })

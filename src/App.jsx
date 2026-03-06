@@ -14,6 +14,7 @@ import CheatSheetModal from "./components/CheatSheetModal"
 import ProfilePanel from "./components/ProfilePanel"
 import StoryBankPanel from "./components/StoryBankPanel"
 import DemoPrepPanel from "./components/DemoPrepPanel"
+import StudyGuidePanel from "./components/StudyGuidePanel"
 
 export default function App() {
   const {
@@ -40,6 +41,8 @@ export default function App() {
     deleteInterview,
     clearInterviewAnalysis,
     setInterviewerNote,
+    setStudyPlan,
+    clearStudyPlan,
     reset,
   } = useJobStore()
 
@@ -98,10 +101,10 @@ export default function App() {
     ? [
         { label: "Preparation", short: "Prep" },
         { label: "Company", short: "Co." },
-        ...interviews.map((iv, i) => ({
-          label: `Interview ${i + 1}`,
-          short: `Int ${i + 1}`,
-        })),
+        ...interviews.flatMap((iv, i) => [
+          { label: `Interview ${i + 1}`, short: `Int ${i + 1}` },
+          { label: `Study Guide ${i + 1}`, short: `SG ${i + 1}` },
+        ]),
         { label: "Interview Guide", short: "Guide" },
         { label: "Demo Prep", short: "Demo" },
         { label: "Scorecard", short: "Score" },
@@ -113,7 +116,7 @@ export default function App() {
 
   const handleAddInterview = (name, role, scheduledAt) => {
     addInterview(name, role, scheduledAt)
-    setCurrentStep(2 + interviews.length)
+    setCurrentStep(2 + interviews.length * 2)
   }
 
   const handleReset = () => {
@@ -178,11 +181,11 @@ export default function App() {
   const currentStepLabel = steps[currentStep]?.label || ""
 
   const renderStep = () => {
-    const interviewStepCount = interviews.length
-    const guideStepIndex = 2 + interviewStepCount
+    const N = interviews.length
+    const guideStepIndex    = 2 + N * 2
     const demoPrepStepIndex = guideStepIndex + 1
     const scorecardStepIndex = demoPrepStepIndex + 1
-    const notesStepIndex = scorecardStepIndex + 1
+    const notesStepIndex    = scorecardStepIndex + 1
 
     if (currentStep === 0) {
       return (
@@ -201,9 +204,27 @@ export default function App() {
       return <CompanyPanel job={job} />
     }
 
-    if (currentStep >= 2 && currentStep <= interviewStepCount + 1) {
-      const interview = interviews[currentStep - 2]
-      const previousInterviews = interviews.slice(0, currentStep - 2)
+    if (currentStep >= 2 && currentStep < 2 + N * 2) {
+      const offset = currentStep - 2
+      const interviewIndex = Math.floor(offset / 2)
+      const isStudyGuide   = offset % 2 === 1
+      const interview = interviews[interviewIndex]
+
+      if (isStudyGuide) {
+        const nextInterview = interviews[interviewIndex + 1] || null
+        return (
+          <StudyGuidePanel
+            interview={interview}
+            nextInterview={nextInterview}
+            job={job}
+            apiKey={apiKey}
+            onSetStudyPlan={setStudyPlan}
+            onClearStudyPlan={clearStudyPlan}
+          />
+        )
+      }
+
+      const previousInterviews = interviews.slice(0, interviewIndex)
       return (
         <InterviewReviewPanel
           interview={interview}

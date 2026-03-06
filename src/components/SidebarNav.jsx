@@ -41,22 +41,26 @@ export default function SidebarNav({
   // Group steps into phases
   const interviewCount = interviews?.length || 0
   const phaseSteps = {
-    prep: steps.slice(0, 2),                                     // Prep, Company
-    interviews: steps.slice(2, 2 + interviewCount),              // Interview 1..N
-    review: steps.slice(2 + interviewCount),                      // Guide, Scorecard, Notes
+    prep: steps.slice(0, 2),
+    interviews: steps.slice(2, 2 + interviewCount * 2),
+    review: steps.slice(2 + interviewCount * 2),
   }
   const phaseOffsets = {
     prep: 0,
     interviews: 2,
-    review: 2 + interviewCount,
+    review: 2 + interviewCount * 2,
   }
 
   function getStepState(globalIndex) {
     if (globalIndex === currentStep) return "active"
-    // Check if interview step has analysis
-    if (globalIndex >= 2 && globalIndex < 2 + interviewCount) {
-      const iv = interviews[globalIndex - 2]
-      if (iv?.status === "analyzed") return "complete"
+    if (globalIndex >= 2 && globalIndex < 2 + interviewCount * 2) {
+      const offset = globalIndex - 2
+      const iv = interviews[Math.floor(offset / 2)]
+      if (offset % 2 === 0) {
+        if (iv?.status === "analyzed") return "complete"
+      } else {
+        if (iv?.studyPlan) return "complete"
+      }
     }
     if (globalIndex < currentStep) return "visited"
     return "pending"

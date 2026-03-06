@@ -513,6 +513,131 @@ export const collibraRole = {
       interviewerName: "Christina Olson",
       interviewerRole: "Talent Acquisition — Recruiter Screen (30min)",
       scheduledAt: null,
+      studyPlan: {
+        generatedAt: 1741132800000,
+        target: "Ralf Strichau — March 13",
+        daysAvailable: 8,
+        totalHours: 14,
+        overview: "Technical + behavioral round with your future direct manager. Ralf came from Accenture consulting and made the same CS-to-CE transition you're making — he will probe adoption stories, consultative instincts, and platform depth. This plan front-loads platform knowledge and STAR story sharpening, then transitions to live practice and confidence-building in the final 2 days.",
+        days: [
+          {
+            dayLabel: "Day 1 — Today (Thu Mar 5)",
+            hours: 2,
+            theme: "Know what you're walking into",
+            tasks: [
+              {
+                label: "Hour 1",
+                text: "Open the app, go to the Collibra role → Preparation tab. Read every predicted question for Ralf's round (Interview 2 tab). Don't answer yet — just absorb what he's probing for. Pay special attention to the 'Data Confidence' question and the Unity Catalog competitive positioning question. These are the two most Ralf-specific items.",
+              },
+              {
+                label: "Hour 2",
+                text: "Research Ralf on LinkedIn: read his last 10 posts. Look for patterns — SAP, Siemens, 'Data Confidence', Nashville CE offsite. Write 3 bullet points in the Interview 2 interviewer notes box summarizing his worldview. You'll use these to mirror his language in the interview.",
+              },
+            ],
+          },
+          {
+            dayLabel: "Day 2 — Fri Mar 6",
+            hours: 2,
+            theme: "Lock in your origin story",
+            tasks: [
+              {
+                label: "Hour 1",
+                text: "Write your career narrative for 'Walk me through your background and why you're making this move.' Target: 90 seconds spoken. Cover: 10 years at Pfizer → Collibra power user → CE instincts without the title → intentional move to do this at scale externally. Mirror Ralf's own CS-to-CE transition — he made the same jump and will recognize the pattern.",
+              },
+              {
+                label: "Hour 2",
+                text: "Read Christina's interview analysis in the app (Interview 1 tab, scroll to the analysis section). Pull the specific improvement areas she flagged. For each one, write one sentence on how you'll address it with Ralf. Ralf will have Christina's debrief — he'll be probing the same spots she flagged.",
+              },
+            ],
+          },
+          {
+            dayLabel: "Day 3 — Sat Mar 7",
+            hours: 2,
+            theme: "Platform depth — beyond the governance module",
+            tasks: [
+              {
+                label: "Hour 1",
+                text: "Study the Collibra product suite beyond what you used at Pfizer: AI Governance (ISO 42001, EU AI Act, model cataloging, bias/drift), Data Quality & Observability, Data Marketplace, and the Deasy Labs acquisition for unstructured data. For each: what problem does it solve, what customer persona cares most, and what's one strong demo talking point.",
+              },
+              {
+                label: "Hour 2",
+                text: "Watch one Collibra product demo on YouTube (youtube.com/@Collibra). Study the narrative structure: problem → capability → outcome. Note how they transition from business pain to product screen. You need to internalize this flow — Ralf will expect you to talk about the platform like a CE, not an end user.",
+              },
+            ],
+          },
+          {
+            dayLabel: "Day 4 — Sun Mar 8",
+            hours: 2,
+            theme: "Sharpen your three core STAR stories",
+            tasks: [
+              {
+                label: "Hour 1",
+                text: "In the Interview Guide tab, find the adoption question. Draft your full STAR for the Collibra 40% adoption growth story. Lead with metrics from sentence one: '600 users to 1,000+, 7 BUs to 10+, 40% YoY growth.' Then the how: champion users, quick-win workflows, redesigned training, governance office hours. Practice out loud — aim for 90 seconds.",
+              },
+              {
+                label: "Hour 2",
+                text: "Draft your STAR for the Alation → Collibra migration (50% cost reduction, zero downtime). Write it in the Story Bank tab. Then draft the Metadata Cycle Time story (14 days → 10 days, 30% reduction). Both answer Ralf's consultative leadership question and prove you've been in the trenches with the product he sells.",
+              },
+            ],
+          },
+          {
+            dayLabel: "Day 5 — Mon Mar 9",
+            hours: 1.5,
+            theme: "Competitive positioning and 'Data Confidence'",
+            tasks: [
+              {
+                label: "45 min",
+                text: "Build your answers to the two hardest Ralf questions: (1) Unity Catalog objection — use the 'and not or' framing from the Company tab. Practice it out loud until it's natural. (2) 'What does Data Confidence mean to you?' — make it personal with the Pfizer story: a business leader pulling a report and trusting the numbers without calling your team. That's Data Confidence operationally.",
+              },
+              {
+                label: "45 min",
+                text: "Review the Gartner MQ positioning, the Deasy Labs and Raito acquisitions, and the ISO 42001 cert from the Company tab. Know the one-line headline for each: why it matters, one sentence. You don't need to be encyclopedic — you need to signal you've done your homework and understand where Collibra is heading strategically.",
+              },
+            ],
+          },
+          {
+            dayLabel: "Day 6 — Tue Mar 10",
+            hours: 1.5,
+            theme: "Mock Q&A — full run",
+            tasks: [
+              {
+                label: "60 min",
+                text: "Do a full mock Q&A using all 6 predicted questions in Ralf's tab (Interview 2). Answer each out loud as if he's on Zoom across from you. Record yourself on your phone. Don't read from notes. Complete all 6 in under 60 minutes — the interview is 45 minutes and he'll go off-script.",
+              },
+              {
+                label: "30 min",
+                text: "Play back the recording. Grade yourself on: (1) Did you lead with metrics in every story? (2) Did you use 'Data Confidence' naturally, not robotically? (3) Did you mirror his CS-to-CE background in the career narrative? Write down the 2-3 answers to tighten.",
+              },
+            ],
+          },
+          {
+            dayLabel: "Day 7 — Wed Mar 11",
+            hours: 1,
+            theme: "Tighten and refine",
+            tasks: [
+              {
+                label: "60 min",
+                text: "Re-run only the 2-3 answers you flagged from yesterday's recording. Don't try to rebuild everything. Check the Company tab for any recent Collibra news. Check if Ralf posted anything new on LinkedIn — look for signal about what he's been thinking about. Update the interviewer notes in the app if you find anything useful.",
+              },
+            ],
+          },
+          {
+            dayLabel: "Day 8 — Thu Mar 12 (Day Before)",
+            hours: 2,
+            theme: "Logistics, confidence, light review",
+            tasks: [
+              {
+                label: "Hour 1",
+                text: "Light review only: skim the predicted questions, your three STAR stories, and the Data Confidence framing. Do not try to learn new material today. Set up your interview space: test audio/video if Zoom, have water nearby, close unnecessary browser tabs. Confirm the interview time (12pm CDT = 1pm EDT — verify your local time) and dial-in details.",
+              },
+              {
+                label: "Hour 2",
+                text: "Spend 30 minutes reading the Pfizer Collibra case study from Data Citizens '24 (link in Demo Prep → Reference Materials). Then sit quietly for a few minutes. Remind yourself: you are one of the most knowledgeable Collibra practitioners in the world. You built the program that Collibra uses as a case study. Walk into this interview from a position of earned confidence, not anxiety.",
+              },
+            ],
+          },
+        ],
+      },
     },
     {
       interviewerName: "Ralf Strichau",
