@@ -35,6 +35,7 @@ export function loadSeed(profile, company, role, preAnalyzedInterviews = []) {
     technicalStudyGuide: role.technicalStudyGuide || [],
     questionsToAsk: role.questionsToAsk || [],
     demoPrep: role.demoPrep || null,
+    seSkillsGuide: role.seSkillsGuide || null,
     createdAt: ts,
     appStatus: "active",
     notes: "",

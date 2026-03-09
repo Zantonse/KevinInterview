@@ -15,6 +15,7 @@ import ProfilePanel from "./components/ProfilePanel"
 import StoryBankPanel from "./components/StoryBankPanel"
 import DemoPrepPanel from "./components/DemoPrepPanel"
 import StudyGuidePanel from "./components/StudyGuidePanel"
+import SESkillsPanel from "./components/SESkillsPanel"
 
 export default function App() {
   const {
@@ -86,6 +87,7 @@ export default function App() {
       technicalStudyGuide: activeRole.technicalStudyGuide,
       questionsToAsk: activeRole.questionsToAsk,
       companyProfile: activeCompany?.companyProfile || null,
+      seSkillsGuide: activeRole.seSkillsGuide,
     }
   }, [activeRole, activeCompany])
 
@@ -110,6 +112,7 @@ export default function App() {
         ]),
         { label: "Interview Guide", short: "Guide" },
         { label: "Demo Prep", short: "Demo" },
+        { label: "SE Skills", short: "SE" },
         { label: "Scorecard", short: "Score" },
         { label: "Notes", short: "Notes" },
       ]
@@ -186,9 +189,10 @@ export default function App() {
   const renderStep = () => {
     const N = interviews.length
     const guideStepIndex    = 2 + N * 2
-    const demoPrepStepIndex = guideStepIndex + 1
-    const scorecardStepIndex = demoPrepStepIndex + 1
-    const notesStepIndex    = scorecardStepIndex + 1
+    const demoPrepStepIndex   = guideStepIndex + 1
+    const seSkillsStepIndex   = demoPrepStepIndex + 1
+    const scorecardStepIndex  = seSkillsStepIndex + 1
+    const notesStepIndex      = scorecardStepIndex + 1
 
     if (currentStep === 0) {
       return (
@@ -263,6 +267,14 @@ export default function App() {
           demoPrep={activeRole.demoPrep || null}
           demoDrafts={activeRole.demoDrafts || {}}
           onDemoDraftChange={setDemoDraft}
+        />
+      )
+    }
+
+    if (currentStep === seSkillsStepIndex) {
+      return (
+        <SESkillsPanel
+          seSkillsGuide={activeRole.seSkillsGuide || null}
         />
       )
     }

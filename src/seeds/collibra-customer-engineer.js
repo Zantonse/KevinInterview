@@ -1057,6 +1057,254 @@ export const collibraRole = {
       ],
     },
   ],
+
+  // ─── SE Skills Guide ────────────────────────────────────────────
+  seSkillsGuide: [
+    {
+      title: "Discovery & Qualification",
+      icon: "🔍",
+      overview: "Discovery is the foundation of every SE engagement. Before you demo, before you scope a POC, you need to deeply understand the customer's current state, desired state, and the gap between them. Great discovery isn't interrogation — it's a guided conversation where you earn the right to propose a solution by first proving you understand the problem.",
+      kevinBridge: "At Pfizer, you ran structured discovery sessions with BU stakeholders to identify governance maturity gaps, define domain onboarding priorities, and map Collibra capabilities to use cases. That IS discovery — you were qualifying internal 'customers' before proposing solutions. The difference in SE work is that you're doing this with external prospects who haven't committed yet, and your discovery directly impacts whether a deal moves forward.",
+      concepts: [
+        {
+          term: "Open vs. Closed Questions",
+          definition: "Open questions ('Tell me about your current data governance process') invite narrative and uncover latent pain. Closed questions ('Do you use Snowflake?') confirm facts. Great discovery uses 80% open, 20% closed. Open questions at the start, closed questions to confirm and sharpen.",
+        },
+        {
+          term: "BANT Basics",
+          definition: "Budget, Authority, Need, Timeline — the four pillars of traditional qualification. Is there money allocated? Are you talking to the decision-maker? Is there a real business pain? Is there urgency? CEs focus most on Need (technical validation) and help AEs validate Budget/Authority/Timeline.",
+        },
+        {
+          term: "Pain vs. Interest",
+          definition: "Interest is 'we're looking at data governance tools.' Pain is 'our CFO got embarrassed in a board meeting because two teams reported different revenue numbers.' Pain drives urgency and budget. Always dig for the pain behind the interest — who's affected, what's the cost of inaction, what happens if they don't solve this in 6 months?",
+        },
+        {
+          term: "The Discovery Framework",
+          definition: "Current State → Desired State → Gap → Impact → Timeline. Start with where they are today, understand where they want to be, identify what's preventing them from getting there, quantify the business impact of the gap, and establish urgency. This is the same structure you used mapping BU governance maturity at Pfizer.",
+        },
+        {
+          term: "Multi-Threading",
+          definition: "Never rely on a single champion. Discovery should map the full buying committee: economic buyer, technical evaluators, end users, and potential blockers. At Pfizer you navigated BU heads, data engineers, security teams, and business SMEs — that's multi-threading within an org.",
+        },
+      ],
+      exercises: [
+        "Write out the discovery questions you'd ask a prospect who says 'we're evaluating data catalog tools.' Start broad, then funnel down to specific pain, impact, and timeline. Aim for 15 questions.",
+        "Take your Pfizer BU onboarding process and reframe it as a discovery-to-proposal flow: what questions did you ask each BU before designing their governance rollout? Write these down — they're your discovery muscle memory.",
+        "Practice the 'tell me more' technique: for any answer a prospect gives, your next question should be a variant of 'can you help me understand that better?' or 'what does that look like in practice?' Record yourself doing this for 5 minutes.",
+      ],
+    },
+    {
+      title: "MEDDPICC Framework",
+      icon: "📋",
+      overview: "MEDDPICC is the enterprise sales qualification framework used by most B2B SaaS companies including Collibra's sales org. It stands for Metrics, Economic Buyer, Decision Criteria, Decision Process, Paper Process, Identify Pain, Champion, Competition. CEs don't own every element — AEs drive the deal — but CEs contribute to almost all of them through technical discovery, POCs, and stakeholder relationships.",
+      kevinBridge: "You've already touched most MEDDPICC pillars at Pfizer without knowing the framework. You identified governance maturity gaps (Pain), built business cases with ROI metrics like 50% cost reduction (Metrics), navigated multiple decision-makers across BUs (Decision Process), and created champions who advocated for Collibra adoption (Champion). Learning the framework just gives you a shared vocabulary with the sales team.",
+      concepts: [
+        {
+          term: "Metrics",
+          definition: "Quantifiable business outcomes the customer wants to achieve. 'Reduce time-to-insight by 40%' or 'eliminate $2M in redundant licensing.' CEs help identify and validate these during discovery and POCs. Your Pfizer metrics (40% adoption growth, 30% cycle time reduction, 50% cost savings) are perfect examples.",
+        },
+        {
+          term: "Economic Buyer",
+          definition: "The person who can say yes when everyone else says no — typically a VP or C-level. They care about business outcomes, not features. CEs rarely present to the EB directly but must ensure the narrative reaches them. At Pfizer, these were your BU heads and data leadership.",
+        },
+        {
+          term: "Decision Criteria",
+          definition: "The formal and informal criteria the customer uses to evaluate vendors. Technical fit, integration capability, TCO, vendor support, security compliance. CEs directly influence this through demos and POCs. Your Alation-vs-Collibra evaluation (lineage depth, UI accessibility, mass operations, TCO) was exactly this.",
+        },
+        {
+          term: "Decision Process",
+          definition: "The steps, timeline, and stakeholders involved in making the purchase decision. Who evaluates? Who approves? Is there a formal RFP? Legal review? Security audit? Understanding this prevents deals from stalling. At Pfizer, you navigated exactly this when getting BU sign-off for Collibra adoption.",
+        },
+        {
+          term: "Paper Process",
+          definition: "The procurement and legal steps after a verbal 'yes' — MSA negotiation, security review, procurement approval, legal sign-off. Deals can die here if not managed. CEs support by providing security documentation, architecture diagrams, and technical compliance responses.",
+        },
+        {
+          term: "Identify Pain",
+          definition: "The core business problem driving the evaluation. Not 'we need a data catalog' (that's a solution) but 'our analysts spend 30% of their time finding and validating data' (that's pain). CEs must connect product capabilities to specific, quantified pain points.",
+        },
+        {
+          term: "Champion",
+          definition: "An internal advocate who has power, influence, and a personal reason to want Collibra to win. They sell internally when you're not in the room. CEs build champions by making them look good — giving them presentation materials, helping them build the internal business case, making their evaluation a success.",
+        },
+        {
+          term: "Competition",
+          definition: "Understanding who else is being evaluated and positioning against them. CEs must know competitive strengths and weaknesses cold. For Collibra, the main competitors are Alation, Informatica (now Salesforce), Atlan, and cloud-native tools (Databricks Unity Catalog, Google Dataplex).",
+        },
+      ],
+      exercises: [
+        "Take your Pfizer Collibra deployment and map it to every MEDDPICC letter. For each, write one sentence about what you did that corresponds to that element. This is your interview ammunition.",
+        "For the Alation-to-Collibra migration story, identify: who was the Economic Buyer? What were the Decision Criteria? Who was your Champion? What was the Competition? This reframes a technical story in sales language.",
+        "Read 3-5 MEDDPICC blog posts from Winning by Design or Force Management. Note how the framework applies to enterprise data governance deals specifically.",
+      ],
+    },
+    {
+      title: "Demo & Presentation Craft",
+      icon: "🎬",
+      overview: "A great demo is not a feature tour — it's a narrative that connects the customer's specific pain to your product's capabilities to a measurable business outcome. The structure is always: Problem → Capability → Outcome. Every click should have a reason. Every screen should advance the story. Christina told you the demo is ~50% of your evaluation at Collibra, so this is the highest-leverage skill to develop.",
+      kevinBridge: "You conducted tailored platform demonstrations and executive walkthroughs at Pfizer to showcase lineage, stewardship workflows, glossary alignment, and policy enforcement. You've done internal demos that drove 40% adoption growth. The difference with external demos is the audience hasn't committed yet — you're persuading, not training. But your instinct for tailoring the demo to the audience and leading with business value (not features) is the right foundation.",
+      concepts: [
+        {
+          term: "Problem → Capability → Outcome",
+          definition: "The universal demo narrative structure. Start with the customer's stated pain ('Your analysts can't find trusted data'). Show the capability that addresses it ('Here's how Collibra's catalog lets them search, see lineage, and check certification status'). End with the outcome ('This reduces data discovery time from hours to minutes'). Never show a feature without connecting it to a problem and an outcome.",
+        },
+        {
+          term: "Mixed Audience Technique",
+          definition: "Enterprise demos often have technical evaluators, business stakeholders, and executives in the same room. Address each: 'For your data engineers, here's the API integration' → 'For your business users, here's the self-service portal' → 'For leadership, here's the governance dashboard showing compliance status.' Signal each transition so everyone knows when to pay attention.",
+        },
+        {
+          term: "The 'Day in the Life' Narrative",
+          definition: "Instead of showing features, walk through a persona's actual workflow. 'Sarah is a data analyst. She needs to build a report for the CFO. She opens Collibra, searches for revenue data, sees the lineage showing it comes from Snowflake, checks the certification status, and confidently builds her report.' This makes the product tangible and relatable.",
+        },
+        {
+          term: "Handling Q&A Mid-Demo",
+          definition: "Questions during a demo are buying signals — embrace them. If a question is on-topic, answer it immediately. If it's off-topic, acknowledge it and park it: 'Great question — I'll cover that in the lineage section, or we can circle back at the end.' Never dismiss a question. Never let one person's deep-dive derail the narrative for everyone else.",
+        },
+        {
+          term: "Common Demo Mistakes",
+          definition: "Feature dumping (showing everything instead of what matters). Not personalizing (generic data instead of industry-relevant examples). Going too deep too fast (showing API docs to a business audience). Not leaving time for Q&A. Not having a clear call-to-action at the end ('Based on what you've seen, does a POC make sense as a next step?').",
+        },
+      ],
+      exercises: [
+        "Build a 10-minute mock demo narrative for Collibra using the Problem → Capability → Outcome structure. Pick a persona (data analyst at a healthcare company) and walk through their 'day in the life.' Write the script, then practice delivering it to a mirror or camera.",
+        "Watch 3 Collibra YouTube product demos and deconstruct them: What's the narrative structure? Where do they lead with business value vs. features? What would you change? Take notes on transitions between sections.",
+        "Practice the 'mixed audience pivot' — take one Collibra capability (e.g., data lineage) and prepare three 30-second explanations: one for a CDO, one for a data engineer, and one for a business analyst. The same feature, framed three different ways.",
+        "Record yourself delivering a 5-minute demo of any product you know well. Watch it back and note: filler words, pacing, screen transitions, whether you connected features to outcomes. This is uncomfortable but invaluable.",
+      ],
+    },
+    {
+      title: "POC/POV Execution",
+      icon: "🧪",
+      overview: "A Proof of Concept (POC) or Proof of Value (POV) is a time-boxed engagement where the customer validates that Collibra works in their environment with their data. It's the most technical phase of the sales cycle and where CEs have the most direct influence on the deal outcome. A well-run POC converts at 70-80%. A poorly scoped one wastes everyone's time.",
+      kevinBridge: "Your phased domain onboarding pilots at Pfizer were essentially POCs — you scoped the work, defined success criteria (governance assets configured, stewardship model working, metadata flowing), time-boxed each phase, involved the right stakeholders, and measured outcomes. The GPD-IP domain buildout is a perfect example: you took a domain from zero governance to full Collibra implementation with a defined architecture and measurable results. That's POC execution.",
+      concepts: [
+        {
+          term: "Scoping",
+          definition: "Define exactly what will be demonstrated during the POC. Too broad = impossible to succeed. Too narrow = doesn't prove value. A good Collibra POC typically covers: one data domain, 2-3 data sources, governance workflow configuration, lineage visualization, and a specific business metric improvement. Agree on scope IN WRITING before starting.",
+        },
+        {
+          term: "Success Criteria",
+          definition: "Before the POC starts, both sides must agree on what 'success' looks like. These should be measurable and specific: 'Collibra can ingest metadata from our Snowflake instance within 4 hours' or 'Business users can find and understand data assets without IT assistance.' Vague criteria ('we'll know it when we see it') kill POCs.",
+        },
+        {
+          term: "Time-Boxing",
+          definition: "POCs should be 2-4 weeks maximum. Longer POCs lose momentum and executive attention. Build a week-by-week plan: Week 1 = environment setup + data source connection, Week 2 = governance configuration + workflow setup, Week 3 = user testing + refinement, Week 4 = results presentation + next steps.",
+        },
+        {
+          term: "Stakeholder Involvement",
+          definition: "The right people must be engaged at the right times. Technical team for setup, business users for validation, executives for the results presentation. The biggest POC risk is doing great technical work that no one with budget authority ever sees. Schedule the exec readout at the START, not the end.",
+        },
+        {
+          term: "Closing the POC",
+          definition: "A POC should end with a clear recommendation and next step. Present results against success criteria, quantify value demonstrated, and propose the path to production. 'We validated all 5 success criteria. Based on this, we recommend a 6-month implementation starting with your finance and compliance domains. Here's what that looks like.'",
+        },
+      ],
+      exercises: [
+        "Take your GPD-IP domain buildout and rewrite it as a POC proposal: scope document, success criteria, timeline, stakeholder plan, and closeout presentation. This reframes your best technical story in POC language.",
+        "Design a mock 3-week Collibra POC for a fictional healthcare company that wants to govern their clinical trial data. Define: scope (which domains), success criteria (5 measurable items), weekly milestones, and the stakeholder engagement plan.",
+        "Study Collibra's POV methodology if available in their documentation. Many vendors publish POV guides — search for 'data governance proof of value template' to understand common structures.",
+      ],
+    },
+    {
+      title: "Objection Handling",
+      icon: "🛡️",
+      overview: "Objections are not rejection — they're requests for more information. Every objection is a signal that the prospect is engaged enough to push back. The best SEs welcome objections because handling them well builds trust and advances the deal. The core pattern is: Acknowledge → Ask → Reframe.",
+      kevinBridge: "At Pfizer, you regularly handled 'objections' from resistant BU heads, security teams concerned about PII exposure, and stakeholders comfortable with Alation who didn't want to migrate. When you walked the security team through exactly what Collibra's metadata connector retrieves (table names, column names — not row data), you were doing textbook objection handling: acknowledging the concern, providing specific evidence, and reframing the conversation. You've been doing this; now learn the formal patterns.",
+      concepts: [
+        {
+          term: "Acknowledge → Ask → Reframe",
+          definition: "Step 1: Acknowledge the concern genuinely ('I understand why that's a concern — data security is critical'). Step 2: Ask a clarifying question ('Can you help me understand specifically what data you're worried about being exposed?'). Step 3: Reframe with evidence ('Collibra's connector only reads metadata — table and column names — never the actual data in the rows. Here's the architecture diagram showing the data flow.'). This pattern works for 90% of objections.",
+        },
+        {
+          term: "Turning Objections into Discovery",
+          definition: "Every objection reveals something about the customer's priorities, fears, or past experiences. 'We tried a data catalog before and it failed' tells you they have scar tissue — dig into what went wrong and position Collibra differently. 'Our team won't adopt another tool' tells you adoption is the real concern, not the technology.",
+        },
+        {
+          term: "Competitive Objections",
+          definition: "When a prospect says 'Alation/Informatica/Atlan does this too,' don't trash the competitor. Instead: acknowledge ('They're a solid product'), differentiate on facts ('Where Collibra differs is in the depth of our lineage visualization and our unified governance across data AND AI'), and bridge to value ('Let me show you specifically how that difference would affect your workflow'). See Demo Prep for Collibra-specific competitive positioning.",
+        },
+        {
+          term: "The 'Feel, Felt, Found' Pattern",
+          definition: "For emotional or experiential objections: 'I understand how you feel — several customers we work with felt the same way initially. What they found was [specific outcome].' This validates the concern while providing social proof. Use sparingly — it can feel formulaic if overused.",
+        },
+        {
+          term: "Knowing When Not to Handle",
+          definition: "Some objections are legitimate deal-breakers. If Collibra genuinely can't do what the customer needs, say so. 'That's not something we support today, but here's what's on our roadmap' builds more trust than a workaround that won't hold. Christina praised your transparency about the demo gap — that instinct serves you well in objection handling.",
+        },
+      ],
+      exercises: [
+        "List the 5 most common objections you heard from Pfizer stakeholders during the Collibra rollout. For each, write out the Acknowledge → Ask → Reframe response you used (or wish you had used).",
+        "For each Collibra competitor (Alation, Informatica/Salesforce, Atlan, Databricks Unity Catalog), write a 2-sentence differentiator and a bridge statement. Practice saying them out loud until they feel natural.",
+        "Role-play: have a friend (or record yourself) play a skeptical prospect. They say 'we already have Databricks Unity Catalog — why do we need Collibra on top of it?' Practice handling this without trashing Databricks.",
+      ],
+    },
+    {
+      title: "Commercial Awareness",
+      icon: "📊",
+      overview: "CEs are technical sellers. You don't carry a quota directly, but your work drives pipeline, accelerates deals, and expands accounts. Understanding how revenue works in enterprise SaaS — pipeline stages, ARR, NRR, land-and-expand — makes you a better partner to your AE and a more strategic CE. Collibra's CE compensation is 70/30 (base/variable), meaning 30% of your pay is tied to deal outcomes.",
+      kevinBridge: "You drove measurable business outcomes at Pfizer that map directly to commercial language: 40% adoption growth is 'expansion within an existing account,' 50% licensing cost reduction from Alation consolidation is 'competitive displacement,' and onboarding new BUs is 'land-and-expand.' You already think in terms of business impact — now learn to express it in the vocabulary your AE and sales leadership use.",
+      concepts: [
+        {
+          term: "Pipeline & Stages",
+          definition: "Enterprise deals move through stages: Prospect → Discovery → Demo → POC → Proposal → Negotiation → Closed Won/Lost. CEs are most active in Discovery through POC. Understanding where a deal is in the pipeline helps you prioritize your time — a deal in POC stage needs more of your attention than one in early Discovery.",
+        },
+        {
+          term: "ARR / NRR",
+          definition: "Annual Recurring Revenue (ARR) is the total annualized subscription revenue. Net Revenue Retention (NRR) measures expansion within existing customers. NRR > 100% means existing customers are spending more over time. Collibra's enterprise pricing starts at ~$170K/year with typical deals at $500K-$2M+. CEs influence both new ARR (new logos) and expansion ARR (upselling modules to existing customers).",
+        },
+        {
+          term: "Land and Expand",
+          definition: "Win a focused initial deal (land) then grow the account over time (expand). A customer might start with Data Governance and Data Catalog, then add Data Quality, AI Governance, and Data Privacy in subsequent years. This is exactly what you did at Pfizer — starting with core governance and expanding to lineage, quality, and cross-platform integration.",
+        },
+        {
+          term: "CE Contribution to Revenue",
+          definition: "CEs influence revenue through: (1) discovery that qualifies real opportunities vs. tire-kickers, (2) demos that build executive conviction, (3) POCs that prove technical fit and value, (4) technical close plans that remove blockers, and (5) post-sale advisory that drives expansion. Collibra's 30% variable comp reflects this direct impact on deal outcomes.",
+        },
+        {
+          term: "Forecasting & CRM",
+          definition: "Sales teams forecast revenue using CRM data (Salesforce). CEs contribute by updating technical win/loss status, POC outcomes, and deal risks. Knowing how to log your activities and flag risks in the CRM makes you a trustworthy team member. 'The POC went well but the security review is blocked on a compliance question' is the kind of signal that helps AEs manage the forecast.",
+        },
+      ],
+      exercises: [
+        "Rewrite your top 3 Pfizer achievements in commercial language: What was the 'deal' (BU onboarding)? What was the 'ARR' equivalent (platform licensing allocated to that BU)? What was the 'expansion' (additional modules or capabilities deployed)?",
+        "Study Collibra's pricing model: base platform ~$170K/year, typical enterprise deals $500K-$2M+. What modules would you recommend for a land deal vs. an expand deal? How would you size a POC to demonstrate value that justifies the price?",
+        "Read 2-3 articles on 'CE/SE quota attainment' and 'how SEs are compensated.' Understanding the 70/30 split and what drives the variable component helps you prioritize your work on high-impact activities.",
+      ],
+    },
+    {
+      title: "Learning Resources",
+      icon: "📚",
+      overview: "You don't need years of SE experience to interview well — you need to demonstrate that you understand the role, can learn fast, and have transferable skills. These resources will help you build SE fluency before your interviews and accelerate your ramp if you get the job.",
+      kevinBridge: "Your learning trajectory at Pfizer — from financial analyst to data governance leader to Collibra platform expert — proves you can ramp on complex domains quickly. The same learning approach applies here: structured self-study, hands-on practice, and learning from practitioners. You've already done the hardest part (learning the product). Now learn the sales motion around it.",
+      concepts: [
+        {
+          term: "Books",
+          definition: "• 'Mastering Technical Sales' by John Care & Aron Bohlig — the definitive SE handbook, covers discovery, demos, POCs, and career development. Read chapters 1-5 before your interviews.\n• 'The Challenger Sale' by Dixon & Adamson — the mindset that top sellers teach customers something new, not just respond to needs. Relevant to how CEs add value beyond product knowledge.\n• 'SPIN Selling' by Neil Rackham — the research behind why Situation, Problem, Implication, Need-Payoff questions outperform traditional selling. Foundational for discovery skills.",
+        },
+        {
+          term: "YouTube & Podcasts",
+          definition: "• 'We the Sales Engineers' podcast — real SEs discussing daily work, career paths, and skill development. Start with episodes on 'transitioning into SE from technical roles.'\n• 'PreSales Collective' YouTube channel — demo best practices, discovery techniques, and career advice from SE leaders.\n• John Barrows / JB Sales on YouTube — tactical sales skills that apply to CEs. His discovery and objection handling videos are excellent.\n• Watch Collibra's own YouTube demos (18 videos, ~50 min total) to study how their team presents the product.",
+        },
+        {
+          term: "MEDDPICC Materials",
+          definition: "• Force Management blog (forcemanagement.com) — the company that created MEDDPICC. Free articles explaining each element with enterprise examples.\n• 'MEDDICC' by Andy Whyte — the definitive book on the framework. Short read, very practical.\n• Winning by Design (winningbydesign.com) — excellent free resources on recurring revenue sales methodology including MEDDPICC applications.",
+        },
+        {
+          term: "Collibra-Specific",
+          definition: "• Collibra University (university.collibra.com) — 200+ free courses. Take the foundational governance and platform overview courses.\n• Collibra Developer Portal (developer.collibra.com) — public REST API docs, data model reference, workflow engine docs.\n• Collibra Community (community.collibra.com) — 11,000+ members, read recent threads to absorb practitioner vocabulary.\n• Collibra YouTube Product Demos — study the narrative structure of how Collibra's own team presents.",
+        },
+        {
+          term: "Communities & Networking",
+          definition: "• PreSales Collective (presalescollective.com) — largest SE community, free Slack workspace, job boards, and events. Join and introduce yourself.\n• Sales Engineering subreddit (r/salesengineers) — candid discussions about the role, compensation, and career transitions.\n• LinkedIn: Follow SE leaders like John Care, Chris White, and Collibra's own CE team members. Engage with their content.",
+        },
+      ],
+      exercises: [
+        "Order or download 'Mastering Technical Sales' by John Care. Read chapters 1-5 (The Role, Discovery, Presentations, Demos, POCs) before your hiring manager interview. Take notes on anything that maps to your Pfizer experience.",
+        "Join the PreSales Collective Slack community and read 10 recent threads. Note the vocabulary, common challenges, and how experienced SEs describe their work. This builds conversational fluency.",
+        "Complete 3 Collibra University foundational courses. Screenshot your completion certificates — mentioning these in interviews shows initiative and commitment to ramping quickly.",
+      ],
+    },
+  ],
 }
 
 // ─── 4. Christina Olson Recruiter Screen (Pre-Analyzed) ──────────
