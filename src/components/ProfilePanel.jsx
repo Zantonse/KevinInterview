@@ -37,6 +37,72 @@ export default function ProfilePanel({ profile }) {
         </div>
       )}
 
+      {/* Professional Identity */}
+      {profile.professionalIdentity && (
+        <div className="bg-surface-card rounded-xl shadow-card border border-border p-6 space-y-5">
+          <div>
+            <h3 className="font-display text-xl text-text-primary mb-2">Professional Identity</h3>
+            <p className="text-sm text-text-secondary leading-relaxed">{profile.professionalIdentity.coreDNA}</p>
+          </div>
+
+          {/* The Pattern */}
+          {profile.professionalIdentity.professionalPattern && (
+            <div className="bg-accent-subtle border border-accent/20 rounded-lg p-5">
+              <h4 className="text-xs font-bold text-accent uppercase tracking-wide mb-1">
+                {profile.professionalIdentity.professionalPattern.label}
+              </h4>
+              <p className="text-sm text-accent-text leading-relaxed mb-3">
+                {profile.professionalIdentity.professionalPattern.description}
+              </p>
+              {profile.professionalIdentity.professionalPattern.pfizerExamples?.length > 0 && (
+                <div className="space-y-1.5">
+                  <p className="text-xs font-bold text-accent-text/70 uppercase">Pattern at Pfizer</p>
+                  {profile.professionalIdentity.professionalPattern.pfizerExamples.map((ex, i) => (
+                    <p key={i} className="text-xs text-accent-text flex items-start gap-2">
+                      <span className="text-accent shrink-0 mt-0.5 font-bold">→</span>
+                      <span>{ex}</span>
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Personal Tech Pattern */}
+          {profile.professionalIdentity.personalTechPattern && (
+            <div className="bg-surface-inset rounded-lg p-5">
+              <h4 className="text-xs font-bold text-text-muted uppercase tracking-wide mb-1">
+                {profile.professionalIdentity.personalTechPattern.label}
+              </h4>
+              <p className="text-sm text-text-secondary leading-relaxed mb-3">
+                {profile.professionalIdentity.personalTechPattern.description}
+              </p>
+              <div className="bg-accent-subtle/50 border border-accent/10 rounded p-3">
+                <p className="text-xs font-bold text-accent-text/70 uppercase mb-1">Why It Matters for the CE Role</p>
+                <p className="text-xs text-accent-text leading-relaxed">
+                  {profile.professionalIdentity.personalTechPattern.whyItMatters}
+                </p>
+              </div>
+            </div>
+          )}
+
+          {/* Self-Reflection Questions */}
+          {profile.professionalIdentity.selfReflectionQuestions?.length > 0 && (
+            <div>
+              <h4 className="text-xs font-bold text-text-muted uppercase tracking-wide mb-3">Questions to Ask Yourself</h4>
+              <div className="space-y-3">
+                {profile.professionalIdentity.selfReflectionQuestions.map((q, i) => (
+                  <div key={i} className="bg-warning-subtle/50 border border-warning/15 rounded-lg p-4">
+                    <p className="text-xs font-bold text-warning-text mb-1.5">{q.topic}</p>
+                    <p className="text-sm text-text-primary leading-relaxed">{q.question}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+
       {/* Key Metrics */}
       {profile.keyMetrics?.length > 0 && (
         <div className="bg-surface-card rounded-xl shadow-card border border-border p-6">

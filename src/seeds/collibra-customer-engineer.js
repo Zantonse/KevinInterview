@@ -119,7 +119,42 @@ export const kevinProfile = {
     "Master's degree in MIS plus AI Certificate — exceeds bachelor's requirement and demonstrates continuous learning",
     "Cross-functional communication: bridged technical and business teams as BA, governance lead, and RPA liaison",
     "CSPO certification demonstrates structured approach to requirements gathering and stakeholder management",
+    "Operations optimizer across every role — Finance (decision support reporting), Digital Automation (RPA governance), Data Enablement (Collibra platform). The constant: find the right tool, configure it correctly, and make it work for the people who depend on it",
+    "The 'systems person' — personally and professionally, Kevin's instinct is to evaluate tools, set them up properly, and ensure they work for non-technical people. At Pfizer this meant configuring governance workflows for business SMEs; at home this means being the family's go-to for setting up smart home systems, troubleshooting tech, and finding the right app or platform for any need",
+    "Pattern of trust-building through transparency — security teams, resistant BU heads, skeptical Alation users all came around because Kevin leads with honest, specific answers rather than selling. This is the same instinct Christina praised as aligned with Collibra's 'be respectfully direct' value",
+    "Translates between technical and non-technical audiences naturally — same governance capability explained differently to a data engineer, a business SME, and an executive. This is the core CE skill, and Kevin has been doing it for a decade without calling it 'presales'",
   ],
+  professionalIdentity: {
+    coreDNA: "Kevin is an operations optimizer and systems thinker. Across every role at Pfizer — finance reporting, RPA governance, data enablement — the pattern is identical: evaluate the landscape, find the right tool or platform, configure it for the specific context, and then make sure the people who depend on it can actually use it without friction. This isn't just a job skill — it's a personal wiring. He's the person friends and family call when they need tech set up, a system chosen, or a workflow designed for their lives.",
+    professionalPattern: {
+      label: "The Operations Optimizer",
+      description: "In every role, Kevin followed the same cycle: (1) Assess — understand the current state, identify gaps and inefficiencies; (2) Select — evaluate tools and approaches, pick the right one for the context; (3) Configure — set it up properly with the right architecture, permissions, and workflows; (4) Enable — train the people, build adoption, make it stick. This is the exact cycle a Customer Engineer follows: discovery → solution mapping → demo/POC → enablement.",
+      pfizerExamples: [
+        "Finance: Assessed reporting gaps → Selected SAP BusinessObjects → Configured dashboards → Trained business leaders",
+        "RPA: Assessed automation governance gaps → Evaluated frameworks → Built governance standards → Enabled global delivery teams (30% faster onboarding)",
+        "Collibra: Assessed BU governance maturity → Selected Collibra configurations per domain → Architected stewardship models → Drove 40% adoption growth",
+      ],
+    },
+    personalTechPattern: {
+      label: "The Family & Friends Tech Person",
+      description: "Outside work, Kevin applies the same evaluate → configure → enable pattern to everything. He manages all the phones for his family — researching plans, setting up devices, troubleshooting issues. He builds computers from components, spec'ing parts and assembling them himself. He's figured out the process for buying directly from Chinese wholesale sites to get better prices on gear and components. For hobbies, it's the same pattern: when he got into tennis, he didn't just buy a racket — he researched stringing machines, learned to string his own rackets, found the right string types, sourced the right shoes. Same with biking — he researches the gear, finds the best value, learns the maintenance. The instinct is always: don't just consume, understand the whole system and optimize it.",
+      whyItMatters: "This personal pattern is why Kevin's Pfizer stakeholders trusted him. He doesn't just deploy a tool and walk away — he understands the entire system end-to-end and makes sure it works for the actual humans using it. That's the difference between a technical implementer and someone with CE instincts. CEs don't just prove the product works technically; they make customers believe they can succeed with it. Kevin has been doing this his entire life — from Collibra governance architectures to stringing tennis rackets.",
+    },
+    selfReflectionQuestions: [
+      {
+        topic: "How I Learn",
+        question: "What's your pattern for ramping on a new domain? At Pfizer you went from finance reporting → RPA governance → Collibra platform expert → AI certification. Walk through one of those transitions: what did you do in the first week, the first month? How did you go from knowing nothing to being the person others came to? This 'learning how you learn' story is powerful in interviews because it proves you can ramp fast on the CE role — they don't expect you to know everything on day one, they expect you to learn it quickly.",
+      },
+      {
+        topic: "Moments of Trust",
+        question: "Think of 2-3 specific moments where a skeptical person came around because of how you handled the conversation. The security team PII story is great — you walked them through exactly what Collibra's connector retrieves and resolved the blocker. Are there more? A resistant BU head who became an advocate? A data steward who didn't want to migrate from Alation but changed their mind? These moments prove 'builds trust through transparency' with concrete evidence, not just a claim.",
+      },
+      {
+        topic: "Translating for Different Audiences",
+        question: "Pick one Collibra capability — say, data lineage — and think about how you'd explain it to three different people: a data engineer (technical depth), a business analyst (practical workflow impact), and a VP (business outcome and risk reduction). How do you shift your vocabulary, your examples, your level of detail? Being able to articulate this consciously — not just do it instinctively — is what separates a good CE from a great one. In interviews, they may ask you to explain a technical concept to a non-technical audience on the spot.",
+      },
+    ],
+  },
   growthAreas: [
     "No formal sales or customer engineering experience — role requires 2-3 years in Sales/CE/Sales Consulting",
     "No product demonstration experience — never presented Collibra to external prospects",
@@ -171,6 +206,15 @@ export const kevinProfile = {
       task: "Lead a rigorous, defensible platform assessment with a clear recommendation and a migration path the business could actually execute — not a generic analyst comparison but a head-to-head evaluation grounded in Pfizer's actual use cases.",
       action: "I partnered with Divye Goel (GPD-IP domain lead) to structure the evaluation around the workflows our teams actually used daily, not feature checklists. We tested both platforms against 4 critical criteria: (1) data lineage depth and visualization — could the platform trace a clinical data field from source system through transformations to reporting? (2) UI accessibility for non-technical business SMEs who needed to manage definitions without IT support; (3) mass upload/download for bulk metadata operations, which R&D teams did frequently during domain migrations; and (4) total cost of ownership including licensing, implementation, and ongoing maintenance. I built a feature-mapping matrix showing which Alation capabilities Collibra could absorb and which would require new workflows.",
       result: "Collibra won on all four criteria that mattered most to our users: significantly deeper lineage visualization (Alation's was surface-level by comparison), a more intuitive UI that business SMEs could navigate without training, mass metadata upload/download that matched R&D's bulk-operation workflows, and a lower long-term TCO once migration costs were amortized. The recommendation was accepted by leadership. The migration was executed in 2025, resulting in a 50% licensing cost reduction. Divye Goel confirmed the assessment outcomes and has offered a reference if needed.",
+    },
+    {
+      id: "story_seed_6",
+      title: "About Me — Career Arc & CE Bridge",
+      themes: ["About Me", "Career Arc", "CE Bridge"],
+      situation: "I got my degree in Management Information Systems — a deliberately general degree that opened doors across business functions. Most of my career has been at Pfizer, where I ended up doing operations work across multiple departments: finance, digital automation, and data enablement. Each role was different, but the through line was always the same — using analytical skills and the right tools to improve how teams operated.",
+      task: "Build a career that connects deep technical platform knowledge with cross-functional business impact, positioning for a transition from internal platform champion to customer-facing Customer Engineer at the company that built the product I deployed.",
+      action: "I started in finance on the decision support side — using data to help finance leaders make better decisions. From there I moved into a digital automation team doing RPA, and eventually landed in data enablement, specifically working on Collibra implementations across different business units. At each step, the pattern was the same: find the right tool for the problem, set it up properly, and make sure the people using it could actually get value from it. The Collibra work opened my eyes to how central data trust is becoming — especially as organizations start feeding data into AI. If the data isn't governed and certified, you can't trust what the AI gives back. I saw that firsthand.",
+      result: "10 years at Pfizer spanning three distinct operational domains, culminating in leading one of the largest single-enterprise Collibra deployments (10+ BUs, 1,000+ users). Now transitioning to take that implementation experience to the customer side — helping organizations get there faster than we did. The CE role at Collibra is the natural next step: doing at scale, for the company that built the product, what I did internally for one of their biggest customers.",
     },
   ],
 }
