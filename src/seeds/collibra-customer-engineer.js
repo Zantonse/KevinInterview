@@ -909,6 +909,20 @@ export const collibraRole = {
         "Research the typical CE career path at Collibra specifically — if possible, find CEs on LinkedIn who transitioned from non-sales backgrounds. This proves it's a viable path and shows you've done your homework",
       ],
     },
+    {
+      category: "Hands-On Platform Depth (Free Resources)",
+      urgency: "high",
+      why: "Kevin has 4 years of Collibra governance experience at Pfizer, but interviewers will probe whether his knowledge extends to modules he didn't use (AI Governance, Data Quality, Marketplace) and whether he can talk about the platform like a CE, not an end user. There is no free sandbox or trial — but these public resources build real technical depth.",
+      items: [
+        "Register for Collibra University (university.collibra.com) — 200+ free self-paced courses covering the operating model, data stewardship, catalog concepts, and workflow basics. No customer license required for the free tier. Take the foundational courses on governance operating model and platform overview first",
+        "Study the Developer Portal (developer.collibra.com) — fully public, no login needed. This is the most technically valuable resource: complete REST API reference (Core, Import, Search, Catalog, Data Quality APIs), GraphQL Knowledge Graph API, BPMN workflow engine documentation, and Groovy scripting guides. Understanding the data model (asset types, domains, communities, attributes) and API structure lets you speak about Collibra's architecture with confidence",
+        "Read the Product Documentation (productresources.collibra.com) — publicly accessible, covers every module including AI Governance, Data Quality & Observability, Data Privacy, Lineage, and Workflow Designer. Focus on the modules you didn't use at Pfizer: AI Governance (model registries, EU AI Act assessment tool), Data Quality (automated rule creation, anomaly detection), and Data Marketplace (consumer portal, data product publishing)",
+        "Watch the YouTube Product Demos playlist (youtube.com/@Collibra) — 18 videos, ~50 minutes total, updated Feb 2026. Shows the actual UI for glossary creation, lineage visualization, data profiling, and quality rules. Study the narrative structure: how Collibra's own team leads with the business problem, not the feature. This is the fastest way to build visual familiarity with screens you haven't used",
+        "Browse the Collibra Community (community.collibra.com) — 11,000+ members, 60+ forums, open registration. Read 10-15 recent threads to absorb practitioner vocabulary, common implementation challenges, and the kinds of questions real customers ask. This is the closest you'll get to hearing customer pain points before being in the field",
+        "Explore the Marketplace (marketplace.collibra.com) — publicly browsable integration catalog showing every connector (Databricks, Snowflake, SAP, Tableau, Power BI, AWS SageMaker, Alteryx) and workflow template. Know the breadth of the ecosystem — CEs need to position Collibra within a customer's existing data stack",
+        "Know the Ranger certification system — Ralf is a 'Certified Collibra Ranger (3 Stars)' which means he completed 3 separate hands-on project-based exams (40-60 hours each, reviewed by a committee). Stars accumulate by passing different Ranger specialization tracks. The Ranger cert requires the Solution Architect cert first. Mentioning that you'd pursue Ranger certification after joining shows commitment to deep product mastery",
+      ],
+    },
   ],
 }
 
