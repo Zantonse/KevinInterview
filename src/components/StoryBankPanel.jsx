@@ -20,6 +20,7 @@ function StoryCard({ story, isExpanded, onToggle, onUpdate, onDelete }) {
       task: draft.task,
       action: draft.action,
       result: draft.result,
+      talkTrack: draft.talkTrack,
     })
     setEditing(false)
   }
@@ -110,6 +111,17 @@ function StoryCard({ story, isExpanded, onToggle, onUpdate, onDelete }) {
                   />
                 </div>
               ))}
+              <div>
+                <label className="block text-xs font-bold text-text-primary uppercase mb-1">Full Talk Track</label>
+                <p className="text-[11px] text-text-muted mb-1.5">The spoken-word version — how you'd actually say this story in an interview.</p>
+                <textarea
+                  value={draft.talkTrack || ""}
+                  onChange={(e) => setDraft({ ...draft, talkTrack: e.target.value })}
+                  placeholder="Write the full narrative as you'd speak it aloud..."
+                  rows={6}
+                  className="w-full border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent resize-y"
+                />
+              </div>
               <div className="flex gap-2">
                 <button
                   onClick={handleSave}
@@ -137,6 +149,12 @@ function StoryCard({ story, isExpanded, onToggle, onUpdate, onDelete }) {
               )}
               {!hasContent && (
                 <p className="text-xs text-text-muted italic">No STAR content drafted yet. Click Edit to add details.</p>
+              )}
+              {story.talkTrack?.trim() && (
+                <div className="bg-surface-card border border-accent/20 rounded-lg p-4 mt-1">
+                  <p className="text-xs font-bold text-accent uppercase tracking-wide mb-2">Full Talk Track</p>
+                  <p className="text-sm text-text-secondary leading-relaxed whitespace-pre-line">{story.talkTrack}</p>
+                </div>
               )}
               <div className="flex gap-2">
                 <button
