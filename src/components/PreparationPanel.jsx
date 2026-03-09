@@ -138,6 +138,126 @@ export default function PreparationPanel({
         </div>
       </div>
 
+      {/* Interview Narratives & Ready Answers */}
+      {job.interviewNarratives && (
+        <div className="space-y-4">
+          <div className="bg-surface-card rounded-xl shadow-card border border-border p-6">
+            <h3 className="font-display text-xl text-text-primary mb-1">Interview Narratives & Ready Answers</h3>
+            <p className="text-xs text-text-muted font-body">
+              Polished narratives and pre-built answers. Practice these out loud.
+            </p>
+          </div>
+
+          {/* About Me */}
+          {job.interviewNarratives.aboutMe && (
+            <details className="bg-surface-card rounded-xl shadow-card border border-border border-l-4 border-l-accent group card-hover">
+              <summary className="p-5 cursor-pointer select-none flex items-start gap-3 list-none [&::-webkit-details-marker]:hidden">
+                <svg className="w-4 h-4 text-text-muted shrink-0 mt-0.5 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-display text-base text-text-primary">"Tell me about yourself"</h4>
+                  <p className="text-xs text-text-muted font-body">{job.interviewNarratives.aboutMe.version}</p>
+                </div>
+              </summary>
+              <div className="px-5 pb-5 pt-2 ml-7 space-y-3">
+                <div className="bg-surface-inset rounded-lg p-4">
+                  <p className="text-sm text-text-primary font-body whitespace-pre-line">{job.interviewNarratives.aboutMe.text}</p>
+                </div>
+                <div className="bg-accent-subtle border border-accent/20 rounded p-3">
+                  <p className="text-xs font-bold text-accent mb-1">Coaching Notes</p>
+                  <p className="text-xs text-accent-text font-body">{job.interviewNarratives.aboutMe.notes}</p>
+                </div>
+              </div>
+            </details>
+          )}
+
+          {/* Full Story */}
+          {job.interviewNarratives.fullStory && (
+            <details className="bg-surface-card rounded-xl shadow-card border border-border border-l-4 border-l-accent group card-hover">
+              <summary className="p-5 cursor-pointer select-none flex items-start gap-3 list-none [&::-webkit-details-marker]:hidden">
+                <svg className="w-4 h-4 text-text-muted shrink-0 mt-0.5 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-display text-base text-text-primary">"Walk me through your Collibra experience"</h4>
+                  <p className="text-xs text-text-muted font-body">{job.interviewNarratives.fullStory.version}</p>
+                </div>
+              </summary>
+              <div className="px-5 pb-5 pt-2 ml-7 space-y-3">
+                <div className="bg-surface-inset rounded-lg p-4">
+                  <p className="text-sm text-text-primary font-body whitespace-pre-line">{job.interviewNarratives.fullStory.text}</p>
+                </div>
+                <div className="bg-accent-subtle border border-accent/20 rounded p-3">
+                  <p className="text-xs font-bold text-accent mb-1">Coaching Notes</p>
+                  <p className="text-xs text-accent-text font-body">{job.interviewNarratives.fullStory.notes}</p>
+                </div>
+              </div>
+            </details>
+          )}
+
+          {/* Ready Answers */}
+          {job.interviewNarratives.interviewReadyAnswers?.length > 0 && (
+            <details className="bg-surface-card rounded-xl shadow-card border border-border border-l-4 border-l-info group card-hover">
+              <summary className="p-5 cursor-pointer select-none flex items-start gap-3 list-none [&::-webkit-details-marker]:hidden">
+                <svg className="w-4 h-4 text-text-muted shrink-0 mt-0.5 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-display text-base text-text-primary">Ready Answers</h4>
+                  <p className="text-xs text-text-muted font-body">{job.interviewNarratives.interviewReadyAnswers.length} pre-built answers to common questions</p>
+                </div>
+              </summary>
+              <div className="px-5 pb-5 pt-2 ml-7 space-y-3">
+                {job.interviewNarratives.interviewReadyAnswers.map((qa, i) => (
+                  <div key={i} className="bg-surface-inset rounded-lg p-4">
+                    <p className="text-xs font-bold text-accent uppercase mb-2 font-body">"{qa.question}"</p>
+                    <p className="text-sm text-text-primary font-body">{qa.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </details>
+          )}
+
+          {/* Emphasis Strategy */}
+          {job.interviewNarratives.emphasisStrategy?.length > 0 && (
+            <details className="bg-surface-card rounded-xl shadow-card border border-border border-l-4 border-l-warning group card-hover">
+              <summary className="p-5 cursor-pointer select-none flex items-start gap-3 list-none [&::-webkit-details-marker]:hidden">
+                <svg className="w-4 h-4 text-text-muted shrink-0 mt-0.5 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-display text-base text-text-primary">What to Emphasize vs. Deflect</h4>
+                  <p className="text-xs text-text-muted font-body">Know what to lead with, what to be honest about, and what to bridge away from</p>
+                </div>
+              </summary>
+              <div className="px-5 pb-5 pt-2 ml-7 space-y-2">
+                {job.interviewNarratives.emphasisStrategy.map((item, i) => {
+                  const approachConfig = {
+                    lead: { label: "Lead", className: "bg-success-subtle text-success-text" },
+                    honest: { label: "Be Honest", className: "bg-info-subtle text-info-text" },
+                    bridge: { label: "Bridge", className: "bg-warning-subtle text-warning-text" },
+                    deflect: { label: "Deflect", className: "bg-danger-subtle text-danger-text" },
+                  }
+                  const approach = approachConfig[item.approach] || approachConfig.honest
+                  return (
+                    <div key={i} className="bg-surface-inset rounded-lg p-3 flex items-start gap-3">
+                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded shrink-0 mt-0.5 ${approach.className}`}>
+                        {approach.label}
+                      </span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-text-primary font-body">{item.topic}</p>
+                        <p className="text-xs text-text-muted font-body mt-0.5">{item.notes}</p>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </details>
+          )}
+        </div>
+      )}
+
       {/* Learning Guide */}
       {job.learningGuide?.length > 0 && (
         <div className="space-y-4">
