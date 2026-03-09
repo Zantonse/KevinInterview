@@ -82,6 +82,7 @@ export default function App() {
       commonQuestions: activeRole.commonQuestions,
       cultureValues: activeRole.cultureValues,
       learningGuide: activeRole.learningGuide,
+      technicalStudyGuide: activeRole.technicalStudyGuide,
       questionsToAsk: activeRole.questionsToAsk,
       companyProfile: activeCompany?.companyProfile || null,
     }

@@ -297,6 +297,110 @@ export const collibraRole = {
       "Travel requirement (30%) — current role appears fully remote/office-based with no travel component mentioned",
     ],
   },
+  technicalStudyGuide: [
+    {
+      domain: "Collibra Platform Architecture",
+      depth: "deep",
+      kevinLevel: "strong",
+      topics: [
+        { topic: "Semantic Knowledge Graph — Collibra's core data model (asset types, domains, communities, attributes, relations)", status: "know", notes: "Kevin used this daily at Pfizer. Review developer.collibra.com to refresh on the full type hierarchy." },
+        { topic: "Workflow Engine (BPMN) — how stewardship, approval, and policy enforcement workflows are configured and triggered", status: "know", notes: "Built custom approval workflows at Pfizer for business standard definitions. Can speak to this from practitioner experience." },
+        { topic: "REST & GraphQL APIs — Core API, Import API, Search API, Catalog API, Data Quality API", status: "study", notes: "Used the platform but may not have worked directly with APIs. Study developer.collibra.com — understand the API structure well enough to explain how integrations work." },
+        { topic: "Collibra Edge — on-premise metadata ingestion agent for hybrid deployments", status: "study", notes: "May not have used Edge at Pfizer (cloud deployment). Review productresources.collibra.com for architecture and use cases — CEs need to know when to recommend Edge vs. cloud-native ingestion." },
+        { topic: "Active Metadata Graph — what makes Collibra's catalog 'active' vs. a passive data dictionary (Forrester's terminology)", status: "study", notes: "Understand the distinction: active metadata automates workflows, triggers alerts, and drives policy enforcement. Passive catalogs are just searchable inventories." },
+      ],
+    },
+    {
+      domain: "Data Catalog & Lineage",
+      depth: "deep",
+      kevinLevel: "strong",
+      topics: [
+        { topic: "Data Catalog — metadata harvesting, profiling, classification, AI Copilot search", status: "know", notes: "Core Pfizer experience. Be ready to explain how cataloging works for both technical metadata (schemas, tables) and business metadata (glossary terms, policies)." },
+        { topic: "Business Glossary — creating a 'common business language' across the enterprise", status: "know", notes: "Built the GPD-IP glossary at Pfizer. Reference Heineken's 80-country glossary standardization as a customer story." },
+        { topic: "Data Lineage — end-to-end technical and business lineage, column-level tracing, OpenLineage support", status: "know", notes: "Integrated Databricks Unity Catalog and Snowflake lineage at Pfizer. Can speak to cross-platform lineage visibility." },
+        { topic: "Lineage harvesting — how Collibra discovers lineage from BI tools (Tableau, Power BI), ETL (dbt, Airflow, AWS Glue), and databases", status: "study", notes: "Kevin's experience was with Databricks/Snowflake. Study how lineage is harvested from the full connector ecosystem to answer broader questions." },
+      ],
+    },
+    {
+      domain: "Data Governance & Stewardship",
+      depth: "deep",
+      kevinLevel: "strong",
+      topics: [
+        { topic: "Policy Manager — defining and enforcing data governance policies across the organization", status: "know", notes: "Core competency from Pfizer. Built policy enforcement workflows, stewardship models, and approval chains." },
+        { topic: "Stewardship model design — roles (Business Owner, SME, Reviewer, Technical Steward, Community Manager), inherited permissions", status: "know", notes: "Designed the 5-role stewardship model for GPD-IP at Pfizer. This is Kevin's strongest technical talking point." },
+        { topic: "Governance operating model maturity — how to assess a customer's governance maturity and build a roadmap", status: "know", notes: "Ran maturity assessments at Pfizer across 10+ BUs. Frame this as consultative discovery — exactly what CEs do with customers." },
+        { topic: "Governance boards — how to set up and participate in cross-functional governance councils", status: "know", notes: "Participated in governance boards at Pfizer. Senior CE job posting explicitly lists this as a requirement." },
+      ],
+    },
+    {
+      domain: "AI Governance",
+      depth: "conceptual",
+      kevinLevel: "gap",
+      topics: [
+        { topic: "AI model catalog — registering, documenting, and tracking AI/ML models in Collibra", status: "study", notes: "New module (GA 2024). Study productresources.collibra.com/ai-governance. Know what model metadata is tracked: owner, training data, performance metrics, risk tier." },
+        { topic: "EU AI Act compliance — risk-tier classification (unacceptable, high, limited, minimal), compliance requirements, Collibra's assessment templates", status: "study", notes: "Critical differentiator. Know the 4 risk tiers and which AI use cases fall into each. Collibra's EU AI Act Assessment Tool automates classification." },
+        { topic: "ISO 42001 — AI Management Systems certification. What it certifies, why CISOs care, how Collibra achieved it", status: "study", notes: "Collibra was first data governance vendor to achieve this (Jan 2025). Know the headline: it proves Collibra practices what it preaches on AI governance." },
+        { topic: "Agent governance / MCP Server — how AI agents (Claude, ChatGPT) access governed metadata via the Model Context Protocol", status: "study", notes: "Shipped Nov 2025. First governance vendor to offer this. Understand the use case: AI agents query Collibra for governed context instead of hallucinating. Available in Databricks Marketplace." },
+        { topic: "Bias/drift monitoring — how Collibra tracks model performance degradation and data drift over time", status: "study", notes: "Understand conceptually. CEs don't need to configure this but need to position it against MLOps tools (MLflow, W&B) — Collibra is governance-layer, not training-layer." },
+      ],
+    },
+    {
+      domain: "Data Quality & Observability",
+      depth: "conceptual",
+      kevinLevel: "gap",
+      topics: [
+        { topic: "Data Quality rules — how to define, test, and enforce quality rules in Collibra", status: "study", notes: "New unified DQ module (Q4 2024). Study the difference between Collibra DQ and Classic DQ. Know the key quality dimensions: completeness, accuracy, timeliness, consistency, uniqueness." },
+        { topic: "Anomaly detection — automated alerts when data quality degrades or patterns change", status: "study", notes: "Understand conceptually. CEs position this to data engineering teams who need proactive monitoring, not reactive firefighting." },
+        { topic: "DQ-to-governance linkage — how quality rules tie back to business policies and stewardship workflows", status: "study", notes: "This is Collibra's differentiation over standalone DQ tools (Talend, Great Expectations). Quality issues trigger governance workflows — a connected system, not a point solution." },
+      ],
+    },
+    {
+      domain: "Data Privacy & Compliance",
+      depth: "conceptual",
+      kevinLevel: "partial",
+      topics: [
+        { topic: "GDPR/CCPA compliance automation — Records of Processing Activities (RoPA), Data Protection Impact Assessments (DPIA)", status: "study", notes: "Know what RoPA and DPIA are and how Collibra automates them. CISO persona cares deeply about this." },
+        { topic: "PII discovery and classification — how Collibra identifies sensitive data across the estate", status: "study", notes: "Automated scanning + classification rules. Understand the difference between discovery (finding PII) and protection (masking/encrypting PII)." },
+        { topic: "Collibra Protect — data masking and access governance. Distinct from the governance catalog", status: "study", notes: "Protect is the access control layer — dynamic data masking, role-based access policies. Enhanced by the Raito acquisition (June 2025) for AI agent access governance." },
+        { topic: "DSAR workflows — Data Subject Access Requests, how Collibra automates the right-to-be-forgotten process", status: "study", notes: "Understand the workflow: subject requests deletion → Collibra traces all systems containing their data via lineage → stewardship workflow routes to each system owner for action." },
+      ],
+    },
+    {
+      domain: "Integration Ecosystem",
+      depth: "broad",
+      kevinLevel: "partial",
+      topics: [
+        { topic: "Snowflake integration — metadata harvesting, lineage, governance push-down", status: "know", notes: "Integrated at Pfizer. Can speak from experience." },
+        { topic: "Databricks Unity Catalog — complementary positioning, lineage interop (enhanced Jan 2025)", status: "know", notes: "Integrated at Pfizer. Key competitive angle: Unity Catalog is Databricks-native, Collibra is enterprise-wide." },
+        { topic: "Cloud platforms — AWS (Glue, S3, Redshift), Azure (Synapse, ADLS, Purview interop), GCP (BigQuery)", status: "study", notes: "Know the major connectors at headline level. CEs don't configure them but need to say 'yes, we integrate with X' with confidence." },
+        { topic: "BI tools — Tableau, Power BI, Looker lineage harvesting", status: "study", notes: "Understand that Collibra traces lineage from BI reports back to source systems. This is high-value for data analysts who want to know 'where does this number come from?'" },
+        { topic: "SAP integration — S/4HANA, BTP. Ralf posts about SAP frequently", status: "study", notes: "Collibra won SAP Global Tech Partner of the Year. Kevin doesn't need SAP depth but should know the partnership exists and that Collibra governs SAP metadata." },
+      ],
+    },
+    {
+      domain: "Demo & Presentation Skills",
+      depth: "applied",
+      kevinLevel: "gap",
+      topics: [
+        { topic: "Demo narrative structure — problem → capability → outcome. Lead with pain, not product", status: "study", notes: "Watch the YouTube demos playlist. Study how Collibra's own team structures the narrative. Your demo is 50% of the grade." },
+        { topic: "Mixed audience communication — demoing to business and technical stakeholders simultaneously", status: "study", notes: "The literally documented Glassdoor question: 'Can you effectively demo software to a mixed audience?' Practice shifting between business value and technical architecture mid-sentence." },
+        { topic: "Live Q&A handling — fielding curveball questions during or after a demo without losing composure", status: "study", notes: "Panel will throw objections during your demo. Practice the three-step pattern: acknowledge → ask for context → reframe with a Collibra capability." },
+        { topic: "Data governance diagramming — whiteboard/diagram exercises drawing governance architectures", status: "study", notes: "Confirmed in Glassdoor panel interviews. Practice drawing: data sources → catalog → lineage → governance policies → quality rules → business users. Use the GPD-IP domain architecture you built at Pfizer." },
+      ],
+    },
+    {
+      domain: "Sales Methodology & Commercial Instincts",
+      depth: "conceptual",
+      kevinLevel: "gap",
+      topics: [
+        { topic: "MEDDPICC framework — Metrics, Economic Buyer, Decision Criteria, Decision Process, Paper Process, Identify Pain, Champion, Competition", status: "study", notes: "Enterprise sales standard. CEs own the technical side of MEDDPICC — especially Decision Criteria, Identify Pain, and Competition. Structure all deal stories around these pillars." },
+        { topic: "Discovery call structure — open questions, qualifying pain, stakeholder mapping, next-step determination", status: "study", notes: "Practice a 30-minute discovery framework: pain → current state → stakeholder map → success criteria → next steps." },
+        { topic: "POC/POV execution — how to scope, run, and close a proof of concept/proof of value", status: "study", notes: "Explicitly listed as a CE responsibility. Understand: define success criteria upfront, time-box to 4-6 weeks, involve the champion, document outcomes for economic buyer." },
+        { topic: "Land-and-expand motion — how CEs drive initial deployment into broader platform adoption", status: "study", notes: "Kevin literally did this at Pfizer: started with 3 BUs, expanded to 10+. Frame your Pfizer story in land-and-expand language." },
+        { topic: "Value realization — helping customers achieve measurable business outcomes, not just technical deployment", status: "study", notes: "The CE job posting uses this phrase explicitly. Prepare 2-3 Pfizer examples: 40% adoption growth, 30% cycle time reduction, 50% licensing cost savings." },
+      ],
+    },
+  ],
   questionsToAsk: [
     {
       round: "Hiring Manager (Ralf)",

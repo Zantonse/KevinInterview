@@ -193,6 +193,92 @@ export default function PreparationPanel({
         </div>
       )}
 
+      {/* Technical Study Guide */}
+      {job.technicalStudyGuide?.length > 0 && (
+        <div className="space-y-4">
+          <div className="bg-surface-card rounded-xl shadow-card border border-border p-6">
+            <h3 className="font-display text-xl text-text-primary mb-1">Technical Study Guide</h3>
+            <p className="text-xs text-text-muted font-body">
+              Domain-by-domain breakdown of what the CE interview tests. Your current level and what to study.
+            </p>
+            <div className="flex flex-wrap gap-3 mt-3">
+              <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-success-subtle text-success-text">Strong = you know this</span>
+              <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-warning-subtle text-warning-text">Partial = some gaps</span>
+              <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-danger-subtle text-danger-text">Gap = need to learn</span>
+            </div>
+          </div>
+          {job.technicalStudyGuide.map((section, i) => {
+            const levelConfig = {
+              strong: { label: "Strong", className: "bg-success-subtle text-success-text" },
+              partial: { label: "Partial", className: "bg-warning-subtle text-warning-text" },
+              gap: { label: "Gap", className: "bg-danger-subtle text-danger-text" },
+            }
+            const depthConfig = {
+              deep: { label: "Deep", className: "bg-info-subtle text-info-text" },
+              conceptual: { label: "Conceptual", className: "bg-accent-subtle text-accent" },
+              broad: { label: "Broad", className: "bg-surface-inset text-text-muted" },
+              applied: { label: "Applied", className: "bg-warning-subtle text-warning-text" },
+            }
+            const level = levelConfig[section.kevinLevel] || levelConfig.partial
+            const depth = depthConfig[section.depth] || depthConfig.conceptual
+            const borderColor = section.kevinLevel === "strong"
+              ? "border-l-success"
+              : section.kevinLevel === "gap"
+                ? "border-l-danger"
+                : "border-l-warning"
+
+            return (
+              <details key={i} className={`bg-surface-card rounded-xl shadow-card border border-border border-l-4 ${borderColor} group card-hover`}>
+                <summary className="p-5 cursor-pointer select-none flex items-start gap-3 list-none [&::-webkit-details-marker]:hidden">
+                  <svg className="w-4 h-4 text-text-muted shrink-0 mt-0.5 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-1 flex-wrap">
+                      <h4 className="font-display text-base text-text-primary">{section.domain}</h4>
+                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${level.className}`}>
+                        {level.label}
+                      </span>
+                      <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${depth.className}`}>
+                        {depth.label} depth needed
+                      </span>
+                    </div>
+                    <p className="text-xs text-text-muted font-body">{section.topics.length} topics</p>
+                  </div>
+                </summary>
+                <div className="px-5 pb-5 pt-2 ml-7">
+                  <div className="space-y-3">
+                    {section.topics.map((t, j) => {
+                      const statusIcon = t.status === "know"
+                        ? { symbol: "+", color: "text-success" }
+                        : { symbol: "~", color: "text-warning-text" }
+                      return (
+                        <div key={j} className="bg-surface-inset rounded-lg p-4">
+                          <div className="flex items-start gap-2">
+                            <span className={`font-mono font-bold shrink-0 mt-0.5 ${statusIcon.color}`}>
+                              {statusIcon.symbol}
+                            </span>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-medium text-text-primary font-body">{t.topic}</p>
+                              {t.notes && (
+                                <p className="text-xs text-text-muted font-body mt-1">{t.notes}</p>
+                              )}
+                            </div>
+                            <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded shrink-0 ${t.status === "know" ? "bg-success-subtle text-success-text" : "bg-warning-subtle text-warning-text"}`}>
+                              {t.status === "know" ? "Know" : "Study"}
+                            </span>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              </details>
+            )
+          })}
+        </div>
+      )}
+
       {/* Questions to Ask Interviewers */}
       {job.questionsToAsk?.length > 0 && (
         <div className="space-y-4">
